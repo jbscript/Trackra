@@ -1,5 +1,8 @@
 import { PrismaClient } from "@prisma/client"
-const prisma = new PrismaClient()
+import { PrismaBetterSqlite3 } from "@prisma/adapter-better-sqlite3"
+
+const adapter = new PrismaBetterSqlite3({ url: "file:./db/dev.db" })
+const prisma = new PrismaClient({ adapter })
 
 async function main() {
   await prisma.transaction.deleteMany()
