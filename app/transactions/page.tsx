@@ -20,10 +20,76 @@ export default async function TransactionsPage() {
     },
   })
 
+  const totalIncome = transactions
+    .filter((t) => t.type === "income")
+    .reduce((acc, t) => acc + t.amount, 0)
+  const totalExpenses = transactions
+    .filter((t) => t.type === "expense")
+    .reduce((acc, t) => acc + t.amount, 0)
+  const totalInvestments = transactions
+    .filter((t) => t.type === "transfer" && t.category.name === "Investment")
+    .reduce((acc, t) => acc + t.amount, 0)
+
+  const lifestyleCategories = [
+    "Dining",
+    "Shopping",
+    "Entertainment",
+    "Personal Care",
+    "Gifts",
+  ]
+  const totalLifestyleExpense = transactions
+    .filter(
+      (t) =>
+        t.type === "expense" && lifestyleCategories.includes(t.category.name)
+    )
+    .reduce((acc, t) => acc + t.amount, 0)
+
+  const netCashBalance = totalIncome - (totalExpenses + totalInvestments)
+
+  const uniqueMonths = new Set(
+    transactions.map(
+      (t) => `${t.transactionDate.getFullYear()}-${t.transactionDate.getMonth()}`
+    )
+  ).size
+  const monthsDivisor = uniqueMonths > 0 ? uniqueMonths : 1
+
+  const avgMonthlyExpense = totalExpenses / monthsDivisor
+  const avgMonthlyInvestment = totalInvestments / monthsDivisor
+
+  const formatCurrency = (amount: number) => {
+    return new Intl.NumberFormat("en-IN", {
+      style: "currency",
+      currency: "INR",
+      maximumFractionDigits: 0,
+    }).format(amount)
+  }
+
   return (
     <div className="container mx-auto max-w-5xl p-4 md:p-8">
       <div className="mb-8 flex items-center justify-between">
         <h1 className="text-3xl font-semibold tracking-tight">Transactions</h1>
+      </div>
+
+      <div className="mb-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <div className="rounded-xl border bg-card p-6 text-card-foreground shadow">
+          <h3 className="text-sm font-medium text-muted-foreground">Total Income</h3>
+          <p className="mt-2 text-2xl font-bold text-emerald-500">{formatCurrency(totalIncome)}</p>
+        </div>
+        <div className="rounded-xl border bg-card p-6 text-card-foreground shadow">
+          <h3 className="text-sm font-medium text-muted-foreground">Total Expenses</h3>
+          <p className="mt-2 text-2xl font-bold text-red-500">{formatCurrency(totalExpenses)}</p>
+          <p className="text-xs text-muted-foreground mt-1">Avg {formatCurrency(avgMonthlyExpense)} / mo</p>
+        </div>
+        <div className="rounded-xl border bg-card p-6 text-card-foreground shadow">
+          <h3 className="text-sm font-medium text-muted-foreground">Total Investments</h3>
+          <p className="mt-2 text-2xl font-bold text-blue-500">{formatCurrency(totalInvestments)}</p>
+          <p className="text-xs text-muted-foreground mt-1">Avg {formatCurrency(avgMonthlyInvestment)} / mo</p>
+        </div>
+        <div className="rounded-xl border bg-card p-6 text-card-foreground shadow">
+          <h3 className="text-sm font-medium text-muted-foreground">Net Cash Balance</h3>
+          <p className={`mt-2 text-2xl font-bold ${netCashBalance >= 0 ? 'text-emerald-500' : 'text-red-500'}`}>{formatCurrency(netCashBalance)}</p>
+          <p className="text-xs text-muted-foreground mt-1">Lifestyle: {formatCurrency(totalLifestyleExpense)}</p>
+        </div>
       </div>
 
       <div className="overflow-hidden rounded-xl border bg-card text-card-foreground shadow">
