@@ -1,17 +1,10 @@
-import { Geist, Geist_Mono } from "next/font/google"
-
+import { Manrope } from "next/font/google"
 import "./globals.css"
-import { ThemeProvider } from "@/components/theme-provider"
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils"
 
-const fontSans = Geist({
+const fontSans = Manrope({
   subsets: ["latin"],
   variable: "--font-sans",
-})
-
-const fontMono = Geist_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
 })
 
 export default function RootLayout({
@@ -23,11 +16,9 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn("antialiased", fontMono.variable, "font-sans", fontSans.variable)}
+      className={cn("dark font-sans antialiased", fontSans.variable)}
     >
-      <body>
-        <ThemeProvider>{children}</ThemeProvider>
-      </body>
+      <body>{children}</body>
     </html>
   )
 }
