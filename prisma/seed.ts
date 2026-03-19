@@ -4,14 +4,6 @@ import { PrismaBetterSqlite3 } from "@prisma/adapter-better-sqlite3"
 const adapter = new PrismaBetterSqlite3({ url: "file:./db/dev.db" })
 const prisma = new PrismaClient({ adapter })
 
-function getRandomInt(min: number, max: number) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-function getRandomDate(start: Date, end: Date) {
-  return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
-}
-
 async function main() {
   await prisma.transaction.deleteMany()
   await prisma.category.deleteMany()
@@ -54,99 +46,107 @@ async function main() {
     categoriesData.map(cat => prisma.category.create({ data: cat }))
   );
 
-  const incomeCategories = categories.filter(c => c.type === "income");
-  const expenseCategories = categories.filter(c => c.type === "expense");
-  const transferCategories = categories.filter(c => c.type === "transfer");
+  const rawTransactions = [
+    { "date": "2026-01-01", "type": "income", "category": "Salary", "amount": 87465, "note": "jb salary" },
+    { "date": "2026-01-02", "type": "income", "category": "Salary", "amount": 65371, "note": "rb salary" },
+    { "date": "2026-01-03", "type": "expense", "category": "Dining", "amount": 278, "note": "rb food" },
+    { "date": "2026-01-04", "type": "expense", "category": "Dining", "amount": 472, "note": "jb food" },
+    { "date": "2026-01-05", "type": "expense", "category": "Dining", "amount": 249, "note": "cake" },
+    { "date": "2026-01-06", "type": "expense", "category": "Rent", "amount": 23000, "note": "rent" },
+    { "date": "2026-01-07", "type": "transfer", "category": "Investment", "amount": 10000, "note": "mf investment" },
+    { "date": "2026-01-08", "type": "expense", "category": "Dining", "amount": 135, "note": "tea" },
+    { "date": "2026-01-09", "type": "expense", "category": "Transport", "amount": 200, "note": "petrol" },
+    { "date": "2026-01-10", "type": "expense", "category": "Groceries", "amount": 399, "note": "lulu" },
+    { "date": "2026-01-11", "type": "expense", "category": "Gifts", "amount": 6990, "note": "gift" },
+    { "date": "2026-01-12", "type": "expense", "category": "Transport", "amount": 10, "note": "parking" },
+    { "date": "2026-01-13", "type": "expense", "category": "Shopping", "amount": 340, "note": "miniso" },
+    { "date": "2026-01-14", "type": "expense", "category": "Dining", "amount": 456, "note": "chaya pidiya" },
+    { "date": "2026-01-15", "type": "expense", "category": "Groceries", "amount": 148, "note": "blinkit" },
+    { "date": "2026-01-16", "type": "expense", "category": "Dining", "amount": 136, "note": "swiggy" },
+    { "date": "2026-01-17", "type": "expense", "category": "Dining", "amount": 734, "note": "burger" },
+    { "date": "2026-01-18", "type": "expense", "category": "Shopping", "amount": 950, "note": "slippers" },
+    { "date": "2026-01-19", "type": "expense", "category": "Gifts", "amount": 720, "note": "flowers" },
+    { "date": "2026-01-20", "type": "expense", "category": "Dining", "amount": 650, "note": "cake" },
+    { "date": "2026-01-21", "type": "expense", "category": "Insurance", "amount": 16959, "note": "health insurance" },
+    { "date": "2026-01-22", "type": "expense", "category": "EMI", "amount": 10000, "note": "loan" },
+    { "date": "2026-01-23", "type": "expense", "category": "EMI", "amount": 3500, "note": "gold emi" },
+    { "date": "2026-01-24", "type": "expense", "category": "Utilities", "amount": 299, "note": "mobile recharge" },
+    { "date": "2026-01-25", "type": "expense", "category": "Utilities", "amount": 474, "note": "electricity" },
+    { "date": "2026-01-26", "type": "expense", "category": "Utilities", "amount": 1053, "note": "electricity" },
+    { "date": "2026-01-27", "type": "expense", "category": "Entertainment", "amount": 487, "note": "movie" },
+    { "date": "2026-01-28", "type": "expense", "category": "Personal Care", "amount": 350, "note": "haircut" },
+    { "date": "2026-01-29", "type": "expense", "category": "Family Support", "amount": 5000, "note": "home support" },
+    { "date": "2026-01-30", "type": "transfer", "category": "Investment", "amount": 113500, "note": "multiple investments aggregated" },
+    { "date": "2026-01-31", "type": "income", "category": "Other Income", "amount": 7300, "note": "debt sell" },
+    { "date": "2026-02-01", "type": "income", "category": "Salary", "amount": 83200, "note": "jb salary" },
+    { "date": "2026-02-02", "type": "income", "category": "Salary", "amount": 65979, "note": "rb salary" },
+    { "date": "2026-02-03", "type": "transfer", "category": "Investment", "amount": 30000, "note": "investment" },
+    { "date": "2026-02-04", "type": "expense", "category": "Rent", "amount": 23000, "note": "rent" },
+    { "date": "2026-02-05", "type": "expense", "category": "Groceries", "amount": 2091, "note": "instamart" },
+    { "date": "2026-02-06", "type": "expense", "category": "Dining", "amount": 998, "note": "restaurant" },
+    { "date": "2026-02-07", "type": "expense", "category": "Shopping", "amount": 1075, "note": "electronics" },
+    { "date": "2026-02-08", "type": "expense", "category": "Utilities", "amount": 707, "note": "wifi" },
+    { "date": "2026-02-09", "type": "expense", "category": "EMI", "amount": 10000, "note": "loan" },
+    { "date": "2026-02-10", "type": "expense", "category": "Family Support", "amount": 10000, "note": "home" },
+    { "date": "2026-02-11", "type": "expense", "category": "Entertainment", "amount": 541, "note": "movie" },
+    { "date": "2026-02-12", "type": "expense", "category": "Personal Care", "amount": 350, "note": "haircut" },
+    { "date": "2026-02-13", "type": "transfer", "category": "Investment", "amount": 10030, "note": "nifty + gold" },
+    { "date": "2026-03-01", "type": "income", "category": "Salary", "amount": 83200, "note": "jb salary" },
+    { "date": "2026-03-02", "type": "income", "category": "Salary", "amount": 80410, "note": "rb salary" },
+    { "date": "2026-03-03", "type": "expense", "category": "Rent", "amount": 23000, "note": "rent" },
+    { "date": "2026-03-04", "type": "expense", "category": "Groceries", "amount": 248, "note": "market" },
+    { "date": "2026-03-05", "type": "expense", "category": "Dining", "amount": 328, "note": "swiggy" },
+    { "date": "2026-03-06", "type": "expense", "category": "Dining", "amount": 687, "note": "restaurant" },
+    { "date": "2026-03-07", "type": "expense", "category": "Entertainment", "amount": 195, "note": "youtube" },
+    { "date": "2026-03-08", "type": "expense", "category": "Family Support", "amount": 10000, "note": "home" },
+    { "date": "2026-03-09", "type": "expense", "category": "Shopping", "amount": 2624, "note": "dress" },
+    { "date": "2026-03-10", "type": "expense", "category": "Utilities", "amount": 299, "note": "recharge" },
+    { "date": "2026-03-11", "type": "expense", "category": "Transport", "amount": 230, "note": "uber" },
+    { "date": "2026-03-12", "type": "expense", "category": "Personal Care", "amount": 350, "note": "haircut" },
+    { "date": "2026-03-13", "type": "transfer", "category": "Investment", "amount": 25000, "note": "mutual fund + stocks" },
+    { "date": "2026-03-14", "type": "income", "category": "Other Income", "amount": 4233, "note": "other" }
+  ];
 
-  const transactions = [];
-  
-  // 4 months ago for 3+ months of data
-  const startDate = new Date();
-  startDate.setMonth(startDate.getMonth() - 4);
-  const now = new Date();
-
-  // Generate around 200 transactions
-  for (let i = 0; i < 200; i++) {
-    const isIncome = Math.random() < 0.20; // 20% probability of income
-    const isTransfer = !isIncome && Math.random() < 0.05; // 5% probability of transfer among non-incomes
-    
-    // Pick account
-    const account = accounts[Math.floor(Math.random() * accounts.length)];
-    
-    // Edge case: credit cards usually don't have large income like salary
-    let _isIncome = isIncome;
-    let _isTransfer = isTransfer;
-    if (account.type === "credit_card") {
-      if (_isIncome) {
-        // limit income on credit cards to generic "Other Income" like cashback
-        if (Math.random() < 0.05) _isIncome = true;
-        else _isIncome = false;
-      }
-      if (_isTransfer) {
-         // usually you don't do investments directly from credit card (or rarely)
-         _isTransfer = false;
-      }
+  function pickAccount(note: string) {
+    const lowerNote = note.toLowerCase();
+    if (lowerNote.includes("jb ")) {
+      return accounts.find(a => a.name === "Jabis ICICI Debit")!;
     }
-
-    const _isExpense = !_isIncome && !_isTransfer;
-
-    const categoryList = _isIncome ? incomeCategories : (_isTransfer ? transferCategories : expenseCategories);
-    const category = categoryList[Math.floor(Math.random() * categoryList.length)];
-    
-    let amount = getRandomInt(100, 15000);
-    
-    // Edge cases for specific categories
-    if (_isIncome && category.name === "Salary") {
-      amount = getRandomInt(40000, 120000); 
-    } else if (_isIncome && category.name === "Business") {
-      amount = getRandomInt(15000, 50000);
-    } else if (_isIncome && category.name === "Other Income") {
-      amount = getRandomInt(100, 3000); 
-    } else if (_isExpense && category.name === "Rent") {
-      amount = getRandomInt(15000, 30000);
-    } else if (_isExpense && category.name === "EMI") {
-      amount = getRandomInt(5000, 20000);
-    } else if (_isTransfer && category.name === "Investment") {
-      amount = getRandomInt(5000, 50000); 
+    if (lowerNote.includes("rb ")) {
+      return accounts.find(a => a.name === "Rounas HDFC Debit")!;
     }
-
-    const transactionDate = getRandomDate(startDate, now);
-
-    const expenseNotes = [
-      "Weekend trip", "Amazon purchase", "Dinner with friends",
-      "Grocery run", "Uber ride", "Movie tickets", "Pharmacy", 
-      "Electricity bill", "Internet bill"
-    ];
-    
-    const incomeNotes = [
-      "Monthly Salary", "Freelance project", "Credit card reward", "Reimbursement"
-    ];
-
-    const transferNotes = [
-      "Monthly SIP", "Stock purchase", "Gold fund", "Crypto investment"
-    ];
-
-    transactions.push({
-      accountId: account.id,
-      categoryId: category.id,
-      amount,
-      type: _isIncome ? "income" : (_isTransfer ? "transfer" : "expense"),
-      note: _isIncome 
-        ? incomeNotes[Math.floor(Math.random() * incomeNotes.length)]
-        : (_isTransfer ? transferNotes[Math.floor(Math.random() * transferNotes.length)] : expenseNotes[Math.floor(Math.random() * expenseNotes.length)]),
-      transactionDate,
-    });
+    // Random fallback logic with some intelligent guesses
+    if (lowerNote.includes("rent") || lowerNote.includes("emi") || lowerNote.includes("investment")) {
+       return accounts.find(a => a.name === "Jabis ICICI Debit")!; // Typically debit
+    }
+    // Shopping, dining use credit card sometimes
+    if (Math.random() < 0.5) {
+       return accounts.find(a => a.name === "Jabis ICICI Credit")!;
+    }
+    return accounts.find(a => a.name === "Jabis ICICI Debit")!;
   }
 
-  // Sort by date purely to insert sequentially
-  transactions.sort((a, b) => a.transactionDate.getTime() - b.transactionDate.getTime());
+  const insertData = rawTransactions.map(t => {
+    const category = categories.find(c => c.name === t.category);
+    if (!category) throw new Error(`Category ${t.category} not found!`);
+    
+    const account = pickAccount(t.note);
 
-  // Insert sequentially because SQLite better-sqlite3 handles them fast anyway
-  for (const t of transactions) {
+    return {
+      accountId: account.id,
+      categoryId: category.id,
+      amount: t.amount,
+      type: t.type,
+      note: t.note,
+      transactionDate: new Date(t.date)
+    };
+  });
+
+  for (const t of insertData) {
     await prisma.transaction.create({ data: t });
   }
 
-  console.log(`Database seeded successfully with ${transactions.length} transactions across 3+ months!`);
+  console.log(`Database seeded successfully with ${insertData.length} exact user transactions!`);
 }
 
 main()
