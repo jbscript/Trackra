@@ -59,7 +59,11 @@ function getCategoryIcon(categoryName: string) {
   const name = categoryName.toLowerCase()
   if (name.includes("food") || name.includes("dining")) return Coffee
   if (name.includes("shop") || name.includes("personal")) return ShoppingBag
-  if (name.includes("transport") || name.includes("gas") || name.includes("cab"))
+  if (
+    name.includes("transport") ||
+    name.includes("gas") ||
+    name.includes("cab")
+  )
     return Car
   if (
     name.includes("hous") ||
@@ -103,11 +107,11 @@ export function TransactionDetails({
   if (isEditing) {
     return (
       <div className="min-h-screen bg-background p-6">
-        <div className="mx-auto max-w-md">
+        <div className="mx-auto max-w-xl pb-24">
           <div className="mb-6 flex items-center justify-between">
             <button
               onClick={() => setIsEditing(false)}
-              className="text-on-surface-variant hover:text-foreground transition-colors"
+              className="text-on-surface-variant transition-colors hover:text-foreground"
             >
               Cancel
             </button>
@@ -146,87 +150,93 @@ export function TransactionDetails({
   }
 
   return (
-    <div className="min-h-screen bg-[#0e0e0e] text-white p-4 md:p-8 font-manrope selection:bg-[#5cfd80]/30 selection:text-[#5cfd80]">
+    <div className="font-manrope min-h-screen bg-[#0e0e0e] p-4 text-white selection:bg-[#5cfd80]/30 selection:text-[#5cfd80] md:p-8">
       <div className="mx-auto max-w-xl pb-24">
         {/* Header */}
-        <div className="flex items-center justify-between mb-16">
+        <div className="mb-16 flex items-center justify-between">
           <Link
             href="/transactions"
-            className="flex items-center gap-1 text-[#5cfd80] hover:text-[#5cfd80]/80 transition-colors"
+            className="flex items-center gap-1 text-[#5cfd80] transition-colors hover:text-[#5cfd80]/80"
           >
             <ChevronLeft size={24} />
             <span className="font-bold tracking-wide">Details</span>
           </Link>
           <button
             onClick={() => setIsEditing(true)}
-            className="text-[#5cfd80] hover:text-[#5cfd80]/80 font-bold tracking-wide transition-colors"
+            className="font-bold tracking-wide text-[#5cfd80] transition-colors hover:text-[#5cfd80]/80"
           >
             Edit
           </button>
         </div>
 
         {/* Big Icon & Amount */}
-        <div className="flex flex-col items-center mb-12">
-          <div className="w-[88px] h-[88px] rounded-full bg-gradient-to-b from-[#1a2820] to-[#121815] shadow-[0_0_30px_rgba(92,253,128,0.15)] flex items-center justify-center mb-8 relative">
+        <div className="mb-12 flex flex-col items-center">
+          <div className="relative mb-8 flex h-[88px] w-[88px] items-center justify-center rounded-full bg-gradient-to-b from-[#1a2820] to-[#121815] shadow-[0_0_30px_rgba(92,253,128,0.15)]">
             <div className="absolute inset-0 rounded-full border border-[#5cfd80]/20" />
             <Icon strokeWidth={2.5} size={36} className="text-[#5cfd80]" />
           </div>
 
-          <h1 className="text-6xl font-extrabold tracking-tighter mb-4 text-white drop-shadow-md">
-            <span className="text-4xl text-gray-400 mr-1">₹</span>
+          <h1 className="mb-4 text-6xl font-extrabold tracking-tighter text-white drop-shadow-md">
+            <span className="mr-1 text-4xl text-gray-400">₹</span>
             {formatCurrency(transaction.amount)}
           </h1>
-          <p className="text-gray-400 font-bold tracking-wide text-lg text-center truncate max-w-[80%]">
+          <p className="max-w-[80%] truncate text-center text-lg font-bold tracking-wide text-gray-400">
             {transaction.note || transaction.category.name}
           </p>
         </div>
 
         {/* Detail Cards */}
-        <div className="space-y-4 mb-8">
-          <div className="bg-[#161618] rounded-[24px] p-6 border border-white/5 shadow-[0_4px_20px_rgba(0,0,0,0.5)] flex flex-col justify-center">
-            <h3 className="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">
+        <div className="mb-8 space-y-4">
+          <div className="flex flex-col justify-center rounded-[24px] border border-white/5 bg-[#161618] p-6 shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
+            <h3 className="mb-2 text-[10px] font-bold tracking-widest text-gray-500 uppercase">
               Date & Time
             </h3>
-            <p className="font-bold tracking-wide text-gray-100 text-[15px]">
-              {new Date(transaction.transactionDate).toLocaleDateString("en-IN", {
-                month: "long",
-                day: "numeric",
-                year: "numeric",
-              })}{" "}
+            <p className="text-[15px] font-bold tracking-wide text-gray-100">
+              {new Date(transaction.transactionDate).toLocaleDateString(
+                "en-IN",
+                {
+                  month: "long",
+                  day: "numeric",
+                  year: "numeric",
+                }
+              )}{" "}
               &middot;{" "}
-              {new Date(transaction.transactionDate).toLocaleTimeString("en-IN", {
-                hour: "numeric",
-                minute: "2-digit",
-              })}
+              {new Date(transaction.transactionDate).toLocaleTimeString(
+                "en-IN",
+                {
+                  hour: "numeric",
+                  minute: "2-digit",
+                }
+              )}
             </p>
           </div>
 
           <div className="grid grid-cols-2 gap-4">
-            <div className="bg-[#161618] rounded-[20px] p-6 border border-white/5 shadow-[0_4px_20px_rgba(0,0,0,0.5)] flex flex-col justify-center">
-              <h3 className="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-3">
+            <div className="flex flex-col justify-center rounded-[20px] border border-white/5 bg-[#161618] p-6 shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
+              <h3 className="mb-3 text-[10px] font-bold tracking-widest text-gray-500 uppercase">
                 Category
               </h3>
               <div className="flex items-center gap-3">
-                <div className="w-2.5 h-2.5 rounded-full bg-[#5cfd80] shadow-[0_0_8px_rgba(92,253,128,0.5)]" />
-                <p className="font-bold tracking-wide text-gray-100 text-[15px]">
+                <div className="h-2.5 w-2.5 rounded-full bg-[#5cfd80] shadow-[0_0_8px_rgba(92,253,128,0.5)]" />
+                <p className="text-[15px] font-bold tracking-wide text-gray-100">
                   {transaction.category.name}
                 </p>
               </div>
             </div>
 
-            <div className="bg-[#161618] rounded-[20px] p-6 border border-white/5 shadow-[0_4px_20px_rgba(0,0,0,0.5)] flex flex-col justify-center">
-              <h3 className="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-3">
+            <div className="flex flex-col justify-center rounded-[20px] border border-white/5 bg-[#161618] p-6 shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
+              <h3 className="mb-3 text-[10px] font-bold tracking-widest text-gray-500 uppercase">
                 Source
               </h3>
-              <p className="font-bold tracking-wide text-gray-100 text-[15px]">
+              <p className="text-[15px] font-bold tracking-wide text-gray-100">
                 {transaction.account.name}
               </p>
             </div>
           </div>
 
           {/* Map Placeholder */}
-          <div className="bg-[#161618] rounded-[24px] border border-white/5 shadow-[0_4px_20px_rgba(0,0,0,0.5)] overflow-hidden h-[180px] relative">
-            <div className="absolute inset-0 opacity-15 overflow-hidden flex items-center justify-center">
+          <div className="relative h-[180px] overflow-hidden rounded-[24px] border border-white/5 bg-[#161618] shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
+            <div className="absolute inset-0 flex items-center justify-center overflow-hidden opacity-15">
               <svg
                 width="400"
                 height="400"
@@ -242,7 +252,7 @@ export function TransactionDetails({
               </svg>
             </div>
 
-            <div className="absolute bottom-5 left-5 flex items-center gap-2 bg-[#121214]/80 backdrop-blur-sm px-4 py-2 rounded-xl border border-white/10">
+            <div className="absolute bottom-5 left-5 flex items-center gap-2 rounded-xl border border-white/10 bg-[#121214]/80 px-4 py-2 backdrop-blur-sm">
               <MapPin size={16} className="text-[#5cfd80]" />
               <span className="text-xs font-bold tracking-wide text-white">
                 452 Park Ave, New York
@@ -251,18 +261,18 @@ export function TransactionDetails({
           </div>
 
           {/* Notes */}
-          <div className="bg-[#161618] rounded-[24px] p-6 pt-10 border border-white/5 shadow-[0_4px_20px_rgba(0,0,0,0.5)] flex flex-col justify-center relative">
-            <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#122217] border border-[#5cfd80]/30 shadow-[0_4px_10px_rgba(0,0,0,0.3)] rounded-full px-4 py-1.5 flex items-center gap-2">
-              <div className="w-2.5 h-2.5 rounded-full bg-[#5cfd80] shadow-[0_0_8px_rgba(92,253,128,0.5)]" />
-              <span className="text-[10px] font-extrabold text-[#5cfd80] tracking-widest uppercase">
+          <div className="relative flex flex-col justify-center rounded-[24px] border border-white/5 bg-[#161618] p-6 pt-10 shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
+            <div className="absolute -top-3 left-1/2 flex -translate-x-1/2 items-center gap-2 rounded-full border border-[#5cfd80]/30 bg-[#122217] px-4 py-1.5 shadow-[0_4px_10px_rgba(0,0,0,0.3)]">
+              <div className="h-2.5 w-2.5 rounded-full bg-[#5cfd80] shadow-[0_0_8px_rgba(92,253,128,0.5)]" />
+              <span className="text-[10px] font-extrabold tracking-widest text-[#5cfd80] uppercase">
                 Cleared by Bank
               </span>
             </div>
 
-            <h3 className="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-3">
+            <h3 className="mb-3 text-[10px] font-bold tracking-widest text-gray-500 uppercase">
               Notes
             </h3>
-            <p className="font-medium tracking-wide text-gray-300 italic text-[15px] leading-relaxed">
+            <p className="text-[15px] leading-relaxed font-medium tracking-wide text-gray-300 italic">
               "
               {transaction.note ||
                 `Standard ${transaction.category.name} transaction.`}
@@ -275,7 +285,7 @@ export function TransactionDetails({
         <form action={deleteAction} className="mt-8">
           <button
             type="submit"
-            className="w-full flex items-center justify-center gap-3 bg-transparent hover:bg-[#201010] border border-red-500/20 text-red-500 rounded-2xl p-[18px] font-bold tracking-wide transition-all shadow-[0_4px_20px_rgba(0,0,0,0.2)]"
+            className="flex w-full items-center justify-center gap-3 rounded-2xl border border-red-500/20 bg-transparent p-[18px] font-bold tracking-wide text-red-500 shadow-[0_4px_20px_rgba(0,0,0,0.2)] transition-all hover:bg-[#201010]"
           >
             <Trash2 size={20} />
             Delete Transaction
