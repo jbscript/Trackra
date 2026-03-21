@@ -1,30 +1,38 @@
-import { PrismaClient } from "@prisma/client"
-import { PrismaBetterSqlite3 } from "@prisma/adapter-better-sqlite3"
 import fs from "fs"
 import path from "path"
-
-const adapter = new PrismaBetterSqlite3({ url: "file:./db/dev.db" })
-const prisma = new PrismaClient({ adapter })
+import { db } from "@/lib/db"
 
 function getRandomDateInMonth(year: number, monthName: string) {
-  const monthMap: Record<string, number> = { 
-    "Jan": 0, "Feb": 1, "Mar": 2, "Apr": 3, "May": 4, "Jun": 5, 
-    "Jul": 6, "Aug": 7, "Sep": 8, "Oct": 9, "Nov": 10, "Dec": 11 
-  };
-  const month = monthMap[monthName];
-  if (month === undefined) return new Date();
-  
-  const start = new Date(year, month, 1);
-  const end = new Date(year, month + 1, 0);
-  
-  return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+  const monthMap: Record<string, number> = {
+    Jan: 0,
+    Feb: 1,
+    Mar: 2,
+    Apr: 3,
+    May: 4,
+    Jun: 5,
+    Jul: 6,
+    Aug: 7,
+    Sep: 8,
+    Oct: 9,
+    Nov: 10,
+    Dec: 11,
+  }
+  const month = monthMap[monthName]
+  if (month === undefined) return new Date()
+
+  const start = new Date(year, month, 1)
+  const end = new Date(year, month + 1, 0)
+
+  return new Date(
+    start.getTime() + Math.random() * (end.getTime() - start.getTime())
+  )
 }
 
 async function main() {
-  await prisma.transaction.deleteMany()
-  await prisma.category.deleteMany()
+  await db.transaction.deleteMany()
+  await db.category.deleteMany()
   // Keep accounts or recreate them if deleted earlier
-  await prisma.account.deleteMany()
+  await db.account.deleteMany()
 
   const accountsData = [
     { name: "Jabis ICICI Debit", type: "savings" },
@@ -32,63 +40,74 @@ async function main() {
     { name: "Jabis Federal Bank", type: "savings" },
     { name: "Rounas HDFC Debit", type: "savings" },
     { name: "Rounas HDFC Credit", type: "credit_card" },
-  ];
+  ]
 
   const accounts = await Promise.all(
-    accountsData.map(acc => prisma.account.create({ data: acc }))
-  );
+    accountsData.map((acc) => db.account.create({ data: acc }))
+  )
 
-  const dataPath = path.join(process.cwd(), "public/transactions.json");
-  const rawData = fs.readFileSync(dataPath, "utf-8");
-  const parsedData = JSON.parse(rawData);
+  const dataPath = path.join(process.cwd(), "public/transactions.json")
+  const rawData = fs.readFileSync(dataPath, "utf-8")
+  const parsedData = JSON.parse(rawData)
 
-  const { categories: rawCategories, transactions: rawTransactions } = parsedData;
+  const { categories: rawCategories, transactions: rawTransactions } =
+    parsedData
 
   const categories = await Promise.all(
-    rawCategories.map((cat: any) => prisma.category.create({ 
-      data: {
-        name: cat.name,
-        type: cat.type,
-        description: cat.description
-      } 
-    }))
-  );
+    rawCategories.map((cat: any) =>
+      db.category.create({
+        data: {
+          name: cat.name,
+          type: cat.type,
+          description: cat.description,
+        },
+      })
+    )
+  )
 
   function pickAccount(note: string) {
-    const lowerNote = (note || "").toLowerCase();
+    const lowerNote = (note || "").toLowerCase()
     if (lowerNote.includes("jb ") || lowerNote.includes("jabir")) {
-      return accounts.find(a => a.name === "Jabis ICICI Debit")!;
+      return accounts.find((a) => a.name === "Jabis ICICI Debit")!
     }
     if (lowerNote.includes("rb ") || lowerNote.includes("rouna")) {
-      return accounts.find(a => a.name === "Rounas HDFC Debit")!;
+      return accounts.find((a) => a.name === "Rounas HDFC Debit")!
     }
     // Random fallback logic with some intelligent guesses
-    if (lowerNote.includes("rent") || lowerNote.includes("emi") || lowerNote.includes("investment")) {
-       return accounts.find(a => a.name === "Jabis ICICI Debit")!; 
+    if (
+      lowerNote.includes("rent") ||
+      lowerNote.includes("emi") ||
+      lowerNote.includes("investment")
+    ) {
+      return accounts.find((a) => a.name === "Jabis ICICI Debit")!
     }
     // Shopping, dining use credit card sometimes
     if (Math.random() < 0.5) {
-       return accounts.find(a => a.name === "Jabis ICICI Credit")!;
+      return accounts.find((a) => a.name === "Jabis ICICI Credit")!
     }
-    return accounts.find(a => a.name === "Jabis ICICI Debit")!;
+    return accounts.find((a) => a.name === "Jabis ICICI Debit")!
   }
 
   const insertData = rawTransactions.map((t: any) => {
     // Categories matched by name
-    const categoryNameInput = (t.category_name || t.category || "").trim().toLowerCase();
-    
+    const categoryNameInput = (t.category_name || t.category || "")
+      .trim()
+      .toLowerCase()
+
     // Some fuzzy matching due to case differences in category names
-    const category = categories.find(c => c.name.toLowerCase() === categoryNameInput);
+    const category = categories.find(
+      (c) => c.name.toLowerCase() === categoryNameInput
+    )
     if (!category) {
-      console.warn(`Category not found for name: "${t.category_name}"`);
+      console.warn(`Category not found for name: "${t.category_name}"`)
     }
 
-    const account = pickAccount(t.note);
+    const account = pickAccount(t.note)
 
-    let parsedAmount = parseFloat(t.amount);
+    let parsedAmount = parseFloat(t.amount)
     if (isNaN(parsedAmount)) {
       // In case amount comes as a string with currency symbol
-      parsedAmount = parseFloat(t.amount.replace(/[^0-9.-]+/g, ""));
+      parsedAmount = parseFloat(t.amount.replace(/[^0-9.-]+/g, ""))
     }
 
     return {
@@ -97,16 +116,18 @@ async function main() {
       amount: parsedAmount,
       type: t.type.toLowerCase(),
       note: t.note,
-      transactionDate: getRandomDateInMonth(2026, t.month)
-    };
-  });
+      transactionDate: getRandomDateInMonth(2026, t.month),
+    }
+  })
 
   // Insert sequentially
   for (const t of insertData) {
-    await prisma.transaction.create({ data: t });
+    await db.transaction.create({ data: t })
   }
 
-  console.log(`Database seeded successfully with ${insertData.length} transactions from JSON!`);
+  console.log(
+    `Database seeded successfully with ${insertData.length} transactions from JSON!`
+  )
 }
 
 main()
@@ -115,5 +136,5 @@ main()
     process.exit(1)
   })
   .finally(async () => {
-    await prisma.$disconnect()
+    await db.$disconnect()
   })
