@@ -94,7 +94,7 @@ export default async function TransactionsPage() {
   const grouped = transactions.reduce(
     (groups, tx) => {
       const d = tx.transactionDate
-      const dateKey = `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`
+      const dateKey = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`
       if (!groups[dateKey]) {
         groups[dateKey] = []
       }
@@ -292,12 +292,10 @@ export default async function TransactionsPage() {
                       </p>
                       <p className="text-xs font-medium text-gray-500">
                         {tx.transactionDate
-                          .toLocaleTimeString("en-US", {
+                          .toLocaleTimeString("en-IN", {
                             hour: "2-digit",
                             minute: "2-digit",
-                          })
-                          .replace(" AM", " AM")
-                          .replace(" PM", " PM")}
+                          })}
                       </p>
                     </div>
                   </Link>

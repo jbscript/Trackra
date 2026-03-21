@@ -29,13 +29,21 @@ export function NewTransactionForm({
   const [type, setType] = useState<"expense" | "income" | "transfer">("expense")
   const [amount, setAmount] = useState<string>("")
   const [note, setNote] = useState<string>("")
-  const [date, setDate] = useState<string>(new Date().toISOString().split("T")[0])
+  const [date, setDate] = useState<string>(() => {
+    const now = new Date()
+    const year = now.getFullYear()
+    const month = String(now.getMonth() + 1).padStart(2, "0")
+    const day = String(now.getDate()).padStart(2, "0")
+    const hours = String(now.getHours()).padStart(2, "0")
+    const minutes = String(now.getMinutes()).padStart(2, "0")
+    return `${year}-${month}-${day}T${hours}:${minutes}`
+  })
   const [categoryId, setCategoryId] = useState<string>(
     categories.find((c) => c.type === type)?.id || categories[0]?.id || ""
   )
   const [accountId, setAccountId] = useState<string>(accounts[0]?.id || "")
   const [isRecurring, setIsRecurring] = useState(false)
-  
+
   const [isLoading, setIsLoading] = useState(false)
 
   // Filter categories based on selected type
@@ -56,7 +64,7 @@ export function NewTransactionForm({
     formData.append("type", type)
     formData.append("amount", amount)
     formData.append("note", note)
-    formData.append("date", date)
+    formData.append("date", new Date(date).toISOString())
     formData.append("categoryId", categoryId)
     formData.append("accountId", accountId)
 
@@ -71,42 +79,42 @@ export function NewTransactionForm({
   const formatCurrency = (val: number) => {
     return new Intl.NumberFormat("en-US", {
       style: "currency",
-      currency: "USD",
+      currency: "INR",
     }).format(val)
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col h-full relative">
+    <form onSubmit={handleSubmit} className="relative flex h-full flex-col">
       {/* Header */}
-      <header className="flex items-center justify-between mb-8 z-10">
+      <header className="z-10 mb-8 flex items-center justify-between">
         <button
           type="button"
           onClick={() => router.back()}
-          className="p-2 -ml-2 text-foreground hover:bg-surface-container rounded-full transition-colors"
+          className="-ml-2 rounded-full p-2 text-foreground transition-colors hover:bg-surface-container"
         >
-          <ArrowLeft className="w-6 h-6" />
+          <ArrowLeft className="h-6 w-6" />
         </button>
         <h1 className="text-sm font-bold tracking-widest uppercase">
           New Transaction
         </h1>
         <button
           type="button"
-          className="w-8 h-8 flex items-center justify-center rounded-full bg-surface-container-high text-on-surface-variant hover:text-foreground transition-colors"
+          className="flex h-8 w-8 items-center justify-center rounded-full bg-surface-container-high text-on-surface-variant transition-colors hover:text-foreground"
         >
-          <Info className="w-4 h-4" />
+          <Info className="h-4 w-4" />
         </button>
       </header>
 
       {/* Type Toggle */}
-      <div className="flex bg-surface-container-low rounded-[1rem] p-1 border border-outline-variant mb-10 mx-auto w-full max-w-[320px]">
+      <div className="mx-auto mb-10 flex w-full max-w-[320px] rounded-[1rem] border border-outline-variant bg-surface-container-low p-1">
         {(["expense", "income", "transfer"] as const).map((t) => (
           <button
             key={t}
             type="button"
             onClick={() => handleTypeChange(t)}
-            className={`flex-1 py-3 text-[0.65rem] font-bold uppercase tracking-wider rounded-[0.8rem] transition-all ${
+            className={`flex-1 rounded-[0.8rem] py-3 text-[0.65rem] font-bold tracking-wider uppercase transition-all ${
               type === t
-                ? "bg-surface-container-high text-primary border border-primary/30 shadow-[0_4px_12px_rgba(92,253,128,0.1)]"
+                ? "border border-primary/30 bg-surface-container-high text-primary shadow-[0_4px_12px_rgba(92,253,128,0.1)]"
                 : "text-on-surface-variant hover:text-foreground"
             }`}
           >
@@ -116,19 +124,21 @@ export function NewTransactionForm({
       </div>
 
       {/* Amount Input */}
-      <div className="text-center mb-10">
-        <p className="label-sm text-on-surface-variant uppercase tracking-widest mb-4">
+      <div className="mb-10 text-center">
+        <p className="mb-4 label-sm tracking-widest text-on-surface-variant uppercase">
           Set Amount
         </p>
         <div className="flex items-center justify-center gap-2">
-          <span className="text-4xl sm:text-5xl font-light text-primary/80">$</span>
+          <span className="text-4xl font-light text-primary/80 sm:text-5xl">
+            $
+          </span>
           <input
             type="number"
             step="0.01"
             placeholder="0.00"
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
-            className="bg-transparent text-5xl sm:text-6xl font-light text-foreground text-center w-[200px] sm:w-[250px] outline-none placeholder:text-surface-container-highest"
+            className="w-[200px] bg-transparent text-center text-5xl font-light text-foreground outline-none placeholder:text-surface-container-highest sm:w-[250px] sm:text-6xl"
             required
             autoFocus
           />
@@ -138,7 +148,7 @@ export function NewTransactionForm({
       <div className="flex-1 space-y-6">
         {/* Recipient / Merchant */}
         <div className="border-b border-surface-container-high pb-4">
-          <label className="label-sm text-on-surface-variant uppercase tracking-widest block mb-2">
+          <label className="mb-2 block label-sm tracking-widest text-on-surface-variant uppercase">
             Recipient / Merchant
           </label>
           <input
@@ -146,7 +156,7 @@ export function NewTransactionForm({
             placeholder="e.g. Apple Store, Inc."
             value={note}
             onChange={(e) => setNote(e.target.value)}
-            className="w-full bg-transparent text-lg text-foreground outline-none placeholder:text-surface-container-high font-medium"
+            className="w-full bg-transparent text-lg font-medium text-foreground outline-none placeholder:text-surface-container-high"
             required
           />
         </div>
@@ -154,28 +164,28 @@ export function NewTransactionForm({
         {/* Date and Category Row */}
         <div className="flex gap-4 border-b border-surface-container-high pb-4">
           <div className="flex-1">
-            <label className="label-sm text-on-surface-variant uppercase tracking-widest block mb-2">
-              Date
+            <label className="mb-2 block label-sm tracking-widest text-on-surface-variant uppercase">
+              Date & Time
             </label>
             <div className="flex items-center gap-2 text-lg text-foreground">
               <input
-                type="date"
+                type="datetime-local"
                 value={date}
                 onChange={(e) => setDate(e.target.value)}
-                className="bg-transparent text-foreground outline-none w-full appearance-none font-medium custom-date-input"
+                className="custom-date-input w-full appearance-none bg-transparent font-medium text-foreground outline-none"
                 required
               />
             </div>
           </div>
           <div className="flex-1 border-l border-surface-container-high pl-4">
-            <label className="label-sm text-on-surface-variant uppercase tracking-widest block mb-2">
+            <label className="mb-2 block label-sm tracking-widest text-on-surface-variant uppercase">
               Category
             </label>
             <div className="relative">
               <select
                 value={categoryId}
                 onChange={(e) => setCategoryId(e.target.value)}
-                className="w-full bg-transparent text-lg text-foreground outline-none appearance-none font-medium pr-8"
+                className="w-full appearance-none bg-transparent pr-8 text-lg font-medium text-foreground outline-none"
                 required
               >
                 {availableCategories.length === 0 && (
@@ -184,36 +194,42 @@ export function NewTransactionForm({
                   </option>
                 )}
                 {availableCategories.map((c) => (
-                  <option key={c.id} value={c.id} className="bg-surface text-foreground">
+                  <option
+                    key={c.id}
+                    value={c.id}
+                    className="bg-surface text-foreground"
+                  >
                     {c.name}
                   </option>
                 ))}
               </select>
-              <ChevronDown className="w-5 h-5 text-on-surface-variant absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none" />
+              <ChevronDown className="pointer-events-none absolute top-1/2 right-0 h-5 w-5 -translate-y-1/2 text-on-surface-variant" />
             </div>
           </div>
         </div>
 
         {/* Source Account */}
         <div className="pt-2">
-          <label className="label-sm text-on-surface-variant uppercase tracking-widest block mb-4">
+          <label className="mb-4 block label-sm tracking-widest text-on-surface-variant uppercase">
             Source Account
           </label>
-          <div className="flex gap-4 overflow-x-auto pb-4 snap-x no-scrollbar -mx-6 px-6">
+          <div className="-mx-6 no-scrollbar flex snap-x gap-4 overflow-x-auto px-6 pb-4">
             {accounts.map((acc, idx) => (
               <button
                 key={acc.id}
                 type="button"
                 onClick={() => setAccountId(acc.id)}
-                className={`snap-start shrink-0 w-[160px] h-[100px] rounded-[1.2rem] p-4 flex flex-col justify-between text-left transition-all border ${
+                className={`flex h-[100px] w-[160px] shrink-0 snap-start flex-col justify-between rounded-[1.2rem] border p-4 text-left transition-all ${
                   accountId === acc.id
-                    ? "bg-[#102a1b] border-primary/40 shadow-[0_4px_20px_rgba(92,253,128,0.05)]"
-                    : "bg-surface-container-low border-outline-variant hover:bg-surface-container"
+                    ? "border-primary/40 bg-[#102a1b] shadow-[0_4px_20px_rgba(92,253,128,0.05)]"
+                    : "border-outline-variant bg-surface-container-low hover:bg-surface-container"
                 }`}
               >
                 <span
-                  className={`text-[0.65rem] font-bold uppercase tracking-widest ${
-                    accountId === acc.id ? "text-primary" : "text-on-surface-variant"
+                  className={`text-[0.65rem] font-bold tracking-widest uppercase ${
+                    accountId === acc.id
+                      ? "text-primary"
+                      : "text-on-surface-variant"
                   }`}
                 >
                   {acc.name}
@@ -227,31 +243,35 @@ export function NewTransactionForm({
         </div>
 
         {/* Toggles */}
-        <div className="flex gap-4 mt-2 mb-20">
+        <div className="mt-2 mb-20 flex gap-4">
           <button
             type="button"
-            className="flex items-center gap-2 px-4 py-2.5 rounded-full border border-surface-container-highest text-sm font-bold text-on-surface-variant hover:bg-surface-container transition-colors"
+            className="flex items-center gap-2 rounded-full border border-surface-container-highest px-4 py-2.5 text-sm font-bold text-on-surface-variant transition-colors hover:bg-surface-container"
           >
-            <Paperclip className="w-4 h-4" />
-            <span className="uppercase text-[0.65rem] tracking-widest">Receipt</span>
+            <Paperclip className="h-4 w-4" />
+            <span className="text-[0.65rem] tracking-widest uppercase">
+              Receipt
+            </span>
           </button>
 
           <button
             type="button"
             onClick={() => setIsRecurring(!isRecurring)}
-            className={`flex items-center gap-2 px-4 py-2.5 rounded-full border border-surface-container-highest text-sm font-bold transition-colors ${
+            className={`flex items-center gap-2 rounded-full border border-surface-container-highest px-4 py-2.5 text-sm font-bold transition-colors ${
               isRecurring
-                ? "bg-[#102a1b] border-primary/40 text-primary"
+                ? "border-primary/40 bg-[#102a1b] text-primary"
                 : "text-on-surface-variant hover:bg-surface-container"
             }`}
           >
             <span
-              className={`w-2 h-2 rounded-full ${
-                isRecurring ? "bg-primary shadow-[0_0_8px_rgba(92,253,128,0.6)]" : "bg-on-surface-variant"
+              className={`h-2 w-2 rounded-full ${
+                isRecurring
+                  ? "bg-primary shadow-[0_0_8px_rgba(92,253,128,0.6)]"
+                  : "bg-on-surface-variant"
               }`}
             />
             <span
-              className={`uppercase text-[0.65rem] tracking-widest ${
+              className={`text-[0.65rem] tracking-widest uppercase ${
                 isRecurring ? "text-primary" : "text-on-surface-variant"
               }`}
             >
@@ -262,24 +282,24 @@ export function NewTransactionForm({
       </div>
 
       {/* Generic spacing to push button to bottom if screen is tall */}
-      <div className="mt-auto pt-6 fixed bottom-6 left-6 right-6 max-w-md mx-auto z-50">
+      <div className="fixed right-6 bottom-6 left-6 z-50 mx-auto mt-auto max-w-md pt-6">
         <button
           type="submit"
           disabled={isLoading}
-          className="w-full py-5 rounded-[2rem] bg-primary text-primary-foreground font-bold text-sm tracking-widest uppercase shadow-[0_10px_30px_rgba(92,253,128,0.25)] hover:scale-[1.02] active:scale-[0.98] transition-transform disabled:opacity-70 disabled:hover:scale-100"
+          className="w-full rounded-[2rem] bg-primary py-5 text-sm font-bold tracking-widest text-primary-foreground uppercase shadow-[0_10px_30px_rgba(92,253,128,0.25)] transition-transform hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70 disabled:hover:scale-100"
         >
           {isLoading ? "Processing..." : "Process Transaction"}
         </button>
       </div>
-      
+
       <style jsx global>{`
         /* Hide scrollbar for account cards */
         .no-scrollbar::-webkit-scrollbar {
           display: none;
         }
         .no-scrollbar {
-          -ms-overflow-style: none;  /* IE and Edge */
-          scrollbar-width: none;  /* Firefox */
+          -ms-overflow-style: none; /* IE and Edge */
+          scrollbar-width: none; /* Firefox */
         }
         /* Style date input to match native feel but hide default icon */
         .custom-date-input::-webkit-calendar-picker-indicator {

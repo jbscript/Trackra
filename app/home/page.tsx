@@ -163,9 +163,12 @@ export default async function TransactionsPage() {
                     </p>
                     <p className="label-sm text-on-surface-variant truncate">
                       {tx.account.name} •{" "}
-                      {tx.transactionDate.toLocaleDateString(undefined, {
+                      {tx.transactionDate.toLocaleDateString("en-IN", {
                         month: "short",
                         day: "numeric",
+                      })} • {tx.transactionDate.toLocaleTimeString("en-IN", {
+                        hour: "2-digit",
+                        minute: "2-digit",
                       })}
                     </p>
                   </div>
