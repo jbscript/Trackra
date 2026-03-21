@@ -32,9 +32,8 @@ export default async function TransactionsPage() {
 
   const lifestyleCategories = [
     "Dining",
-    "Shopping",
+    "Shopping & Personal Care",
     "Entertainment",
-    "Personal Care",
     "Gifts",
   ]
   const totalLifestyleExpense = transactions

@@ -101,7 +101,7 @@
       "month": "Jan",
       "type": "expense",
       "category_id": 11,
-      "category_name": "Shopping",
+      "category_name": "Shopping & Personal Care",
       "amount": "340",
       "note": "Miniso"
     },
@@ -141,7 +141,7 @@
       "month": "Jan",
       "type": "expense",
       "category_id": 9,
-      "category_name": "Personal Care",
+      "category_name": "Shopping & Personal Care",
       "amount": "950",
       "note": "Slippers"
     },
@@ -469,7 +469,7 @@
       "month": "Jan",
       "type": "expense",
       "category_id": 11,
-      "category_name": "Shopping",
+      "category_name": "Shopping & Personal Care",
       "amount": "750",
       "note": "miniso bottle"
     },
@@ -525,7 +525,7 @@
       "month": "Jan",
       "type": "expense",
       "category_id": 11,
-      "category_name": "Shopping",
+      "category_name": "Shopping & Personal Care",
       "amount": "727",
       "note": "mouse socket mobile holder"
     },
@@ -901,7 +901,7 @@
       "month": "Jan",
       "type": "expense",
       "category_id": 9,
-      "category_name": "Personal Care",
+      "category_name": "Shopping & Personal Care",
       "amount": "350",
       "note": "Hair cut"
     },
@@ -1157,7 +1157,7 @@
       "month": "Jan",
       "type": "expense",
       "category_id": 11,
-      "category_name": "Shopping",
+      "category_name": "Shopping & Personal Care",
       "amount": "543",
       "note": "shopprix"
     },
@@ -1341,7 +1341,7 @@
       "month": "Feb",
       "type": "expense",
       "category_id": 11,
-      "category_name": "Shopping",
+      "category_name": "Shopping & Personal Care",
       "amount": "1075",
       "note": "keyboard hdmi converter"
     },
@@ -1485,7 +1485,7 @@
       "month": "Feb",
       "type": "expense",
       "category_id": 11,
-      "category_name": "Shopping",
+      "category_name": "Shopping & Personal Care",
       "amount": "99",
       "note": "zepto - book"
     },
@@ -1653,7 +1653,7 @@
       "month": "Feb",
       "type": "expense",
       "category_id": 9,
-      "category_name": "Personal Care",
+      "category_name": "Shopping & Personal Care",
       "amount": "350",
       "note": "hair cut"
     },
@@ -1933,7 +1933,7 @@
       "month": "Feb",
       "type": "expense",
       "category_id": 9,
-      "category_name": "Personal Care",
+      "category_name": "Shopping & Personal Care",
       "amount": "767",
       "note": "purple"
     },
@@ -2037,7 +2037,7 @@
       "month": "Mar",
       "type": "expense",
       "category_id": 11,
-      "category_name": "Shopping",
+      "category_name": "Shopping & Personal Care",
       "amount": "1253",
       "note": "dicuts cuty things"
     },
@@ -2173,7 +2173,7 @@
       "month": "Mar",
       "type": "expense",
       "category_id": 11,
-      "category_name": "Shopping",
+      "category_name": "Shopping & Personal Care",
       "amount": "87",
       "note": "meesho"
     },
@@ -2317,7 +2317,7 @@
       "month": "Mar",
       "type": "expense",
       "category_id": 11,
-      "category_name": "Shopping",
+      "category_name": "Shopping & Personal Care",
       "amount": "120",
       "note": "photo"
     },
@@ -2325,7 +2325,7 @@
       "month": "Mar",
       "type": "expense",
       "category_id": 11,
-      "category_name": "Shopping",
+      "category_name": "Shopping & Personal Care",
       "amount": "80",
       "note": "scan document"
     },
@@ -2341,7 +2341,7 @@
       "month": "Mar",
       "type": "expense",
       "category_id": 11,
-      "category_name": "Shopping",
+      "category_name": "Shopping & Personal Care",
       "amount": "293",
       "note": "MR DIY"
     },
@@ -2357,7 +2357,7 @@
       "month": "Mar",
       "type": "expense",
       "category_id": 9,
-      "category_name": "Personal Care",
+      "category_name": "Shopping & Personal Care",
       "amount": "1898",
       "note": "dress rare nd basic"
     },
@@ -2381,7 +2381,7 @@
       "month": "Mar",
       "type": "expense",
       "category_id": 9,
-      "category_name": "Personal Care",
+      "category_name": "Shopping & Personal Care",
       "amount": "350",
       "note": "hair cut"
     },
@@ -2445,7 +2445,7 @@
       "month": "Mar",
       "type": "expense",
       "category_id": 9,
-      "category_name": "Personal Care",
+      "category_name": "Shopping & Personal Care",
       "amount": "49",
       "note": "gel"
     },
@@ -2517,7 +2517,7 @@
       "month": "Mar",
       "type": "expense",
       "category_id": 9,
-      "category_name": "Personal Care",
+      "category_name": "Shopping & Personal Care",
       "amount": "4500",
       "note": "rouna dress"
     },
@@ -2525,7 +2525,7 @@
       "month": "Mar",
       "type": "expense",
       "category_id": 9,
-      "category_name": "Personal Care",
+      "category_name": "Shopping & Personal Care",
       "amount": "3250",
       "note": "jb dress"
     },
@@ -2740,22 +2740,10 @@
       "description": "Health insurance premiums, medical expenses, medicines, doctor visits, pharmacy purchases, and hospital bills"
     },
     {
-      "id": 9,
-      "name": "Personal Care",
-      "type": "expense",
-      "description": "Haircuts, salon services, grooming products, cosmetics, clothing, shoes, apparel, and fashion purchases"
-    },
-    {
       "id": 10,
       "name": "Entertainment & Subscriptions",
       "type": "expense",
       "description": "Movies, cinema, streaming services (YouTube Premium, Netflix), software subscriptions, memberships, games, and recreational activities"
-    },
-    {
-      "id": 11,
-      "name": "Shopping",
-      "type": "expense",
-      "description": "General shopping including electronics, gadgets, accessories, lifestyle items, online purchases, stationery, and miscellaneous non-essential items"
     },
     {
       "id": 12,
@@ -2786,6 +2774,12 @@
       "name": "Loans Given",
       "type": "transfer",
       "description": "Money lent to others that you expect to get back"
+    },
+    {
+      "id": 99,
+      "name": "Shopping & Personal Care",
+      "type": "expense",
+      "description": "Combined shopping, electronics, gadgets, apparel, cosmetics, haircuts, and personal care"
     }
   ]
 }
