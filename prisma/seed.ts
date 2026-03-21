@@ -2,31 +2,7 @@ import fs from "fs"
 import path from "path"
 import { db } from "@/lib/db"
 
-function getRandomDateInMonth(year: number, monthName: string) {
-  const monthMap: Record<string, number> = {
-    Jan: 0,
-    Feb: 1,
-    Mar: 2,
-    Apr: 3,
-    May: 4,
-    Jun: 5,
-    Jul: 6,
-    Aug: 7,
-    Sep: 8,
-    Oct: 9,
-    Nov: 10,
-    Dec: 11,
-  }
-  const month = monthMap[monthName]
-  if (month === undefined) return new Date()
-
-  const start = new Date(year, month, 1)
-  const end = new Date(year, month + 1, 0)
-
-  return new Date(
-    start.getTime() + Math.random() * (end.getTime() - start.getTime())
-  )
-}
+// Date generator relocated to main()
 
 async function main() {
   await db.transaction.deleteMany()
@@ -88,6 +64,48 @@ async function main() {
     return accounts.find((a) => a.name === "Jabis ICICI Debit")!
   }
 
+  const monthCounts: Record<string, number> = {}
+  for (const t of rawTransactions) {
+    const monthName = t.month
+    monthCounts[monthName] = (monthCounts[monthName] || 0) + 1
+  }
+
+  const monthState: Record<string, { current: Date; stepMs: number }> = {}
+  const now = new Date()
+
+  const monthMap: Record<string, number> = {
+    Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5,
+    Jul: 6, Aug: 7, Sep: 8, Oct: 9, Nov: 10, Dec: 11,
+  }
+
+  function getStrictSequentialDate(year: number, monthName: string) {
+    const month = monthMap[monthName]
+    if (month === undefined) return new Date()
+
+    if (!monthState[monthName]) {
+      const startOfMonth = new Date(year, month, 1, 8, 0, 0)
+      let endOfMonth = new Date(year, month + 1, 0, 20, 0, 0)
+
+      if (year === now.getFullYear() && month === now.getMonth()) {
+        endOfMonth = now
+      } else if (year > now.getFullYear() || (year === now.getFullYear() && month > now.getMonth())) {
+        endOfMonth = new Date(year, month, 1, 8, 0, 0)
+      }
+
+      const totalMs = Math.max(0, endOfMonth.getTime() - startOfMonth.getTime())
+      const count = monthCounts[monthName] || 1
+      const stepMs = totalMs / count
+
+      monthState[monthName] = { current: startOfMonth, stepMs }
+    }
+
+    const state = monthState[monthName]
+    const date = new Date(state.current.getTime())
+    state.current = new Date(state.current.getTime() + state.stepMs)
+    
+    return date
+  }
+
   const insertData = rawTransactions.map((t: any) => {
     // Categories matched by name
     const categoryNameInput = (t.category_name || t.category || "")
@@ -116,7 +134,7 @@ async function main() {
       amount: parsedAmount,
       type: t.type.toLowerCase(),
       note: t.note,
-      transactionDate: getRandomDateInMonth(2026, t.month),
+      transactionDate: getStrictSequentialDate(2026, t.month),
     }
   })
 
