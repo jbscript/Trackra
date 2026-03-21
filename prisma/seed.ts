@@ -6,6 +6,20 @@ import path from "path"
 const adapter = new PrismaBetterSqlite3({ url: "file:./db/dev.db" })
 const prisma = new PrismaClient({ adapter })
 
+function getRandomDateInMonth(year: number, monthName: string) {
+  const monthMap: Record<string, number> = { 
+    "Jan": 0, "Feb": 1, "Mar": 2, "Apr": 3, "May": 4, "Jun": 5, 
+    "Jul": 6, "Aug": 7, "Sep": 8, "Oct": 9, "Nov": 10, "Dec": 11 
+  };
+  const month = monthMap[monthName];
+  if (month === undefined) return new Date();
+  
+  const start = new Date(year, month, 1);
+  const end = new Date(year, month + 1, 0);
+  
+  return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+}
+
 async function main() {
   await prisma.transaction.deleteMany()
   await prisma.category.deleteMany()
@@ -59,9 +73,7 @@ async function main() {
     return accounts.find(a => a.name === "Jabis ICICI Debit")!;
   }
 
-  const today = new Date();
-
-  const insertData = rawTransactions.map((t: any, index: number) => {
+  const insertData = rawTransactions.map((t: any) => {
     // Categories matched by name
     const categoryNameInput = (t.category_name || t.category || "").trim().toLowerCase();
     
@@ -79,19 +91,13 @@ async function main() {
       parsedAmount = parseFloat(t.amount.replace(/[^0-9.-]+/g, ""));
     }
 
-    // Spread transactions across the last month instead of purely random in a given month.
-    // E.g., ~2 transactions per day backwards from today.
-    const daysAgo = Math.floor(index / 2);
-    const transactionDate = new Date(today);
-    transactionDate.setDate(today.getDate() - daysAgo);
-
     return {
       accountId: account.id,
       categoryId: category ? category.id : categories[0].id, // fallback if not found
       amount: parsedAmount,
       type: t.type.toLowerCase(),
       note: t.note,
-      transactionDate: transactionDate
+      transactionDate: getRandomDateInMonth(2026, t.month)
     };
   });
 
