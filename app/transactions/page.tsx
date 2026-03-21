@@ -44,7 +44,7 @@ export default async function TransactionsPage() {
     .reduce((acc, t) => acc + t.amount, 0)
 
   const totalLoansGiven = transactions
-    .filter((t) => t.type === "transfer" && t.category.name === "Money Given")
+    .filter((t) => t.type === "transfer" && t.category.name === "Loans Given")
     .reduce((acc, t) => acc + t.amount, 0)
 
   const netCashBalance =
