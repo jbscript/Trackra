@@ -44,7 +44,12 @@ export default async function TransactionsPage() {
     )
     .reduce((acc, t) => acc + t.amount, 0)
 
-  const netCashBalance = totalIncome - (totalExpenses + totalInvestments)
+  const totalLoansGiven = transactions
+    .filter((t) => t.type === "transfer" && t.category.name === "Money Given")
+    .reduce((acc, t) => acc + t.amount, 0)
+
+  const netCashBalance =
+    totalIncome - (totalExpenses + totalInvestments + totalLoansGiven)
 
   const uniqueMonths = new Set(
     transactions.map(
@@ -146,8 +151,8 @@ export default async function TransactionsPage() {
                       tx.type === "income"
                         ? "bg-emerald-500/10 text-emerald-500"
                         : tx.type === "transfer"
-                        ? "bg-blue-500/10 text-blue-500"
-                        : "bg-red-500/10 text-red-500"
+                          ? "bg-blue-500/10 text-blue-500"
+                          : "bg-red-500/10 text-red-500"
                     }`}
                   >
                     {tx.type}
@@ -159,7 +164,11 @@ export default async function TransactionsPage() {
                 <TableCell
                   className={`text-right font-medium ${tx.type === "income" ? "text-emerald-500" : ""}`}
                 >
-                  {tx.type === "income" ? "+" : tx.type === "transfer" ? "" : "-"}
+                  {tx.type === "income"
+                    ? "+"
+                    : tx.type === "transfer"
+                      ? ""
+                      : "-"}
                   {formatCurrency(tx.amount)}
                 </TableCell>
               </TableRow>
