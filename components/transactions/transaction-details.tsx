@@ -108,14 +108,6 @@ export function TransactionDetails({
     return (
       <div className="min-h-screen bg-background p-6">
         <div className="mx-auto max-w-xl pb-24">
-          <div className="mb-6 flex items-center justify-between">
-            <button
-              onClick={() => setIsEditing(false)}
-              className="text-on-surface-variant transition-colors hover:text-foreground"
-            >
-              Cancel
-            </button>
-          </div>
           <TransactionForm
             accounts={accounts}
             categories={categories}
