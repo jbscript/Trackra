@@ -142,7 +142,13 @@ export default async function TransactionsPage() {
                 <TableCell>{tx.category.name}</TableCell>
                 <TableCell>
                   <span
-                    className={`inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ${tx.type === "income" ? "bg-emerald-500/10 text-emerald-500" : "bg-red-500/10 text-red-500"}`}
+                    className={`inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ${
+                      tx.type === "income"
+                        ? "bg-emerald-500/10 text-emerald-500"
+                        : tx.type === "transfer"
+                        ? "bg-blue-500/10 text-blue-500"
+                        : "bg-red-500/10 text-red-500"
+                    }`}
                   >
                     {tx.type}
                   </span>
@@ -153,7 +159,7 @@ export default async function TransactionsPage() {
                 <TableCell
                   className={`text-right font-medium ${tx.type === "income" ? "text-emerald-500" : ""}`}
                 >
-                  {tx.type === "income" ? "+" : "-"}
+                  {tx.type === "income" ? "+" : tx.type === "transfer" ? "" : "-"}
                   {formatCurrency(tx.amount)}
                 </TableCell>
               </TableRow>
