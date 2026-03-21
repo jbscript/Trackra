@@ -12,6 +12,7 @@ import {
   ArrowRightLeft,
   LayoutGrid
 } from "lucide-react"
+import Link from "next/link"
 
 export default async function TransactionsPage() {
   const transactions = await db.transaction.findMany({
@@ -123,7 +124,7 @@ export default async function TransactionsPage() {
               </p>
             </div>
           </div>
-          <button className="group flex flex-col justify-between rounded-[1.5rem] bg-gradient-to-br from-primary to-primary-container p-6 text-primary-foreground shadow-[0_10px_30px_rgba(2,201,83,0.3)] transition-transform active:scale-95">
+          <Link href="/transactions/new" className="group flex flex-col justify-between rounded-[1.5rem] bg-gradient-to-br from-primary to-primary-container p-6 text-primary-foreground shadow-[0_10px_30px_rgba(2,201,83,0.3)] transition-transform active:scale-95">
             <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary-foreground/20">
               <Plus className="h-6 w-6 text-primary-foreground" />
             </div>
@@ -135,7 +136,7 @@ export default async function TransactionsPage() {
                 Add<br />Transaction
               </p>
             </div>
-          </button>
+          </Link>
         </section>
 
         {/* Recent Activity */}
@@ -214,9 +215,9 @@ export default async function TransactionsPage() {
         <button className="flex h-12 w-12 items-center justify-center rounded-full text-on-surface-variant hover:text-primary transition-colors">
           <Activity className="h-[1.35rem] w-[1.35rem]" />
         </button>
-        <button className="mx-2 flex h-14 w-14 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-[0_0_20px_rgba(92,253,128,0.4)] transition-transform hover:scale-105 active:scale-95">
+        <Link href="/transactions/new" className="mx-2 flex h-14 w-14 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-[0_0_20px_rgba(92,253,128,0.4)] transition-transform hover:scale-105 active:scale-95">
           <Plus className="h-6 w-6" />
-        </button>
+        </Link>
         <button className="flex h-12 w-12 items-center justify-center rounded-full text-on-surface-variant hover:text-primary transition-colors">
           <PieChart className="h-[1.35rem] w-[1.35rem]" />
         </button>
