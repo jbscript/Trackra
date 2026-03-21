@@ -157,7 +157,10 @@ export default async function TransactionsPage() {
                     {tx.type}
                   </span>
                 </TableCell>
-                <TableCell className="text-muted-foreground">
+                <TableCell
+                  className="max-w-[150px] truncate text-muted-foreground sm:max-w-[250px]"
+                  title={tx.note || undefined}
+                >
                   {tx.note || "-"}
                 </TableCell>
                 <TableCell
