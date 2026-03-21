@@ -1,5 +1,5 @@
 import { db } from "@/lib/db"
-import { NewTransactionForm } from "@/components/transactions/new-transaction-form"
+import { TransactionForm } from "@/components/transactions/new-transaction-form"
 
 export default async function NewTransactionPage() {
   const accounts = await db.account.findMany({
@@ -51,7 +51,7 @@ export default async function NewTransactionPage() {
   return (
     <div className="relative min-h-screen bg-background text-foreground font-sans pt-12">
       <main className="container mx-auto max-w-md p-6 h-full flex flex-col">
-        <NewTransactionForm accounts={accountsWithBalances} categories={categories} />
+        <TransactionForm accounts={accountsWithBalances} categories={categories} />
       </main>
     </div>
   )

@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 import { ArrowLeft, Info, Paperclip, Calendar, ChevronDown } from "lucide-react"
-import { createTransaction } from "@/app/transactions/new/actions"
+import { createTransaction } from "@/app/transactions/actions"
 
 type Account = {
   id: string
@@ -18,30 +18,51 @@ type Category = {
   description: string | null
 }
 
-export function NewTransactionForm({
+export function TransactionForm({
   accounts,
   categories,
+  initialData,
+  onSave,
 }: {
   accounts: Account[]
   categories: Category[]
+  initialData?: {
+    id?: string
+    type: "expense" | "income" | "transfer"
+    amount: number
+    note: string | null
+    date: Date
+    categoryId: string
+    accountId: string
+  }
+  onSave?: (formData: FormData) => Promise<void>
 }) {
   const router = useRouter()
-  const [type, setType] = useState<"expense" | "income" | "transfer">("expense")
-  const [amount, setAmount] = useState<string>("")
-  const [note, setNote] = useState<string>("")
+  const [type, setType] = useState<"expense" | "income" | "transfer">(
+    initialData?.type || "expense"
+  )
+  const [amount, setAmount] = useState<string>(
+    initialData?.amount.toString() || ""
+  )
+  const [note, setNote] = useState<string>(initialData?.note || "")
   const [date, setDate] = useState<string>(() => {
-    const now = new Date()
-    const year = now.getFullYear()
-    const month = String(now.getMonth() + 1).padStart(2, "0")
-    const day = String(now.getDate()).padStart(2, "0")
-    const hours = String(now.getHours()).padStart(2, "0")
-    const minutes = String(now.getMinutes()).padStart(2, "0")
+    const d = initialData ? new Date(initialData.date) : new Date()
+    const year = d.getFullYear()
+    const month = String(d.getMonth() + 1).padStart(2, "0")
+    const day = String(d.getDate()).padStart(2, "0")
+    const hours = String(d.getHours()).padStart(2, "0")
+    const minutes = String(d.getMinutes()).padStart(2, "0")
     return `${year}-${month}-${day}T${hours}:${minutes}`
   })
   const [categoryId, setCategoryId] = useState<string>(
-    categories.find((c) => c.type === type)?.id || categories[0]?.id || ""
+    initialData?.categoryId ||
+      categories.find((c) => c.type === type)?.id ||
+      categories[0]?.id ||
+      ""
   )
-  const [accountId, setAccountId] = useState<string>(accounts[0]?.id || "")
+  const [accountId, setAccountId] = useState<string>(
+    initialData?.accountId || accounts[0]?.id || ""
+  )
   const [isRecurring, setIsRecurring] = useState(false)
 
   const [isLoading, setIsLoading] = useState(false)
@@ -61,6 +82,7 @@ export function NewTransactionForm({
     setIsLoading(true)
 
     const formData = new FormData()
+    if (initialData?.id) formData.append("id", initialData.id)
     formData.append("type", type)
     formData.append("amount", amount)
     formData.append("note", note)
@@ -69,9 +91,13 @@ export function NewTransactionForm({
     formData.append("accountId", accountId)
 
     try {
-      await createTransaction(formData)
+      if (onSave) {
+        await onSave(formData)
+      } else {
+        await createTransaction(formData)
+      }
     } catch (error) {
-      console.error("Failed to create transaction", error)
+      console.error("Failed to save transaction", error)
       setIsLoading(false)
     }
   }
@@ -95,7 +121,7 @@ export function NewTransactionForm({
           <ArrowLeft className="h-6 w-6" />
         </button>
         <h1 className="text-sm font-bold tracking-widest uppercase">
-          New Transaction
+          {initialData ? "Edit Transaction" : "New Transaction"}
         </h1>
         <button
           type="button"
@@ -288,7 +314,11 @@ export function NewTransactionForm({
           disabled={isLoading}
           className="w-full rounded-[2rem] bg-primary py-5 text-sm font-bold tracking-widest text-primary-foreground uppercase shadow-[0_10px_30px_rgba(92,253,128,0.25)] transition-transform hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70 disabled:hover:scale-100"
         >
-          {isLoading ? "Processing..." : "Process Transaction"}
+          {isLoading
+            ? "Processing..."
+            : initialData
+              ? "Update Transaction"
+              : "Process Transaction"}
         </button>
       </div>
 
