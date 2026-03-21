@@ -27,7 +27,7 @@ export default async function TransactionsPage() {
     .filter((t) => t.type === "expense")
     .reduce((acc, t) => acc + t.amount, 0)
   const totalInvestments = transactions
-    .filter((t) => t.type === "transfer" && t.category.name === "Investment")
+    .filter((t) => t.type === "transfer" && t.category.name === "Investments")
     .reduce((acc, t) => acc + t.amount, 0)
 
   const lifestyleCategories = [
@@ -48,7 +48,8 @@ export default async function TransactionsPage() {
 
   const uniqueMonths = new Set(
     transactions.map(
-      (t) => `${t.transactionDate.getFullYear()}-${t.transactionDate.getMonth()}`
+      (t) =>
+        `${t.transactionDate.getFullYear()}-${t.transactionDate.getMonth()}`
     )
   ).size
   const monthsDivisor = uniqueMonths > 0 ? uniqueMonths : 1
@@ -72,23 +73,47 @@ export default async function TransactionsPage() {
 
       <div className="mb-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         <div className="rounded-xl border bg-card p-6 text-card-foreground shadow">
-          <h3 className="text-sm font-medium text-muted-foreground">Total Income</h3>
-          <p className="mt-2 text-2xl font-bold text-emerald-500">{formatCurrency(totalIncome)}</p>
+          <h3 className="text-sm font-medium text-muted-foreground">
+            Total Income
+          </h3>
+          <p className="mt-2 text-2xl font-bold text-emerald-500">
+            {formatCurrency(totalIncome)}
+          </p>
         </div>
         <div className="rounded-xl border bg-card p-6 text-card-foreground shadow">
-          <h3 className="text-sm font-medium text-muted-foreground">Total Expenses</h3>
-          <p className="mt-2 text-2xl font-bold text-red-500">{formatCurrency(totalExpenses)}</p>
-          <p className="text-xs text-muted-foreground mt-1">Avg {formatCurrency(avgMonthlyExpense)} / mo</p>
+          <h3 className="text-sm font-medium text-muted-foreground">
+            Total Expenses
+          </h3>
+          <p className="mt-2 text-2xl font-bold text-red-500">
+            {formatCurrency(totalExpenses)}
+          </p>
+          <p className="mt-1 text-xs text-muted-foreground">
+            Avg {formatCurrency(avgMonthlyExpense)} / mo
+          </p>
         </div>
         <div className="rounded-xl border bg-card p-6 text-card-foreground shadow">
-          <h3 className="text-sm font-medium text-muted-foreground">Total Investments</h3>
-          <p className="mt-2 text-2xl font-bold text-blue-500">{formatCurrency(totalInvestments)}</p>
-          <p className="text-xs text-muted-foreground mt-1">Avg {formatCurrency(avgMonthlyInvestment)} / mo</p>
+          <h3 className="text-sm font-medium text-muted-foreground">
+            Total Investments
+          </h3>
+          <p className="mt-2 text-2xl font-bold text-blue-500">
+            {formatCurrency(totalInvestments)}
+          </p>
+          <p className="mt-1 text-xs text-muted-foreground">
+            Avg {formatCurrency(avgMonthlyInvestment)} / mo
+          </p>
         </div>
         <div className="rounded-xl border bg-card p-6 text-card-foreground shadow">
-          <h3 className="text-sm font-medium text-muted-foreground">Net Cash Balance</h3>
-          <p className={`mt-2 text-2xl font-bold ${netCashBalance >= 0 ? 'text-emerald-500' : 'text-red-500'}`}>{formatCurrency(netCashBalance)}</p>
-          <p className="text-xs text-muted-foreground mt-1">Lifestyle: {formatCurrency(totalLifestyleExpense)}</p>
+          <h3 className="text-sm font-medium text-muted-foreground">
+            Net Cash Balance
+          </h3>
+          <p
+            className={`mt-2 text-2xl font-bold ${netCashBalance >= 0 ? "text-emerald-500" : "text-red-500"}`}
+          >
+            {formatCurrency(netCashBalance)}
+          </p>
+          <p className="mt-1 text-xs text-muted-foreground">
+            Lifestyle: {formatCurrency(totalLifestyleExpense)}
+          </p>
         </div>
       </div>
 
@@ -128,8 +153,8 @@ export default async function TransactionsPage() {
                 <TableCell
                   className={`text-right font-medium ${tx.type === "income" ? "text-emerald-500" : ""}`}
                 >
-                  {tx.type === "income" ? "+" : "-"}$
-                  {tx.amount.toLocaleString()}
+                  {tx.type === "income" ? "+" : "-"}
+                  {formatCurrency(tx.amount)}
                 </TableCell>
               </TableRow>
             ))}

@@ -1,3048 +1,2791 @@
-[
-  {
-    "month": "Jan",
-    "type": "Income",
-    "old_category": "Salary",
-    "new_category": "Income",
-    "tag": "income:salary",
-    "amount": "87465",
-    "note": "Jabir salary plus last month left over"
-  },
-  {
-    "month": "Jan",
-    "type": "Income",
-    "old_category": "Salary",
-    "new_category": "Income",
-    "tag": "income:salary",
-    "amount": "65371",
-    "note": "Rouna salary plus last month left over"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "278",
-    "note": "dinner"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "472",
-    "note": "dinner"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "249",
-    "note": "Cake"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Rent",
-    "new_category": "Housing",
-    "tag": "housing:rent",
-    "amount": "23000",
-    "note": "Rent"
-  },
-  {
-    "month": "Jan",
-    "type": "Transfer",
-    "old_category": "Investment",
-    "new_category": "Investments",
-    "tag": "invest:mutual-fund",
-    "amount": "10000",
-    "note": "Multicap + Midcap MF"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:snacks",
-    "amount": "135",
-    "note": "tea"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Transport",
-    "new_category": "Transport",
-    "tag": "transport:fuel",
-    "amount": "200",
-    "note": "petrol"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:groceries",
-    "amount": "399",
-    "note": "Lulu"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Shopping",
-    "new_category": "Family & Giving",
-    "tag": "giving:gift",
-    "amount": "6990",
-    "note": "Gift to wife",
-    "flag": "was-in-shopping; reclassified as gift"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Transport",
-    "new_category": "Transport",
-    "tag": "transport:parking",
-    "amount": "10",
-    "note": "Pay parking form mall"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Shopping",
-    "new_category": "Shopping",
-    "tag": "shopping:accessories",
-    "amount": "340",
-    "note": "Miniso"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "456",
-    "note": "Chaya pidiya"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:groceries",
-    "amount": "148",
-    "note": "Blinkit"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:delivery",
-    "amount": "136",
-    "note": "Swiggy"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "734",
-    "note": "Mac burger"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Shopping",
-    "new_category": "Shopping",
-    "tag": "shopping:clothing",
-    "amount": "950",
-    "note": "Slippers"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Shopping",
-    "new_category": "Shopping",
-    "tag": "shopping:home",
-    "amount": "720",
-    "note": "flowers",
-    "flag": "could-be-gift; verify"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "650",
-    "note": "Cake"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "494",
-    "note": "Ummis"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:snacks",
-    "amount": "140",
-    "note": "Peanut + aryaas"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Transport",
-    "new_category": "Transport",
-    "tag": "transport:fuel",
-    "amount": "200",
-    "note": "petrol"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "485",
-    "note": "urula"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:groceries",
-    "amount": "470",
-    "note": "egg+paneer etc"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:groceries",
-    "amount": "97",
-    "note": "vegies"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:delivery",
-    "amount": "418",
-    "note": "swiggy bektash"
-  },
-  {
-    "month": "Jan",
-    "type": "Transfer",
-    "old_category": "Investment",
-    "new_category": "Investments",
-    "tag": "invest:etf",
-    "amount": "7135",
-    "note": "Niftybees"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Entertainment",
-    "new_category": "Subscriptions",
-    "tag": "sub:streaming",
-    "amount": "195",
-    "note": "Youtube Premium"
-  },
-  {
-    "month": "Jan",
-    "type": "Transfer",
-    "old_category": "Investment",
-    "new_category": "Investments",
-    "tag": "invest:etf",
-    "amount": "3270",
-    "note": "Niftybees"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Utilities",
-    "new_category": "Housing",
-    "tag": "housing:water",
-    "amount": "140",
-    "note": "Water"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:cafeteria",
-    "amount": "82",
-    "note": "hungerbox"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:groceries",
-    "amount": "117",
-    "note": "banana+milk"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:delivery",
-    "amount": "316",
-    "note": "evening snack instamart"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Shopping",
-    "new_category": "Food",
-    "tag": "food:bakery",
-    "amount": "1100",
-    "note": "cake studio",
-    "flag": "reclassified-from-shopping; bakery purchase is food"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Insurance",
-    "new_category": "Insurance & Health",
-    "tag": "health:insurance",
-    "amount": "16959",
-    "note": "health insurance"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "EMI",
-    "new_category": "Debt Repayment",
-    "tag": "debt:kuri",
-    "amount": "10000",
-    "note": "kurri"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Misc",
-    "new_category": "Family & Giving",
-    "tag": "giving:unknown",
-    "amount": "5000",
-    "note": "zakarichas",
-    "flag": "manual-review-needed; zakarichas is unidentified; verify if debt-repayment or personal-transfer"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "EMI",
-    "new_category": "Debt Repayment",
-    "tag": "debt:gold-loan",
-    "amount": "3500",
-    "note": "gold emi"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "347",
-    "note": "Aryaas"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Utilities",
-    "new_category": "Subscriptions",
-    "tag": "sub:mobile",
-    "amount": "299",
-    "note": "Airtel reacharge"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "467",
-    "note": "momos"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:groceries",
-    "amount": "255",
-    "note": "blinkit"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:snacks",
-    "amount": "25",
-    "note": "lime"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:groceries",
-    "amount": "243",
-    "note": "instamart"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Shopping",
-    "tag": "shopping:home",
-    "amount": "266",
-    "note": "paper,paneer,robust",
-    "flag": "non-food-item-in-groceries; reclassified"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:snacks",
-    "amount": "40",
-    "note": "cashew"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Utilities",
-    "new_category": "Subscriptions",
-    "tag": "sub:mobile",
-    "amount": "33",
-    "note": "data recharge airtel"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "368",
-    "note": "chapathi curry"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:snacks",
-    "amount": "20",
-    "note": "cashew"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Family Support",
-    "new_category": "Family & Giving",
-    "tag": "giving:recharge",
-    "amount": "299",
-    "note": "umma recharge"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Family Support",
-    "new_category": "Family & Giving",
-    "tag": "giving:cash",
-    "amount": "5000",
-    "note": "Home Mom"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "412",
-    "note": "urla"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:groceries",
-    "amount": "356",
-    "note": "instamart"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Utilities",
-    "new_category": "Subscriptions",
-    "tag": "sub:mobile",
-    "amount": "299",
-    "note": "rouna recharge"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Household",
-    "new_category": "Shopping",
-    "tag": "shopping:home",
-    "amount": "998",
-    "note": "Pillow"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "500",
-    "note": "Lulu food"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:groceries",
-    "amount": "851",
-    "note": "Lulu groceries"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Shopping",
-    "new_category": "Shopping",
-    "tag": "shopping:accessories",
-    "amount": "750",
-    "note": "miniso bottle"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:groceries",
-    "amount": "126",
-    "note": "chicken"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Transport",
-    "new_category": "Transport",
-    "tag": "transport:fuel",
-    "amount": "200",
-    "note": "Petrol"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:snacks",
-    "amount": "45",
-    "note": "lime and nuts"
-  },
-  {
-    "month": "Jan",
-    "type": "Transfer",
-    "old_category": "Investment",
-    "new_category": "Investments",
-    "tag": "invest:etf",
-    "amount": "2349",
-    "note": "Niftybees"
-  },
-  {
-    "month": "Jan",
-    "type": "Transfer",
-    "old_category": "Investment",
-    "new_category": "Investments",
-    "tag": "invest:mutual-fund",
-    "amount": "500",
-    "note": "Midcap"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "416",
-    "note": "Urula"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Shopping",
-    "new_category": "Shopping",
-    "tag": "shopping:electronics",
-    "amount": "727",
-    "note": "mouse socket mobile holder"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:groceries",
-    "amount": "427",
-    "note": "momos cucumber avial robust"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:snacks",
-    "amount": "30",
-    "note": "peanut"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:snacks",
-    "amount": "20",
-    "note": "nuts"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "180",
-    "note": "paneer butter"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:groceries",
-    "amount": "355",
-    "note": "momos"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:groceries",
-    "amount": "299",
-    "note": "momos home"
-  },
-  {
-    "month": "Jan",
-    "type": "Transfer",
-    "old_category": "Investment",
-    "new_category": "Investments",
-    "tag": "invest:mutual-fund",
-    "amount": "3500",
-    "note": "Flexi cap"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "87",
-    "note": "chapathi paneer"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "192",
-    "note": "Kulcha samoosa"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:snacks",
-    "amount": "20",
-    "note": "nuts"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "120",
-    "note": "chapathi gobi"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Transport",
-    "new_category": "Transport",
-    "tag": "transport:train",
-    "amount": "172",
-    "note": "train from tvc north"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Transport",
-    "new_category": "Transport",
-    "tag": "transport:train",
-    "amount": "1817",
-    "note": "train tickets for rouna"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "257",
-    "note": "Aryaas"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:groceries",
-    "amount": "556",
-    "note": "zepto"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Health",
-    "new_category": "Insurance & Health",
-    "tag": "health:pharmacy",
-    "amount": "32",
-    "note": "dollo"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Utilities",
-    "new_category": "Housing",
-    "tag": "housing:water",
-    "amount": "140",
-    "note": "Water"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "362",
-    "note": "Bektash"
-  },
-  {
-    "month": "Jan",
-    "type": "Transfer",
-    "old_category": "Investment",
-    "new_category": "Investments",
-    "tag": "invest:mutual-fund",
-    "amount": "11500",
-    "note": "Flexi cap"
-  },
-  {
-    "month": "Jan",
-    "type": "Transfer",
-    "old_category": "Investment",
-    "new_category": "Investments",
-    "tag": "invest:mutual-fund",
-    "amount": "10000",
-    "note": "Midcap"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "45",
-    "note": "puttu egg curry"
-  },
-  {
-    "month": "Jan",
-    "type": "Transfer",
-    "old_category": "Investment",
-    "new_category": "Investments",
-    "tag": "invest:etf",
-    "amount": "3450",
-    "note": "Niftybees"
-  },
-  {
-    "month": "Jan",
-    "type": "Income",
-    "old_category": "Other Income",
-    "new_category": "Income",
-    "tag": "income:other",
-    "amount": "7300",
-    "note": "From Hdfc debt cashback",
-    "flag": "cashback-not-income; offset against expenses instead"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "260",
-    "note": "Thal"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "182",
-    "note": "alfaham RB"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "400",
-    "note": "bektash"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:groceries",
-    "amount": "243",
-    "note": "blinkit"
-  },
-  {
-    "month": "Jan",
-    "type": "Transfer",
-    "old_category": "Investment",
-    "new_category": "Investments",
-    "tag": "invest:etf",
-    "amount": "3000",
-    "note": "Niftybees"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Utilities",
-    "new_category": "Housing",
-    "tag": "housing:maintenance",
-    "amount": "60",
-    "note": "plastic waste"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "184",
-    "note": "Idili vada"
-  },
-  {
-    "month": "Jan",
-    "type": "Transfer",
-    "old_category": "Investment",
-    "new_category": "Investments",
-    "tag": "invest:etf",
-    "amount": "2000",
-    "note": "Niftybees"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:cafeteria",
-    "amount": "45",
-    "note": "hungerbox"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Utilities",
-    "new_category": "Subscriptions",
-    "tag": "sub:mobile",
-    "amount": "49",
-    "note": "recharge data"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:cafeteria",
-    "amount": "65",
-    "note": "hungerbox"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "180",
-    "note": "dragon chicken"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:groceries",
-    "amount": "216",
-    "note": "zepto"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "242",
-    "note": "bullet idilli"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Utilities",
-    "new_category": "Housing",
-    "tag": "housing:electricity",
-    "amount": "474",
-    "note": "Electricity"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "242",
-    "note": "gobi chapathi"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Utilities",
-    "new_category": "Housing",
-    "tag": "housing:electricity",
-    "amount": "178",
-    "note": "Electricity"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "32",
-    "note": "idly"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "127",
-    "note": "umma CB"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "145",
-    "note": "food court"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:snacks",
-    "amount": "37",
-    "note": "tea"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:snacks",
-    "amount": "40",
-    "note": "nuts"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:groceries",
-    "amount": "270",
-    "note": "momos"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Personal Care",
-    "new_category": "Shopping",
-    "tag": "shopping:personal-care",
-    "amount": "350",
-    "note": "Hair cut"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "651",
-    "note": "Urula"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:snacks",
-    "amount": "185",
-    "note": "Tea"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:snacks",
-    "amount": "180",
-    "note": "Juice"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Entertainment",
-    "new_category": "Entertainment",
-    "tag": "ent:movie",
-    "amount": "487",
-    "note": "Movie"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:snacks",
-    "amount": "150",
-    "note": "Movie snacks"
-  },
-  {
-    "month": "Jan",
-    "type": "Income",
-    "old_category": "Other Income",
-    "new_category": "Income",
-    "tag": "income:other",
-    "amount": "3640",
-    "note": "Exchange Ringgets",
-    "flag": "currency-exchange-surplus; one-time event"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "535",
-    "note": "thaal"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:snacks",
-    "amount": "40",
-    "note": "peanut"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "223",
-    "note": "masala dosa"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:delivery",
-    "amount": "223",
-    "note": "zomato"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Transport",
-    "new_category": "Transport",
-    "tag": "transport:fuel",
-    "amount": "365",
-    "note": "petrol"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Shopping",
-    "tag": "shopping:home",
-    "amount": "244",
-    "note": "ujala",
-    "flag": "non-food-item-in-groceries; reclassified"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "225",
-    "note": "Kovai bavan"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "415",
-    "note": "Royal bakers"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:snacks",
-    "amount": "40",
-    "note": "Lime"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Transport",
-    "new_category": "Transport",
-    "tag": "transport:fuel",
-    "amount": "100",
-    "note": "Petrol"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Transport",
-    "new_category": "Transport",
-    "tag": "transport:cab",
-    "amount": "320",
-    "note": "Uber"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Transport",
-    "new_category": "Transport",
-    "tag": "transport:train",
-    "amount": "85",
-    "note": "Train"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:snacks",
-    "amount": "56",
-    "note": "masala dosa Tea"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "102",
-    "note": "chapathi chkn"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Transport",
-    "new_category": "Transport",
-    "tag": "transport:cab",
-    "amount": "307",
-    "note": "uber"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "140",
-    "note": "roasted biriyani"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "220",
-    "note": "kissa alfarm"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "40",
-    "note": "Royal bakers"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "140",
-    "note": "chapathi gobi"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "140",
-    "note": "roasted biriyani"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:snacks",
-    "amount": "38",
-    "note": "tea"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:snacks",
-    "amount": "21",
-    "note": "lime"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Shopping",
-    "tag": "shopping:home",
-    "amount": "260",
-    "note": "spray",
-    "flag": "non-food-item-in-groceries; reclassified"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "196",
-    "note": "meal"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "764",
-    "note": "mandhi"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Shopping",
-    "new_category": "Shopping",
-    "tag": "shopping:accessories",
-    "amount": "543",
-    "note": "shopprix"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Utilities",
-    "new_category": "Housing",
-    "tag": "housing:electricity",
-    "amount": "1053",
-    "note": "Electricity"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "187",
-    "note": "shavai"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Transport",
-    "new_category": "Transport",
-    "tag": "transport:metro",
-    "amount": "30",
-    "note": "metro"
-  },
-  {
-    "month": "Jan",
-    "type": "Expense",
-    "old_category": "Transport",
-    "new_category": "Transport",
-    "tag": "transport:cab",
-    "amount": "192",
-    "note": "uber"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "343",
-    "note": "bektash"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Transport",
-    "new_category": "Transport",
-    "tag": "transport:cab",
-    "amount": "319",
-    "note": "uber"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "252",
-    "note": "urula"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Transport",
-    "new_category": "Transport",
-    "tag": "transport:fuel",
-    "amount": "200",
-    "note": "petrol"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Family Support",
-    "new_category": "Family & Giving",
-    "tag": "giving:cash",
-    "amount": "10000",
-    "note": "home rb"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Gifts",
-    "new_category": "Family & Giving",
-    "tag": "giving:gift",
-    "amount": "1091",
-    "note": "gift+exhibition"
-  },
-  {
-    "month": "Feb",
-    "type": "Income",
-    "old_category": "Salary",
-    "new_category": "Income",
-    "tag": "income:salary",
-    "amount": "83200",
-    "note": "jb"
-  },
-  {
-    "month": "Feb",
-    "type": "Income",
-    "old_category": "Salary",
-    "new_category": "Income",
-    "tag": "income:salary",
-    "amount": "65979",
-    "note": "rb"
-  },
-  {
-    "month": "Feb",
-    "type": "Transfer",
-    "old_category": "Investment",
-    "new_category": "Investments",
-    "tag": "invest:mutual-fund",
-    "amount": "30000",
-    "note": "split across instruments"
-  },
-  {
-    "month": "Feb",
-    "type": "Income",
-    "old_category": "Other Income",
-    "new_category": "Income",
-    "tag": "income:other",
-    "amount": "1330",
-    "note": "in hand",
-    "flag": "unclear-source; add detail"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "998",
-    "note": "1947 hotel"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:groceries",
-    "amount": "2091",
-    "note": "Instamart"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Household",
-    "new_category": "Shopping",
-    "tag": "shopping:home",
-    "amount": "354",
-    "note": "container + oil can"
-  },
-  {
-    "month": "Feb",
-    "type": "Transfer",
-    "old_category": "Investment",
-    "new_category": "Investments",
-    "tag": "invest:etf",
-    "amount": "10030",
-    "note": "Niftybees+Niftygold"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Rent",
-    "new_category": "Housing",
-    "tag": "housing:rent",
-    "amount": "23000",
-    "note": "rent"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Utilities",
-    "new_category": "Housing",
-    "tag": "housing:water",
-    "amount": "140",
-    "note": "Water"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:groceries",
-    "amount": "1085",
-    "note": "vegies"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:groceries",
-    "amount": "153",
-    "note": "milk soda coriander"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Shopping",
-    "new_category": "Shopping",
-    "tag": "shopping:electronics",
-    "amount": "1075",
-    "note": "keyboard hdmi converter"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Utilities",
-    "new_category": "Subscriptions",
-    "tag": "sub:mobile",
-    "amount": "299",
-    "note": "Mobile"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "57",
-    "note": "puttu egg curry"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:snacks",
-    "amount": "80",
-    "note": "nuts"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Shopping",
-    "tag": "shopping:books",
-    "amount": "224",
-    "note": "milk pen book",
-    "flag": "book-ordered-via-zepto; miscoded-as-groceries"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Shopping",
-    "tag": "shopping:home",
-    "amount": "455",
-    "note": "pad ktchn items",
-    "flag": "household-items-miscoded-as-groceries"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:snacks",
-    "amount": "12",
-    "note": "tea"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Utilities",
-    "new_category": "Subscriptions",
-    "tag": "sub:mobile",
-    "amount": "299",
-    "note": "rb rchrg"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "460",
-    "note": "Bektash"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Shopping",
-    "new_category": "Shopping",
-    "tag": "shopping:electronics",
-    "amount": "599",
-    "note": "Debug media"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "398",
-    "note": "Tharavad"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Shopping",
-    "new_category": "Shopping",
-    "tag": "shopping:home",
-    "amount": "1993",
-    "note": "DIY"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:groceries",
-    "amount": "602",
-    "note": "zepto"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Family Support",
-    "new_category": "Family & Giving",
-    "tag": "giving:recharge",
-    "amount": "299",
-    "note": "Mom recharge"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "519",
-    "note": "Chaya pedia"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "620",
-    "note": "Urula"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Transport",
-    "new_category": "Transport",
-    "tag": "transport:fuel",
-    "amount": "200",
-    "note": "Petrol"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Entertainment",
-    "new_category": "Entertainment",
-    "tag": "ent:movie",
-    "amount": "541",
-    "note": "Movie"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Shopping",
-    "tag": "shopping:books",
-    "amount": "99",
-    "note": "zepto - book",
-    "flag": "book-ordered-via-zepto; miscoded-as-groceries"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Shopping",
-    "new_category": "Subscriptions",
-    "tag": "sub:job-portal",
-    "amount": "2776",
-    "note": "naukri",
-    "flag": "miscoded-as-shopping; naukri is a subscription"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:groceries",
-    "amount": "567",
-    "note": "Momo icecream chapathi banana"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "EMI",
-    "new_category": "Debt Repayment",
-    "tag": "debt:kuri",
-    "amount": "10000",
-    "note": "Kuri"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Shopping",
-    "tag": "shopping:home",
-    "amount": "269",
-    "note": "Glue snacks",
-    "flag": "non-food-item-in-groceries; reclassified"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:groceries",
-    "amount": "35",
-    "note": "vending machine cake"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "164",
-    "note": "bektash"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "45",
-    "note": "upmav"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Gifts",
-    "new_category": "Family & Giving",
-    "tag": "giving:gift",
-    "amount": "894",
-    "note": "cake"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:delivery",
-    "amount": "184",
-    "note": "zomato"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Utilities",
-    "new_category": "Housing",
-    "tag": "housing:water",
-    "amount": "140",
-    "note": "water"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "435",
-    "note": "urula"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:groceries",
-    "amount": "1082",
-    "note": "zepto"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:groceries",
-    "amount": "201",
-    "note": "zepto"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:cafeteria",
-    "amount": "60",
-    "note": "hungerbox"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:groceries",
-    "amount": "99",
-    "note": "zepto"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:delivery",
-    "amount": "267",
-    "note": "swiggy"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "340",
-    "note": "bektash"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "118",
-    "note": "aryaas"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "714",
-    "note": "tharavad"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:groceries",
-    "amount": "1525",
-    "note": "bismi"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Personal Care",
-    "new_category": "Shopping",
-    "tag": "shopping:personal-care",
-    "amount": "350",
-    "note": "hair cut"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:groceries",
-    "amount": "149",
-    "note": "zepto"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Health",
-    "new_category": "Insurance & Health",
-    "tag": "health:medical",
-    "amount": "262",
-    "note": "medical"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "156",
-    "note": "bektash"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "176",
-    "note": "bektash"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "178",
-    "note": "dragon chicken"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:groceries",
-    "amount": "639",
-    "note": "zepto"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:delivery",
-    "amount": "157",
-    "note": "zomato"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:delivery",
-    "amount": "213",
-    "note": "zomato"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:cafeteria",
-    "amount": "65",
-    "note": "hungerbox"
-  },
-  {
-    "month": "Feb",
-    "type": "Transfer",
-    "old_category": "Investment",
-    "new_category": "Investments",
-    "tag": "invest:community-savings",
-    "amount": "500",
-    "note": "ayalkootam",
-    "flag": "community-savings-circle; not a market investment; reclassify if non-recoverable"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Transport",
-    "new_category": "Transport",
-    "tag": "transport:fuel",
-    "amount": "100",
-    "note": "petrol"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:groceries",
-    "amount": "24",
-    "note": "market"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:groceries",
-    "amount": "32",
-    "note": "market"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Gifts",
-    "new_category": "Family & Giving",
-    "tag": "giving:gift",
-    "amount": "1200",
-    "note": "jc gift"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:groceries",
-    "amount": "195",
-    "note": "egg"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:groceries",
-    "amount": "200",
-    "note": "fruits"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:groceries",
-    "amount": "1601",
-    "note": "ajfan"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "681",
-    "note": "voyager"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:groceries",
-    "amount": "268",
-    "note": "Royal bakers"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Utilities",
-    "new_category": "Housing",
-    "tag": "housing:maintenance",
-    "amount": "60",
-    "note": "plastic waste"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Utilities",
-    "new_category": "Subscriptions",
-    "tag": "sub:internet",
-    "amount": "707",
-    "note": "wifi jio"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:groceries",
-    "amount": "2275",
-    "note": "lulu"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Transport",
-    "new_category": "Transport",
-    "tag": "transport:fuel",
-    "amount": "200",
-    "note": "petrol"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:groceries",
-    "amount": "406",
-    "note": "zepto"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Household",
-    "new_category": "Shopping",
-    "tag": "shopping:home",
-    "amount": "147",
-    "note": "flipkart"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Household",
-    "new_category": "Shopping",
-    "tag": "shopping:home",
-    "amount": "518",
-    "note": "Mop"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:groceries",
-    "amount": "590",
-    "note": "zepto"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Utilities",
-    "new_category": "Housing",
-    "tag": "housing:water",
-    "amount": "140",
-    "note": "water"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "555",
-    "note": "Chaya pedia"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Family Support",
-    "new_category": "Family & Giving",
-    "tag": "giving:cash",
-    "amount": "3000",
-    "note": "uppupa"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:groceries",
-    "amount": "166",
-    "note": "zepto"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:cafeteria",
-    "amount": "130",
-    "note": "hungerbox"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:delivery",
-    "amount": "317",
-    "note": "zomato"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:groceries",
-    "amount": "198",
-    "note": "zepto"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Personal Care",
-    "new_category": "Shopping",
-    "tag": "shopping:personal-care",
-    "amount": "767",
-    "note": "purple"
-  },
-  {
-    "month": "Feb",
-    "type": "Expense",
-    "old_category": "Transport",
-    "new_category": "Transport",
-    "tag": "transport:train",
-    "amount": "1195",
-    "note": "train"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:groceries",
-    "amount": "248",
-    "note": "central bazar"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Rent",
-    "new_category": "Housing",
-    "tag": "housing:rent",
-    "amount": "23000",
-    "note": "rent"
-  },
-  {
-    "month": "Mar",
-    "type": "Income",
-    "old_category": "Salary",
-    "new_category": "Income",
-    "tag": "income:salary",
-    "amount": "83200",
-    "note": "jb salary"
-  },
-  {
-    "month": "Mar",
-    "type": "Income",
-    "old_category": "Salary",
-    "new_category": "Income",
-    "tag": "income:salary",
-    "amount": "80410",
-    "note": "rb salary"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:groceries",
-    "amount": "493",
-    "note": "angaadi"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Transport",
-    "new_category": "Transport",
-    "tag": "transport:fuel",
-    "amount": "200",
-    "note": "petrol"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:groceries",
-    "amount": "190",
-    "note": "egg"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:delivery",
-    "amount": "328",
-    "note": "swiggy"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "687",
-    "note": "bektash"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Entertainment",
-    "new_category": "Subscriptions",
-    "tag": "sub:streaming",
-    "amount": "195",
-    "note": "youtube premium"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "770",
-    "note": "arabian palace"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Shopping",
-    "new_category": "Shopping",
-    "tag": "shopping:home",
-    "amount": "1253",
-    "note": "dicuts"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "337",
-    "note": "scroll food"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Family Support",
-    "new_category": "Family & Giving",
-    "tag": "giving:cash",
-    "amount": "10000",
-    "note": "home rb"
-  },
-  {
-    "month": "Mar",
-    "type": "Transfer",
-    "old_category": "Investment",
-    "new_category": "Investments",
-    "tag": "invest:community-savings",
-    "amount": "500",
-    "note": "ayalkootam",
-    "flag": "community-savings-circle; not a market investment; reclassify if non-recoverable"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Gifts",
-    "new_category": "Family & Giving",
-    "tag": "giving:gift",
-    "amount": "600",
-    "note": "cake zafar"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:groceries",
-    "amount": "541",
-    "note": "zepto"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:delivery",
-    "amount": "332",
-    "note": "swiggy"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:groceries",
-    "amount": "172",
-    "note": "zepto"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:delivery",
-    "amount": "270",
-    "note": "swiggy"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:groceries",
-    "amount": "276",
-    "note": "zepto"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Utilities",
-    "new_category": "Subscriptions",
-    "tag": "sub:mobile",
-    "amount": "301",
-    "note": "recharge data"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "90",
-    "note": "aryaas"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:groceries",
-    "amount": "257",
-    "note": "Instamart"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:groceries",
-    "amount": "339",
-    "note": "zepto"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:cafeteria",
-    "amount": "90",
-    "note": "hungerbox"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:delivery",
-    "amount": "225",
-    "note": "zomato"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Utilities",
-    "new_category": "Housing",
-    "tag": "housing:misc",
-    "amount": "299",
-    "note": "reacharge"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Shopping",
-    "new_category": "Shopping",
-    "tag": "shopping:accessories",
-    "amount": "87",
-    "note": "meesho"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:groceries",
-    "amount": "192",
-    "note": "zepto"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "184",
-    "note": "meet barrel"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Gifts",
-    "new_category": "Family & Giving",
-    "tag": "giving:gift",
-    "amount": "200",
-    "note": "mothers day"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Gifts",
-    "new_category": "Family & Giving",
-    "tag": "giving:gift",
-    "amount": "224",
-    "note": "mothers day"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:delivery",
-    "amount": "288",
-    "note": "zomato"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:delivery",
-    "amount": "157",
-    "note": "zomato"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:groceries",
-    "amount": "376",
-    "note": "zepto"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:delivery",
-    "amount": "291",
-    "note": "zomato"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:delivery",
-    "amount": "187",
-    "note": "zomato"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:groceries",
-    "amount": "833",
-    "note": "zepto"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Transport",
-    "new_category": "Transport",
-    "tag": "transport:cab",
-    "amount": "230",
-    "note": "uber"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:groceries",
-    "amount": "76",
-    "note": "smart"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Gifts",
-    "new_category": "Family & Giving",
-    "tag": "giving:gift",
-    "amount": "250",
-    "note": "thattam"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Gifts",
-    "new_category": "Family & Giving",
-    "tag": "giving:gift",
-    "amount": "2624",
-    "note": "uppa dress"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Utilities",
-    "new_category": "Housing",
-    "tag": "housing:water",
-    "amount": "140",
-    "note": "water"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:delivery",
-    "amount": "212",
-    "note": "zomato"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Transport",
-    "new_category": "Transport",
-    "tag": "transport:fuel",
-    "amount": "200",
-    "note": "petrol"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Shopping",
-    "new_category": "Shopping",
-    "tag": "shopping:services",
-    "amount": "120",
-    "note": "photo"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Shopping",
-    "new_category": "Shopping",
-    "tag": "shopping:services",
-    "amount": "80",
-    "note": "scan document"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "200",
-    "note": "chaya peedia"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Shopping",
-    "new_category": "Shopping",
-    "tag": "shopping:home",
-    "amount": "293",
-    "note": "MR DIY"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "502",
-    "note": "popoyees"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Shopping",
-    "new_category": "Shopping",
-    "tag": "shopping:clothing",
-    "amount": "1898",
-    "note": "dress rare nd basic"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:groceries",
-    "amount": "341",
-    "note": "Instamart"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "510",
-    "note": "ella"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Personal Care",
-    "new_category": "Shopping",
-    "tag": "shopping:personal-care",
-    "amount": "350",
-    "note": "hair cut"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:groceries",
-    "amount": "504",
-    "note": "groceries"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:groceries",
-    "amount": "331",
-    "note": "zepto"
-  },
-  {
-    "month": "Mar",
-    "type": "Transfer",
-    "old_category": "Investment",
-    "new_category": "Investments",
-    "tag": "invest:stocks",
-    "amount": "5000",
-    "note": "zerodha"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "69",
-    "note": "food railway"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Gifts",
-    "new_category": "Family & Giving",
-    "tag": "giving:gift",
-    "amount": "200",
-    "note": "thanu isha candy"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "80",
-    "note": "food kulki"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:snacks",
-    "amount": "40",
-    "note": "water for rb"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Personal Care",
-    "new_category": "Shopping",
-    "tag": "shopping:personal-care",
-    "amount": "49",
-    "note": "gel"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Gifts",
-    "new_category": "Family & Giving",
-    "tag": "giving:gift",
-    "amount": "5600",
-    "note": "dress parents"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Gifts",
-    "new_category": "Family & Giving",
-    "tag": "giving:gift",
-    "amount": "2800",
-    "note": "babys"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:groceries",
-    "amount": "230",
-    "note": "groceries"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:groceries",
-    "amount": "175",
-    "note": "groceries"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:snacks",
-    "amount": "99",
-    "note": "ice cream"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "35",
-    "note": "uppil ittath"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "542",
-    "note": "palooda"
-  },
-  {
-    "month": "Mar",
-    "type": "Transfer",
-    "old_category": "Loans Given",
-    "new_category": "Family & Giving",
-    "tag": "giving:loan",
-    "amount": "15000",
-    "note": "favasini kadam koduthath",
-    "flag": "loan-given; track as receivable if expecting return, else treat as Family & Giving expense"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Shopping",
-    "new_category": "Shopping",
-    "tag": "shopping:clothing",
-    "amount": "4500",
-    "note": "rouna dress"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Shopping",
-    "new_category": "Shopping",
-    "tag": "shopping:clothing",
-    "amount": "3250",
-    "note": "jb dress"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Transport",
-    "new_category": "Transport",
-    "tag": "transport:cab",
-    "amount": "250",
-    "note": "go ec"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "1107",
-    "note": "MRA"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "120",
-    "note": "charandii"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Transport",
-    "new_category": "Transport",
-    "tag": "transport:cab",
-    "amount": "650",
-    "note": "go ec"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Gifts",
-    "new_category": "Family & Giving",
-    "tag": "giving:gift",
-    "amount": "520",
-    "note": "thattam"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Gifts",
-    "new_category": "Family & Giving",
-    "tag": "giving:gift",
-    "amount": "1030",
-    "note": "cherup mylanchi"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Gifts",
-    "new_category": "Family & Giving",
-    "tag": "giving:gift",
-    "amount": "2100",
-    "note": "rihan dress"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Family Support",
-    "new_category": "Family & Giving",
-    "tag": "giving:cash",
-    "amount": "5000",
-    "note": "jb mom"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "EMI",
-    "new_category": "Debt Repayment",
-    "tag": "debt:gold-loan",
-    "amount": "7000",
-    "note": "gold loan"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "EMI",
-    "new_category": "Debt Repayment",
-    "tag": "debt:kuri",
-    "amount": "10000",
-    "note": "kurri"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Groceries",
-    "new_category": "Food",
-    "tag": "food:groceries",
-    "amount": "180",
-    "note": "kubus"
-  },
-  {
-    "month": "Mar",
-    "type": "Transfer",
-    "old_category": "Investment",
-    "new_category": "Investments",
-    "tag": "invest:stocks",
-    "amount": "10000",
-    "note": "coin",
-    "flag": "verify-instrument; coin could be zerodha coin (MF) or crypto"
-  },
-  {
-    "month": "Mar",
-    "type": "Income",
-    "old_category": "Other Income",
-    "new_category": "Income",
-    "tag": "income:other",
-    "amount": "4233",
-    "note": "not sure",
-    "flag": "source-unknown; verify and recategorize"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Shopping",
-    "new_category": "Family & Giving",
-    "tag": "giving:gift",
-    "amount": "1035",
-    "note": "ice cream rishu",
-    "flag": "bought-for-someone; reclassified from shopping"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Transport",
-    "new_category": "Transport",
-    "tag": "transport:cab",
-    "amount": "250",
-    "note": "Go Ec"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:snacks",
-    "amount": "20",
-    "note": "water"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Dining",
-    "new_category": "Food",
-    "tag": "food:restaurant",
-    "amount": "1243",
-    "note": "MRA"
-  },
-  {
-    "month": "Mar",
-    "type": "Expense",
-    "old_category": "Shopping",
-    "new_category": "Family & Giving",
-    "tag": "giving:gift",
-    "amount": "2140",
-    "note": "umma dress nd rb",
-    "flag": "was-in-shopping; reclassified as gift"
-  },
-  {
-    "month": "Mar",
-    "type": "Transfer",
-    "old_category": "Investment",
-    "new_category": "Investments",
-    "tag": "invest:etf",
-    "amount": "10000",
-    "note": "Niftybees"
-  },
-  {
-    "month": "Mar",
-    "type": "Transfer",
-    "old_category": "Investment",
-    "new_category": "Investments",
-    "tag": "invest:mutual-fund",
-    "amount": "10000",
-    "note": "mutual fund"
-  }
-]
+{
+  "transactions": [
+    {
+      "month": "Jan",
+      "type": "income",
+      "category_id": 1,
+      "category_name": "Salary",
+      "amount": "87465",
+      "note": "Jabir salary plus last month left over"
+    },
+    {
+      "month": "Jan",
+      "type": "income",
+      "category_id": 1,
+      "category_name": "Salary",
+      "amount": "65371",
+      "note": "Rouna salary plus last month left over"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "278",
+      "note": "dinner"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "472",
+      "note": "dinner"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 13,
+      "category_name": "Food",
+      "amount": "249",
+      "note": "Cake",
+      "issue": "AMBIGUOUS - Could be Food if you ate it, or Gifts if for celebration"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 4,
+      "category_name": "Housing",
+      "amount": "23000",
+      "note": "Rent"
+    },
+    {
+      "month": "Jan",
+      "type": "transfer",
+      "category_id": 15,
+      "category_name": "Investments",
+      "amount": "10000",
+      "note": "Multicap + Midcap MF"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "135",
+      "note": "tea"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 7,
+      "category_name": "Transportation",
+      "amount": "200",
+      "note": "petrol"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "399",
+      "note": "Lulu"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 13,
+      "category_name": "Family & Gifts",
+      "amount": "6990",
+      "note": "Gift to wife"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 7,
+      "category_name": "Transportation",
+      "amount": "10",
+      "note": "Pay parking form mall"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 11,
+      "category_name": "Shopping",
+      "amount": "340",
+      "note": "Miniso"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "456",
+      "note": "Chaya pidiya"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "148",
+      "note": "Blinkit"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "136",
+      "note": "Swiggy"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "734",
+      "note": "Mac burger"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 9,
+      "category_name": "Personal Care",
+      "amount": "950",
+      "note": "Slippers"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 4,
+      "category_name": "Family & Gifts",
+      "amount": "720",
+      "note": "flowers"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 13,
+      "category_name": "Family & Gifts",
+      "amount": "650",
+      "note": "Cake"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "494",
+      "note": "Ummis"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "140",
+      "note": "Peanut + aryaas"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 7,
+      "category_name": "Transportation",
+      "amount": "200",
+      "note": "petrol"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "485",
+      "note": "urula"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "470",
+      "note": "egg+paneer etc"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "97",
+      "note": "vegies"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "418",
+      "note": "swiggy bektash"
+    },
+    {
+      "month": "Jan",
+      "type": "transfer",
+      "category_id": 15,
+      "category_name": "Investments",
+      "amount": "7135",
+      "note": "Niftybees"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 10,
+      "category_name": "Entertainment & Subscriptions",
+      "amount": "195",
+      "note": "Youtube Premium"
+    },
+    {
+      "month": "Jan",
+      "type": "transfer",
+      "category_id": 15,
+      "category_name": "Investments",
+      "amount": "3270",
+      "note": "Niftybees"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 5,
+      "category_name": "Utilities",
+      "amount": "140",
+      "note": "Water"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "82",
+      "note": "hungerbox"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "117",
+      "note": "banana+milk"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "316",
+      "note": "evening snack instamart"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 13,
+      "category_name": "Family & Gifts",
+      "amount": "1100",
+      "note": "cake studio"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 8,
+      "category_name": "Healthcare",
+      "amount": "16959",
+      "note": "health insurance"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 12,
+      "category_name": "Debt Payments",
+      "amount": "10000",
+      "note": "kurri"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 13,
+      "category_name": "Family & Gifts",
+      "amount": "5000",
+      "note": "zakarichas gave kurri money early so i rolled it then during kurri i had to repay"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 12,
+      "category_name": "Debt Payments",
+      "amount": "3500",
+      "note": "gold emi"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "347",
+      "note": "Aryaas"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 5,
+      "category_name": "Utilities",
+      "amount": "299",
+      "note": "Airtel reacharge"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "467",
+      "note": "momos"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "255",
+      "note": "blinkit"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "25",
+      "note": "lime"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "243",
+      "note": "instamart"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "266",
+      "note": "paper,paneer,robust"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "40",
+      "note": "cashew"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 5,
+      "category_name": "Utilities",
+      "amount": "33",
+      "note": "data recharge airtel"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "368",
+      "note": "chapathi curry"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "20",
+      "note": "cashew"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 13,
+      "category_name": "Family & Gifts",
+      "amount": "299",
+      "note": "umma recharge"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 13,
+      "category_name": "Family & Gifts",
+      "amount": "5000",
+      "note": "Home Mom"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "412",
+      "note": "urla"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "356",
+      "note": "instamart"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 5,
+      "category_name": "Utilities",
+      "amount": "299",
+      "note": "rouna recharge"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 4,
+      "category_name": "Housing",
+      "amount": "998",
+      "note": "Pillow"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "500",
+      "note": "Lulu food"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "851",
+      "note": "Lulu groceries"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 11,
+      "category_name": "Shopping",
+      "amount": "750",
+      "note": "miniso bottle"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "126",
+      "note": "chicken"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 7,
+      "category_name": "Transportation",
+      "amount": "200",
+      "note": "Petrol"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "45",
+      "note": "lime and nuts"
+    },
+    {
+      "month": "Jan",
+      "type": "transfer",
+      "category_id": 15,
+      "category_name": "Investments",
+      "amount": "2349",
+      "note": "Niftybees"
+    },
+    {
+      "month": "Jan",
+      "type": "transfer",
+      "category_id": 15,
+      "category_name": "Investments",
+      "amount": "500",
+      "note": "Midcap"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "416",
+      "note": "Urula"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 11,
+      "category_name": "Shopping",
+      "amount": "727",
+      "note": "mouse socket mobile holder"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "427",
+      "note": "momos cucumber avial robust"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "30",
+      "note": "peanut"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "20",
+      "note": "nuts"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "180",
+      "note": "paneer butter"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "355",
+      "note": "momos"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "299",
+      "note": "momos home"
+    },
+    {
+      "month": "Jan",
+      "type": "transfer",
+      "category_id": 15,
+      "category_name": "Investments",
+      "amount": "3500",
+      "note": "Flexi cap"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "87",
+      "note": "chapathi paneer"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "192",
+      "note": "Kulcha samoosa"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "20",
+      "note": "nuts"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "120",
+      "note": "chapathi gobi"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 7,
+      "category_name": "Transportation",
+      "amount": "172",
+      "note": "train from tvc north"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 7,
+      "category_name": "Transportation",
+      "amount": "1817",
+      "note": "train tickets for rouna"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "257",
+      "note": "Aryaas"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "556",
+      "note": "zepto"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 8,
+      "category_name": "Healthcare",
+      "amount": "32",
+      "note": "dollo"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 5,
+      "category_name": "Utilities",
+      "amount": "140",
+      "note": "Water"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "362",
+      "note": "Bektash"
+    },
+    {
+      "month": "Jan",
+      "type": "transfer",
+      "category_id": 15,
+      "category_name": "Investments",
+      "amount": "11500",
+      "note": "Flexi cap"
+    },
+    {
+      "month": "Jan",
+      "type": "transfer",
+      "category_id": 15,
+      "category_name": "Investments",
+      "amount": "10000",
+      "note": "Midcap"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "45",
+      "note": "puttu egg curry"
+    },
+    {
+      "month": "Jan",
+      "type": "transfer",
+      "category_id": 15,
+      "category_name": "Investments",
+      "amount": "3450",
+      "note": "Niftybees"
+    },
+    {
+      "month": "Jan",
+      "type": "income",
+      "category_id": 2,
+      "category_name": "Other Income",
+      "amount": "7300",
+      "note": "From Hdfc debt cashback"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "260",
+      "note": "Thal"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "182",
+      "note": "alfaham RB"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "400",
+      "note": "bektash"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "243",
+      "note": "blinkit"
+    },
+    {
+      "month": "Jan",
+      "type": "transfer",
+      "category_id": 15,
+      "category_name": "Investments",
+      "amount": "3000",
+      "note": "Niftybees"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 5,
+      "category_name": "Utilities",
+      "amount": "60",
+      "note": "plastic waste"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "184",
+      "note": "Idili vada"
+    },
+    {
+      "month": "Jan",
+      "type": "transfer",
+      "category_id": 15,
+      "category_name": "Investments",
+      "amount": "2000",
+      "note": "Niftybees"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "45",
+      "note": "hungerbox"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 5,
+      "category_name": "Utilities",
+      "amount": "49",
+      "note": "recharge data"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "65",
+      "note": "hungerbox"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "180",
+      "note": "dragon chicken"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "216",
+      "note": "zepto"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "242",
+      "note": "bullet idilli"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 5,
+      "category_name": "Utilities",
+      "amount": "474",
+      "note": "Electricity"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "242",
+      "note": "gobi chapathi"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 5,
+      "category_name": "Utilities",
+      "amount": "178",
+      "note": "Electricity"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "32",
+      "note": "idly"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "127",
+      "note": "umma CB"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "145",
+      "note": "food court"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "37",
+      "note": "tea"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "40",
+      "note": "nuts"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "270",
+      "note": "momos"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 9,
+      "category_name": "Personal Care",
+      "amount": "350",
+      "note": "Hair cut"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "651",
+      "note": "Urula"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "185",
+      "note": "Tea"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "180",
+      "note": "Juice"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 10,
+      "category_name": "Entertainment & Subscriptions",
+      "amount": "487",
+      "note": "Movie"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "150",
+      "note": "Movie snacks"
+    },
+    {
+      "month": "Jan",
+      "type": "income",
+      "category_id": 2,
+      "category_name": "Other Income",
+      "amount": "3640",
+      "note": "Exchange Ringgets"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "535",
+      "note": "thaal"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "40",
+      "note": "peanut"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "223",
+      "note": "masala dosa"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "223",
+      "note": "zomato"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 7,
+      "category_name": "Transportation",
+      "amount": "365",
+      "note": "petrol"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "244",
+      "note": "ujala"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "225",
+      "note": "Kovai bavan"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "415",
+      "note": "Royal bakers"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "40",
+      "note": "Lime"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 7,
+      "category_name": "Transportation",
+      "amount": "100",
+      "note": "Petrol"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 7,
+      "category_name": "Transportation",
+      "amount": "320",
+      "note": "Uber"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 7,
+      "category_name": "Transportation",
+      "amount": "85",
+      "note": "Train"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "56",
+      "note": "masala dosa Tea"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "102",
+      "note": "chapathi chkn"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 7,
+      "category_name": "Transportation",
+      "amount": "307",
+      "note": "uber"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "140",
+      "note": "roasted biriyani"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "220",
+      "note": "kissa alfarm"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "40",
+      "note": "Royal bakers"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "140",
+      "note": "chapathi gobi"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "140",
+      "note": "roasted biriyani"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "38",
+      "note": "tea"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "21",
+      "note": "lime"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 4,
+      "category_name": "Housing",
+      "amount": "260",
+      "note": "spray"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "196",
+      "note": "meal"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "764",
+      "note": "mandhi"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 11,
+      "category_name": "Shopping",
+      "amount": "543",
+      "note": "shopprix"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 5,
+      "category_name": "Utilities",
+      "amount": "1053",
+      "note": "Electricity"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "187",
+      "note": "shavai"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 7,
+      "category_name": "Transportation",
+      "amount": "30",
+      "note": "metro"
+    },
+    {
+      "month": "Jan",
+      "type": "expense",
+      "category_id": 7,
+      "category_name": "Transportation",
+      "amount": "192",
+      "note": "uber"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "343",
+      "note": "bektash"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 7,
+      "category_name": "Transportation",
+      "amount": "319",
+      "note": "uber"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "252",
+      "note": "urula"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 7,
+      "category_name": "Transportation",
+      "amount": "200",
+      "note": "petrol"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 13,
+      "category_name": "Family & Gifts",
+      "amount": "10000",
+      "note": "home rb"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 13,
+      "category_name": "Family & Gifts",
+      "amount": "1091",
+      "note": "gift+exhibition"
+    },
+    {
+      "month": "Feb",
+      "type": "income",
+      "category_id": 1,
+      "category_name": "Salary",
+      "amount": "83200",
+      "note": "jb"
+    },
+    {
+      "month": "Feb",
+      "type": "income",
+      "category_id": 1,
+      "category_name": "Salary",
+      "amount": "65979",
+      "note": "rb"
+    },
+    {
+      "month": "Feb",
+      "type": "transfer",
+      "category_id": 15,
+      "category_name": "Investments",
+      "amount": "30000",
+      "note": "split across instruments"
+    },
+    {
+      "month": "Feb",
+      "type": "income",
+      "category_id": 2,
+      "category_name": "Other Income",
+      "amount": "1330",
+      "note": "in hand"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "998",
+      "note": "1947 hotel"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "2091",
+      "note": "Instamart"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 4,
+      "category_name": "Housing",
+      "amount": "354",
+      "note": "container + oil can"
+    },
+    {
+      "month": "Feb",
+      "type": "transfer",
+      "category_id": 15,
+      "category_name": "Investments",
+      "amount": "10030",
+      "note": "Niftybees+Niftygold"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 4,
+      "category_name": "Housing",
+      "amount": "23000",
+      "note": "rent"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 5,
+      "category_name": "Utilities",
+      "amount": "140",
+      "note": "Water"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "1085",
+      "note": "vegies"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "153",
+      "note": "milk soda coriander"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 11,
+      "category_name": "Shopping",
+      "amount": "1075",
+      "note": "keyboard hdmi converter"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 5,
+      "category_name": "Utilities",
+      "amount": "299",
+      "note": "Mobile"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "57",
+      "note": "puttu egg curry"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "80",
+      "note": "nuts"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "224",
+      "note": "milk pen book"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 4,
+      "category_name": "Housing",
+      "amount": "455",
+      "note": "pad ktchn items"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "12",
+      "note": "tea"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 5,
+      "category_name": "Utilities",
+      "amount": "299",
+      "note": "rb rchrg"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "460",
+      "note": "Bektash"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 11,
+      "category_name": "Professional",
+      "amount": "599",
+      "note": "Debug media"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "398",
+      "note": "Tharavad"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 4,
+      "category_name": "Housing",
+      "amount": "1993",
+      "note": "DIY"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "602",
+      "note": "zepto"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 13,
+      "category_name": "Family & Gifts",
+      "amount": "299",
+      "note": "Mom recharge"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "519",
+      "note": "Chaya pedia"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "620",
+      "note": "Urula"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 7,
+      "category_name": "Transportation",
+      "amount": "200",
+      "note": "Petrol"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 10,
+      "category_name": "Entertainment & Subscriptions",
+      "amount": "541",
+      "note": "Movie"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 11,
+      "category_name": "Shopping",
+      "amount": "99",
+      "note": "zepto - book"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 14,
+      "category_name": "Professional",
+      "amount": "2776",
+      "note": "naukri"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "567",
+      "note": "Momo icecream chapathi banana"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 12,
+      "category_name": "Debt Payments",
+      "amount": "10000",
+      "note": "Kuri"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 4,
+      "category_name": "Food",
+      "amount": "269",
+      "note": "snacks"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "35",
+      "note": "vending machine cake"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "164",
+      "note": "bektash"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "45",
+      "note": "upmav"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 13,
+      "category_name": "Family & Gifts",
+      "amount": "894",
+      "note": "cake"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "184",
+      "note": "zomato"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 5,
+      "category_name": "Utilities",
+      "amount": "140",
+      "note": "water"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "435",
+      "note": "urula"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "1082",
+      "note": "zepto"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "201",
+      "note": "zepto"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "60",
+      "note": "hungerbox"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "99",
+      "note": "zepto"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "267",
+      "note": "swiggy"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "340",
+      "note": "bektash"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "118",
+      "note": "aryaas"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "714",
+      "note": "tharavad"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "1525",
+      "note": "bismi"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 9,
+      "category_name": "Personal Care",
+      "amount": "350",
+      "note": "hair cut"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "149",
+      "note": "zepto"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 8,
+      "category_name": "Healthcare",
+      "amount": "262",
+      "note": "medical"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "156",
+      "note": "bektash"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "176",
+      "note": "bektash"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "178",
+      "note": "dragon chicken"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "639",
+      "note": "zepto"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "157",
+      "note": "zomato"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "213",
+      "note": "zomato"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "65",
+      "note": "hungerbox"
+    },
+    {
+      "month": "Feb",
+      "type": "transfer",
+      "category_id": 15,
+      "category_name": "Investments",
+      "amount": "500",
+      "note": "ayalkootam"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 7,
+      "category_name": "Transportation",
+      "amount": "100",
+      "note": "petrol"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "24",
+      "note": "market"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "32",
+      "note": "market"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 13,
+      "category_name": "Family & Gifts",
+      "amount": "1200",
+      "note": "jc gift"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "195",
+      "note": "egg"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "200",
+      "note": "fruits"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "1601",
+      "note": "ajfan"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "681",
+      "note": "voyager"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "268",
+      "note": "Royal bakers"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 5,
+      "category_name": "Utilities",
+      "amount": "60",
+      "note": "plastic waste"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 5,
+      "category_name": "Utilities",
+      "amount": "707",
+      "note": "wifi jio"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "2275",
+      "note": "lulu"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 7,
+      "category_name": "Transportation",
+      "amount": "200",
+      "note": "petrol"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "406",
+      "note": "zepto"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 4,
+      "category_name": "Housing",
+      "amount": "147",
+      "note": "flipkart"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 4,
+      "category_name": "Housing",
+      "amount": "518",
+      "note": "Mop"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "590",
+      "note": "zepto"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 5,
+      "category_name": "Utilities",
+      "amount": "140",
+      "note": "water"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "555",
+      "note": "Chaya pedia"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 13,
+      "category_name": "Family & Gifts",
+      "amount": "3000",
+      "note": "uppupa"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "166",
+      "note": "zepto"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "130",
+      "note": "hungerbox"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "317",
+      "note": "zomato"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "198",
+      "note": "zepto"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 9,
+      "category_name": "Personal Care",
+      "amount": "767",
+      "note": "purple"
+    },
+    {
+      "month": "Feb",
+      "type": "expense",
+      "category_id": 7,
+      "category_name": "Transportation",
+      "amount": "1195",
+      "note": "train"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "248",
+      "note": "central bazar"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 4,
+      "category_name": "Housing",
+      "amount": "23000",
+      "note": "rent"
+    },
+    {
+      "month": "Mar",
+      "type": "income",
+      "category_id": 1,
+      "category_name": "Salary",
+      "amount": "83200",
+      "note": "jb salary"
+    },
+    {
+      "month": "Mar",
+      "type": "income",
+      "category_id": 1,
+      "category_name": "Salary",
+      "amount": "80410",
+      "note": "rb salary"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "493",
+      "note": "angaadi"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 7,
+      "category_name": "Transportation",
+      "amount": "200",
+      "note": "petrol"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "190",
+      "note": "egg"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "328",
+      "note": "swiggy"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "687",
+      "note": "bektash"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 10,
+      "category_name": "Entertainment & Subscriptions",
+      "amount": "195",
+      "note": "youtube premium"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "770",
+      "note": "arabian palace"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 11,
+      "category_name": "Shopping",
+      "amount": "1253",
+      "note": "dicuts cuty things"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "337",
+      "note": "scroll food"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 13,
+      "category_name": "Family & Gifts",
+      "amount": "10000",
+      "note": "home rb"
+    },
+    {
+      "month": "Mar",
+      "type": "transfer",
+      "category_id": 15,
+      "category_name": "Investments",
+      "amount": "500",
+      "note": "ayalkootam"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 13,
+      "category_name": "Family & Gifts",
+      "amount": "600",
+      "note": "cake zafar"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "541",
+      "note": "zepto"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "332",
+      "note": "swiggy"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "172",
+      "note": "zepto"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "270",
+      "note": "swiggy"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "276",
+      "note": "zepto"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 5,
+      "category_name": "Utilities",
+      "amount": "301",
+      "note": "recharge data"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "90",
+      "note": "aryaas"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "257",
+      "note": "Instamart"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "339",
+      "note": "zepto"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "90",
+      "note": "hungerbox"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "225",
+      "note": "zomato"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 5,
+      "category_name": "Utilities",
+      "amount": "299",
+      "note": "reacharge"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 11,
+      "category_name": "Shopping",
+      "amount": "87",
+      "note": "meesho"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "192",
+      "note": "zepto"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "184",
+      "note": "meet barrel"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 13,
+      "category_name": "Family & Gifts",
+      "amount": "200",
+      "note": "mothers day"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 13,
+      "category_name": "Family & Gifts",
+      "amount": "224",
+      "note": "mothers day"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "288",
+      "note": "zomato"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "157",
+      "note": "zomato"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "376",
+      "note": "zepto"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "291",
+      "note": "zomato"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "187",
+      "note": "zomato"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "833",
+      "note": "zepto"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 7,
+      "category_name": "Transportation",
+      "amount": "230",
+      "note": "uber"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "76",
+      "note": "smart"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 13,
+      "category_name": "Family & Gifts",
+      "amount": "250",
+      "note": "thattam"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 13,
+      "category_name": "Family & Gifts",
+      "amount": "2624",
+      "note": "uppa dress"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 5,
+      "category_name": "Utilities",
+      "amount": "140",
+      "note": "water"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "212",
+      "note": "zomato"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 7,
+      "category_name": "Transportation",
+      "amount": "200",
+      "note": "petrol"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 11,
+      "category_name": "Shopping",
+      "amount": "120",
+      "note": "photo"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 11,
+      "category_name": "Shopping",
+      "amount": "80",
+      "note": "scan document"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "200",
+      "note": "chaya peedia"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 11,
+      "category_name": "Shopping",
+      "amount": "293",
+      "note": "MR DIY"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "502",
+      "note": "popoyees"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 9,
+      "category_name": "Personal Care",
+      "amount": "1898",
+      "note": "dress rare nd basic"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "341",
+      "note": "Instamart"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "510",
+      "note": "ella"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 9,
+      "category_name": "Personal Care",
+      "amount": "350",
+      "note": "hair cut"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "504",
+      "note": "groceries"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "331",
+      "note": "zepto"
+    },
+    {
+      "month": "Mar",
+      "type": "transfer",
+      "category_id": 15,
+      "category_name": "Investments",
+      "amount": "5000",
+      "note": "zerodha"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "69",
+      "note": "food railway"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 13,
+      "category_name": "Family & Gifts",
+      "amount": "200",
+      "note": "thanu isha candy"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "80",
+      "note": "food kulki"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "40",
+      "note": "water for rb"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 9,
+      "category_name": "Personal Care",
+      "amount": "49",
+      "note": "gel"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 13,
+      "category_name": "Family & Gifts",
+      "amount": "5600",
+      "note": "dress parents"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 13,
+      "category_name": "Family & Gifts",
+      "amount": "2800",
+      "note": "babys"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "230",
+      "note": "groceries"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "175",
+      "note": "groceries"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "99",
+      "note": "ice cream"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "35",
+      "note": "uppil ittath"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "542",
+      "note": "palooda"
+    },
+    {
+      "month": "Mar",
+      "type": "transfer",
+      "category_id": 16,
+      "category_name": "Loans Given",
+      "amount": "15000",
+      "note": "favasini kadam koduthath"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 9,
+      "category_name": "Personal Care",
+      "amount": "4500",
+      "note": "rouna dress"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 9,
+      "category_name": "Personal Care",
+      "amount": "3250",
+      "note": "jb dress"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 7,
+      "category_name": "Transportation",
+      "amount": "250",
+      "note": "go ec"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "1107",
+      "note": "MRA"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "120",
+      "note": "charandii"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 7,
+      "category_name": "Transportation",
+      "amount": "650",
+      "note": "go ec"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 13,
+      "category_name": "Family & Gifts",
+      "amount": "520",
+      "note": "thattam"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 13,
+      "category_name": "Family & Gifts",
+      "amount": "1030",
+      "note": "cherup mylanchi"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 13,
+      "category_name": "Family & Gifts",
+      "amount": "2100",
+      "note": "rihan dress"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 13,
+      "category_name": "Family & Gifts",
+      "amount": "5000",
+      "note": "jb mom"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 12,
+      "category_name": "Debt Payments",
+      "amount": "7000",
+      "note": "gold loan"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 12,
+      "category_name": "Debt Payments",
+      "amount": "10000",
+      "note": "kurri"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "180",
+      "note": "kubus"
+    },
+    {
+      "month": "Mar",
+      "type": "transfer",
+      "category_id": 15,
+      "category_name": "Investments",
+      "amount": "10000",
+      "note": "coin"
+    },
+    {
+      "month": "Mar",
+      "type": "income",
+      "category_id": 2,
+      "category_name": "Other Income",
+      "amount": "4233",
+      "note": "not sure"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 13,
+      "category_name": "Family & Gifts",
+      "amount": "1035",
+      "note": "ice cream rishu"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 7,
+      "category_name": "Transportation",
+      "amount": "250",
+      "note": "Go Ec"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "20",
+      "note": "water"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 6,
+      "category_name": "Food",
+      "amount": "1243",
+      "note": "MRA"
+    },
+    {
+      "month": "Mar",
+      "type": "expense",
+      "category_id": 13,
+      "category_name": "Family & Gifts",
+      "amount": "2140",
+      "note": "umma dress nd rb"
+    },
+    {
+      "month": "Mar",
+      "type": "transfer",
+      "category_id": 15,
+      "category_name": "Investments",
+      "amount": "10000",
+      "note": "Niftybees"
+    },
+    {
+      "month": "Mar",
+      "type": "transfer",
+      "category_id": 15,
+      "category_name": "Investments",
+      "amount": "10000",
+      "note": "mutual fund"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Salary",
+      "type": "income",
+      "description": "Regular employment income, wages, and paychecks from your job"
+    },
+    {
+      "id": 2,
+      "name": "Other Income",
+      "type": "income",
+      "description": "Investment returns, dividends, interest, cashbacks, bonuses, side income, freelance work, gifts received, refunds, and currency exchange gains"
+    },
+    {
+      "id": 3,
+      "name": "Money Received",
+      "type": "income",
+      "description": "Loan repayments received from others, reimbursements, and money borrowed that you're receiving back"
+    },
+    {
+      "id": 4,
+      "name": "Housing",
+      "type": "expense",
+      "description": "Rent, home maintenance, repairs, household items like furniture, pillows, mops, containers, DIY supplies, and home decor"
+    },
+    {
+      "id": 5,
+      "name": "Utilities",
+      "type": "expense",
+      "description": "Electricity, water, internet/WiFi, mobile recharges, data packs, telecom services, and waste management fees"
+    },
+    {
+      "id": 6,
+      "name": "Food",
+      "type": "expense",
+      "description": "All food expenses including groceries for home cooking and dining out at restaurants, food delivery, cafes, and takeout"
+    },
+    {
+      "id": 7,
+      "name": "Transportation",
+      "type": "expense",
+      "description": "Petrol/fuel, ride-sharing (Uber), public transport (train, metro, bus, auto), parking fees, and all travel-related transport costs"
+    },
+    {
+      "id": 8,
+      "name": "Healthcare",
+      "type": "expense",
+      "description": "Health insurance premiums, medical expenses, medicines, doctor visits, pharmacy purchases, and hospital bills"
+    },
+    {
+      "id": 9,
+      "name": "Personal Care",
+      "type": "expense",
+      "description": "Haircuts, salon services, grooming products, cosmetics, clothing, shoes, apparel, and fashion purchases"
+    },
+    {
+      "id": 10,
+      "name": "Entertainment & Subscriptions",
+      "type": "expense",
+      "description": "Movies, cinema, streaming services (YouTube Premium, Netflix), software subscriptions, memberships, games, and recreational activities"
+    },
+    {
+      "id": 11,
+      "name": "Shopping",
+      "type": "expense",
+      "description": "General shopping including electronics, gadgets, accessories, lifestyle items, online purchases, stationery, and miscellaneous non-essential items"
+    },
+    {
+      "id": 12,
+      "name": "Debt Payments",
+      "type": "expense",
+      "description": "All loan repayments including EMIs, gold loan payments, kuri installments, and other debt obligations"
+    },
+    {
+      "id": 13,
+      "name": "Family & Gifts",
+      "type": "expense",
+      "description": "Financial support to family members, gifts for occasions, celebration expenses, cakes for events, and contributions to family gatherings"
+    },
+    {
+      "id": 14,
+      "name": "Professional",
+      "type": "expense",
+      "description": "Job-related expenses, professional development, online courses, certifications, job portal subscriptions, and career advancement costs"
+    },
+    {
+      "id": 15,
+      "name": "Investments",
+      "type": "transfer",
+      "description": "Money transferred to investments including mutual funds, stocks, ETFs, SIPs, gold investments, and community savings schemes"
+    },
+    {
+      "id": 16,
+      "name": "Loans Given",
+      "type": "transfer",
+      "description": "Money lent to others that you expect to get back"
+    }
+  ]
+}
