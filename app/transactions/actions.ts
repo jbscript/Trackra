@@ -66,5 +66,4 @@ export async function updateTransaction(formData: FormData) {
 
   revalidatePath("/home")
   revalidatePath(`/transactions/${id}`)
-  redirect(`/transactions/${id}`)
 }
