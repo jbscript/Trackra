@@ -3,18 +3,9 @@
 import { useState, useEffect } from "react"
 import { useSearchParams, useRouter } from "next/navigation"
 import {
-  ShoppingBag,
-  Coffee,
-  Car,
-  Home,
-  Receipt,
-  ArrowRightLeft,
-  User,
-  Activity,
-  Zap,
-  Gift,
   Search,
 } from "lucide-react"
+import { getCategoryIcon } from "./category-icons"
 import { TransactionDetails } from "./transaction-details"
 import { TransactionForm } from "./new-transaction-form"
 import { cn } from "@/lib/utils"
@@ -44,41 +35,6 @@ type Transaction = {
   category: { name: string }
 }
 
-function getCategoryIcon(categoryName: string) {
-  const name = categoryName.toLowerCase()
-  if (name.includes("food") || name.includes("dining")) return Coffee
-  if (name.includes("shop") || name.includes("personal")) return ShoppingBag
-  if (
-    name.includes("transport") ||
-    name.includes("gas") ||
-    name.includes("cab")
-  )
-    return Car
-  if (
-    name.includes("hous") ||
-    name.includes("rent") ||
-    name.includes("mortgage")
-  )
-    return Home
-  if (
-    name.includes("utilit") ||
-    name.includes("bill") ||
-    name.includes("water") ||
-    name.includes("electric")
-  )
-    return Zap
-  if (
-    name.includes("health") ||
-    name.includes("medical") ||
-    name.includes("doctor")
-  )
-    return Activity
-  if (name.includes("gift") || name.includes("family")) return Gift
-  if (name.includes("invest") || name.includes("transfer"))
-    return ArrowRightLeft
-  if (name.includes("salary") || name.includes("income")) return User
-  return Receipt
-}
 
 export function TransactionDashboard({
   transactions,
@@ -247,7 +203,6 @@ export function TransactionDashboard({
                 <div className="space-y-4">
                   {group.transactions.map((tx) => {
                     const Icon = getCategoryIcon(tx.category.name)
-                    const isIncome = tx.type === "income"
 
                     return (
                       <div
@@ -261,7 +216,7 @@ export function TransactionDashboard({
                         className="flex items-center justify-between rounded-2xl bg-surface-container p-4 shadow-ambient transition-colors hover:bg-surface-container-high"
                       >
                         <div className="flex items-center gap-4">
-                          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-surface-container-high text-on-surface-variant">
+                          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-md bg-surface-container-high text-on-surface-variant">
                             <Icon
                               strokeWidth={2}
                               size={12}

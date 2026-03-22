@@ -1,3 +1,4 @@
+import { getCategoryIcon } from "@/components/transactions/category-icons"
 import { db } from "@/lib/db"
 import {
   TrendingUp,
@@ -84,51 +85,54 @@ export default async function Page() {
           </Link>
         </div>
         <div className="flex flex-col gap-3">
-          {transactions.slice(0, 5).map((tx) => (
-            <Link
-              href={`/transactions?id=${tx.id}`}
-              key={tx.id}
-              className="flex items-center justify-between rounded-2xl bg-surface-container p-4 shadow-ambient transition-colors hover:bg-surface-container-high"
-            >
-              <div className="flex items-center gap-4">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-surface-container-high text-on-surface-variant">
-                  {getIcon(tx.type)}
+          {transactions.slice(0, 5).map((tx) => {
+            const Icon = getCategoryIcon(tx.category.name)
+            return (
+              <Link
+                href={`/transactions?id=${tx.id}`}
+                key={tx.id}
+                className="flex items-center justify-between rounded-2xl bg-surface-container p-4 shadow-ambient transition-colors hover:bg-surface-container-high"
+              >
+                <div className="flex items-center gap-4">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-md bg-surface-container-high text-on-surface-variant">
+                    <Icon strokeWidth={2} size={12} className="h-5 w-5" />
+                  </div>
+                  <div className="max-w-[140px] sm:max-w-[200px]">
+                    <p className="truncate body-md font-bold text-foreground">
+                      {tx.category.name}
+                    </p>
+                    <p className="truncate label-sm text-on-surface-variant">
+                      {tx.account.name} •{" "}
+                      {tx.transactionDate.toLocaleDateString("en-IN", {
+                        month: "short",
+                        day: "numeric",
+                      })}{" "}
+                    </p>
+                  </div>
                 </div>
-                <div className="max-w-[140px] sm:max-w-[200px]">
-                  <p className="truncate body-md font-bold text-foreground">
-                    {tx.category.name}
+                <div className="text-right">
+                  <p
+                    className={`body-md font-bold ${
+                      tx.type === "income" ? "text-primary" : "text-foreground"
+                    }`}
+                  >
+                    {tx.type === "income"
+                      ? "+"
+                      : tx.type === "transfer"
+                        ? ""
+                        : "-"}
+                    {formatCurrency(tx.amount)}
                   </p>
-                  <p className="truncate label-sm text-on-surface-variant">
-                    {tx.account.name} •{" "}
-                    {tx.transactionDate.toLocaleDateString("en-IN", {
-                      month: "short",
-                      day: "numeric",
-                    })}{" "}
+                  <p className="mt-0.5 label-sm text-[0.6rem] tracking-[0.1em] text-on-surface-variant uppercase">
+                    {tx.transactionDate.toLocaleTimeString("en-IN", {
+                      hour: "2-digit",
+                      minute: "2-digit",
+                    })}
                   </p>
                 </div>
-              </div>
-              <div className="text-right">
-                <p
-                  className={`body-md font-bold ${
-                    tx.type === "income" ? "text-primary" : "text-foreground"
-                  }`}
-                >
-                  {tx.type === "income"
-                    ? "+"
-                    : tx.type === "transfer"
-                      ? ""
-                      : "-"}
-                  {formatCurrency(tx.amount)}
-                </p>
-                <p className="mt-0.5 label-sm text-[0.6rem] tracking-[0.1em] text-on-surface-variant uppercase">
-                  {tx.transactionDate.toLocaleTimeString("en-IN", {
-                    hour: "2-digit",
-                    minute: "2-digit",
-                  })}
-                </p>
-              </div>
-            </Link>
-          ))}
+              </Link>
+            )
+          })}
         </div>
       </section>
 
