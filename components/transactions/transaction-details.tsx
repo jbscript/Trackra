@@ -108,7 +108,7 @@ export function TransactionDetails({
 
   if (isEditing) {
     return (
-      <div className="fixed inset-0 z-[60] bg-[#0e0e0e] p-6 overflow-y-auto no-scrollbar">
+      <div className="fixed inset-0 z-[60] no-scrollbar overflow-y-auto bg-[#0e0e0e] p-6">
         <div className="mx-auto max-w-xl pb-24">
           <TransactionForm
             accounts={accounts}
@@ -227,52 +227,6 @@ export function TransactionDetails({
                 {transaction.account.name}
               </p>
             </div>
-          </div>
-
-          {/* Map Placeholder */}
-          <div className="relative h-[180px] overflow-hidden rounded-[24px] border border-white/5 bg-[#161618] shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
-            <div className="absolute inset-0 flex items-center justify-center overflow-hidden opacity-15">
-              <svg
-                width="400"
-                height="400"
-                xmlns="http://www.w3.org/2000/svg"
-                stroke="#ffffff"
-                strokeWidth="0.5"
-                fill="none"
-              >
-                <path d="M-50 100l100-20 80 50 100-10 120 40M-50 200l150-50 100 80 150-10M50-50l20 100-30 80 40 100-20 120" />
-                <path d="M150-50l-20 120 50 50-10 80 80 100M250-50l30 80-20 100 60 70-30 100M350-50l-10 120 40 60-30 80 20 90" />
-                <circle cx="200" cy="200" r="40" />
-                <circle cx="200" cy="200" r="55" strokeDasharray="4 8" />
-              </svg>
-            </div>
-
-            <div className="absolute bottom-5 left-5 flex items-center gap-2 rounded-xl border border-white/10 bg-[#121214]/80 px-4 py-2 backdrop-blur-sm">
-              <MapPin size={16} className="text-[#5cfd80]" />
-              <span className="text-xs font-bold tracking-wide text-white">
-                452 Park Ave, New York
-              </span>
-            </div>
-          </div>
-
-          {/* Notes */}
-          <div className="relative flex flex-col justify-center rounded-[24px] border border-white/5 bg-[#161618] p-6 pt-10 shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
-            <div className="absolute -top-3 left-1/2 flex -translate-x-1/2 items-center gap-2 rounded-full border border-[#5cfd80]/30 bg-[#122217] px-4 py-1.5 shadow-[0_4px_10px_rgba(0,0,0,0.3)]">
-              <div className="h-2.5 w-2.5 rounded-full bg-[#5cfd80] shadow-[0_0_8px_rgba(92,253,128,0.5)]" />
-              <span className="text-[10px] font-extrabold tracking-widest text-[#5cfd80] uppercase">
-                Cleared by Bank
-              </span>
-            </div>
-
-            <h3 className="mb-3 text-[10px] font-bold tracking-widest text-gray-500 uppercase">
-              Notes
-            </h3>
-            <p className="text-[15px] leading-relaxed font-medium tracking-wide text-gray-300 italic">
-              "
-              {transaction.note ||
-                `Standard ${transaction.category.name} transaction.`}
-              "
-            </p>
           </div>
         </div>
 
