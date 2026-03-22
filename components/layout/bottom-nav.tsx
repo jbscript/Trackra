@@ -1,18 +1,17 @@
 "use client"
 
-import {
-  Activity,
-  LayoutGrid,
-  PieChart,
-  Plus,
-  User,
-} from "lucide-react"
+import { Activity, LayoutGrid, PieChart, Plus, User } from "lucide-react"
 import Link from "next/link"
-import { usePathname } from "next/navigation"
+import { usePathname, useSearchParams } from "next/navigation"
 import { cn } from "@/lib/utils"
 
 export function BottomNav() {
   const pathname = usePathname()
+  const searchParams = useSearchParams()
+  const isAdding = searchParams.get("add") === "true"
+  const isEditing = searchParams.get("id") != null
+
+  if (isAdding || isEditing) return null
 
   return (
     <div className="fixed bottom-6 left-1/2 z-50 flex -translate-x-1/2 items-center gap-1 rounded-[2.5rem] border border-outline-variant glass px-3 py-3 shadow-[0_24px_48px_rgba(0,0,0,0.6)]">
@@ -41,7 +40,9 @@ export function BottomNav() {
         href="/transactions"
         className={cn(
           "relative flex h-12 w-12 items-center justify-center rounded-full transition-colors hover:text-primary",
-          pathname.startsWith("/transactions") ? "text-primary" : "text-on-surface-variant"
+          pathname.startsWith("/transactions")
+            ? "text-primary"
+            : "text-on-surface-variant"
         )}
       >
         <PieChart className="h-[1.35rem] w-[1.35rem]" />
