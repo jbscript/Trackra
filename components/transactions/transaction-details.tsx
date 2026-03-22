@@ -231,6 +231,7 @@ export function TransactionDetails({
 
         {/* Delete Button */}
         <form action={deleteAction} className="mt-8">
+          <input type="hidden" name="id" value={transaction.id} />
           <button
             type="submit"
             className="flex w-full items-center justify-center gap-3 rounded-2xl border border-red-500/20 bg-transparent p-[18px] font-bold tracking-wide text-red-500 shadow-[0_4px_20px_rgba(0,0,0,0.2)] transition-all hover:bg-[#201010]"
