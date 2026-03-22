@@ -258,15 +258,14 @@ export function TransactionDashboard({
                             scroll: false,
                           })
                         }}
-                        className="group relative flex cursor-pointer items-center justify-between overflow-hidden rounded-[32px] bg-[#161618] px-6 py-6 shadow-lg shadow-black/20 transition-all hover:bg-[#1a1a1d] active:scale-[0.99]"
+                        className="flex items-center justify-between rounded-2xl bg-surface-container p-4 shadow-ambient transition-colors hover:bg-surface-container-high"
                       >
-                        <div className="flex items-center gap-5">
-                          {/* Icon Container */}
-                          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#0c0c0d]">
+                        <div className="flex items-center gap-4">
+                          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-surface-container-high text-on-surface-variant">
                             <Icon
                               strokeWidth={2}
                               size={12}
-                              className="text-white"
+                              className="h-5 w-5"
                             />
                           </div>
                           <div className="max-w-[140px] sm:max-w-[200px]">
@@ -296,6 +295,11 @@ export function TransactionDashboard({
                                 : "text-foreground"
                             }`}
                           >
+                            {tx.type === "income"
+                              ? "+"
+                              : tx.type === "transfer"
+                                ? ""
+                                : "-"}
                             {formatCurrency(tx.amount, false)}
                           </p>
                           <p className="mt-0.5 label-sm text-[0.6rem] tracking-[0.1em] text-on-surface-variant uppercase">
