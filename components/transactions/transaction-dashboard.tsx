@@ -13,9 +13,11 @@ import {
   Activity,
   Zap,
   Gift,
+  Search,
 } from "lucide-react"
 import { TransactionDetails } from "./transaction-details"
 import { TransactionForm } from "./new-transaction-form"
+import { cn } from "@/lib/utils"
 
 type Account = {
   id: string
@@ -113,20 +115,54 @@ export function TransactionDashboard({
   const selectedTx = transactions.find((t) => t.id === selectedTxId)
 
   const formatCurrency = (amount: number, forceSign = false, type?: string) => {
-    const formatted = new Intl.NumberFormat("en-IN", {
+    const formatted = new Intl.NumberFormat("en-US", {
       style: "currency",
-      currency: "INR",
+      currency: "USD",
       maximumFractionDigits: 2,
     }).format(Math.abs(amount))
 
     if (type === "income" || amount > 0) return `+${formatted}`
-    if (type === "expense" || amount < 0) return `-${formatted}`
+    if (type === "expense" || (amount < 0 && type !== "transfer"))
+      return `-${formatted}`
     if (forceSign) return amount >= 0 ? `+${formatted}` : `-${formatted}`
     return formatted
   }
 
+  // State for search and month
+  const [searchQuery, setSearchQuery] = useState("")
+  const currentMonthIdx = new Date().getMonth() // 0-11
+  const [selectedMonth, setSelectedMonth] = useState(currentMonthIdx)
+
+  const months = [
+    "JANUARY",
+    "FEBRUARY",
+    "MARCH",
+    "APRIL",
+    "MAY",
+    "JUNE",
+    "JULY",
+    "AUGUST",
+    "SEPTEMBER",
+    "OCTOBER",
+    "NOVEMBER",
+    "DECEMBER",
+  ]
+
+  // Filtering logic
+  const filteredTransactions = transactions.filter((tx) => {
+    const d = new Date(tx.transactionDate)
+    const matchesMonth = d.getMonth() === selectedMonth
+    const matchesSearch =
+      searchQuery === "" ||
+      tx.note?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      tx.category.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      tx.account.name.toLowerCase().includes(searchQuery.toLowerCase())
+
+    return matchesMonth && matchesSearch
+  })
+
   // Grouping logic
-  const grouped = transactions.reduce(
+  const grouped = filteredTransactions.reduce(
     (groups, tx) => {
       const d = new Date(tx.transactionDate)
       const dateKey = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`
@@ -147,28 +183,19 @@ export function TransactionDashboard({
       const yest = new Date()
       yest.setDate(yest.getDate() - 1)
 
+      const isToday = d.toDateString() === today.toDateString()
+      const isYesterday = d.toDateString() === yest.toDateString()
+
       let label = d.toLocaleDateString("en-US", {
-        month: "short",
+        month: "long",
         day: "numeric",
       })
-      let timeLabel = ""
-      if (d.toDateString() === today.toDateString()) {
-        label = "Today"
-        timeLabel = d.toLocaleDateString("en-US", {
-          month: "short",
-          day: "numeric",
-        })
-      } else if (d.toDateString() === yest.toDateString()) {
-        label = "Yesterday"
-        timeLabel = d.toLocaleDateString("en-US", {
-          month: "short",
-          day: "numeric",
-        })
-      }
+
+      if (isToday) label = `Today, ${label}`
+      else if (isYesterday) label = `Yesterday, ${label}`
 
       return {
         label,
-        timeLabel,
         transactions: txs,
         sorter: d.getTime(),
       }
@@ -178,82 +205,123 @@ export function TransactionDashboard({
   return (
     <>
       {/* Transaction List */}
-      <div className="space-y-8 pb-32">
+    <div className="space-y-6 pb-32">
+      {/* Search Bar */}
+      <div className="relative mb-8">
+        <div className="relative flex items-center">
+          <Search className="absolute left-4 h-5 w-5 text-on-surface-variant/60" />
+          <input
+            type="text"
+            placeholder="Search transactions, merchants, or"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="h-[64px] w-full rounded-[24px] bg-[#161618] pl-12 pr-4 text-[15px] font-medium text-white placeholder:text-on-surface-variant/40 focus:outline-none focus:ring-1 focus:ring-primary/20"
+          />
+        </div>
+      </div>
+
+      {/* Month Selector */}
+      <div className="no-scrollbar mb-10 flex gap-10 overflow-x-auto pb-2">
+        {months.map((month, idx) => (
+          <button
+            key={month}
+            onClick={() => setSelectedMonth(idx)}
+            className={cn(
+              "relative flex-shrink-0 text-xs font-bold tracking-[0.15em] transition-colors uppercase",
+              selectedMonth === idx
+                ? "text-[#5cfd80]"
+                : "text-white/30 hover:text-white/50"
+            )}
+          >
+            {month}
+            {selectedMonth === idx && (
+              <div className="absolute -bottom-4 left-1/2 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-[#5cfd80] shadow-[0_0_8px_rgba(92,253,128,0.6)]" />
+            )}
+          </button>
+        ))}
+      </div>
+
+      {/* Transaction List */}
+      <div className="space-y-12">
         {groupedArray.map((group) => (
-          <div key={group.label} className="space-y-3">
-            <div className="mb-2 flex items-end justify-between px-2">
-              <h2 className="text-xl font-bold">{group.label}</h2>
-              {group.timeLabel && (
-                <span className="mb-1 text-xs font-medium text-gray-500">
-                  {group.timeLabel}
-                </span>
-              )}
-            </div>
+          <div key={group.label} className="space-y-6">
+            <h2 className="px-1 text-[22px] font-bold tracking-tight text-white/50">
+              {group.label}
+            </h2>
 
-            {group.transactions.map((tx) => {
-              const Icon = getCategoryIcon(tx.category.name)
-              const isIncome = tx.type === "income"
+            <div className="space-y-4">
+              {group.transactions.map((tx) => {
+                const Icon = getCategoryIcon(tx.category.name)
+                const isIncome = tx.type === "income"
 
-              return (
-                <div
-                  key={tx.id}
-                  onClick={() => {
-                    setSelectedTxId(tx.id)
-                    router.push(`/transactions?id=${tx.id}`, {
-                      scroll: false,
-                    })
-                  }}
-                  className="group flex cursor-pointer items-center justify-between rounded-2xl border border-white/5 bg-[#161618] p-4 shadow-sm transition-colors hover:bg-[#1a1a1d]"
-                >
-                  <div className="flex items-center gap-4">
-                    {/* Icon Container */}
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/[0.02] bg-[#1f1f22] transition-colors group-hover:bg-[#252528]">
-                      <Icon
-                        size={20}
-                        className={
-                          isIncome ? "text-[#5cfd80]" : "text-[#5cfd80]"
-                        }
-                      />
+                return (
+                  <div
+                    key={tx.id}
+                    onClick={() => {
+                      setSelectedTxId(tx.id)
+                      router.push(`/transactions?id=${tx.id}`, {
+                        scroll: false,
+                      })
+                    }}
+                    className="group relative flex cursor-pointer items-center justify-between overflow-hidden rounded-[32px] bg-[#161618] px-6 py-6 transition-all hover:bg-[#1a1a1d] active:scale-[0.99] shadow-lg shadow-black/20"
+                  >
+                    <div className="flex items-center gap-5">
+                      {/* Icon Container */}
+                      <div className="flex h-[60px] w-[60px] items-center justify-center rounded-[20px] bg-[#0c0c0d]">
+                        <Icon strokeWidth={2} size={24} className="text-white" />
+                      </div>
+
+                      <div>
+                        <h4 className="mb-1 text-[18px] font-bold leading-tight tracking-tight text-white group-hover:text-primary transition-colors">
+                          {tx.note || tx.category.name}
+                        </h4>
+                        <div className="flex items-center gap-1.5">
+                          <p className="text-[14px] font-medium text-white/40">
+                            {tx.category.name}
+                          </p>
+                          <span className="text-[14px] text-white/20">
+                            &bull;
+                          </span>
+                          <p className="text-[14px] font-medium text-white/40">
+                            {new Date(tx.transactionDate).toLocaleTimeString(
+                              "en-US",
+                              {
+                                hour: "2-digit",
+                                minute: "2-digit",
+                              }
+                            )}
+                          </p>
+                        </div>
+                      </div>
                     </div>
 
-                    <div>
-                      <h4 className="mb-0.5 text-[15px] font-bold">
-                        {tx.note || tx.category.name}
-                      </h4>
-                      <p className="text-[10px] font-semibold tracking-wider text-gray-500 uppercase">
-                        {tx.category.name}
+                    <div className="text-right">
+                      <p
+                        className={cn(
+                          "mb-1 text-[22px] font-bold tracking-tight",
+                          isIncome ? "text-[#5cfd80]" : "text-white"
+                        )}
+                      >
+                        {formatCurrency(tx.amount, false, tx.type)}
+                      </p>
+                      <p className="text-[10px] font-extrabold tracking-[0.1em] text-white/30 uppercase">
+                        {isIncome ? "SETTLED" : "VERIFIED"}
                       </p>
                     </div>
                   </div>
-
-                  <div className="text-right">
-                    <p
-                      className={`mb-0.5 text-[15px] font-bold tracking-tight ${isIncome ? "text-[#5cfd80]" : "text-white"}`}
-                    >
-                      {formatCurrency(tx.amount, false, tx.type)}
-                    </p>
-                    <p className="text-xs font-medium text-gray-500">
-                      {new Date(tx.transactionDate).toLocaleTimeString(
-                        "en-IN",
-                        {
-                          hour: "2-digit",
-                          minute: "2-digit",
-                        }
-                      )}
-                    </p>
-                  </div>
-                </div>
-              )
-            })}
+                )
+              })}
+            </div>
           </div>
         ))}
 
         {groupedArray.length === 0 && (
-          <div className="py-20 text-center text-gray-500">
-            <p>No transactions found for this period.</p>
+          <div className="py-20 text-center text-on-surface-variant/40">
+            <p className="body-md">No transactions found for {months[selectedMonth]}.</p>
           </div>
         )}
       </div>
+    </div>
 
       {/* Details Overlay */}
       {selectedTx && (
