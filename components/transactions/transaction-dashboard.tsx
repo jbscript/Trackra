@@ -207,7 +207,7 @@ export function TransactionDashboard({
       {/* Transaction List */}
       <div className="space-y-6 pb-32">
         {/* Search Bar */}
-        <div className="relative mb-8">
+        <div className="relative mt-8 mb-8">
           <div className="relative flex items-center">
             <Search className="absolute left-4 h-5 w-5 text-on-surface-variant/60" />
             <input
@@ -221,22 +221,19 @@ export function TransactionDashboard({
         </div>
 
         {/* Month Selector */}
-        <div className="mb-10 no-scrollbar flex gap-10 overflow-x-auto pb-2">
+        <div className="mb-10 no-scrollbar flex gap-10 overflow-x-auto overflow-y-hidden pb-2">
           {months.map((month, idx) => (
             <button
               key={month}
               onClick={() => setSelectedMonth(idx)}
               className={cn(
-                "relative flex-shrink-0 text-xs font-bold tracking-[0.15em] uppercase transition-colors",
+                "relative flex-shrink-0 cursor-pointer text-xs font-bold tracking-[0.15em] uppercase transition-colors",
                 selectedMonth === idx
                   ? "text-[#5cfd80]"
                   : "text-white/30 hover:text-white/50"
               )}
             >
               {month}
-              {selectedMonth === idx && (
-                <div className="absolute -bottom-4 left-1/2 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-[#5cfd80] shadow-[0_0_8px_rgba(92,253,128,0.6)]" />
-              )}
             </button>
           ))}
         </div>
