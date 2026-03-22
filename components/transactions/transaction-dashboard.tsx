@@ -279,9 +279,6 @@ export function TransactionDashboard({
               accounts={accounts}
               categories={categories}
               onClose={closeOverlays}
-              onSave={async (formData) => {
-                closeOverlays()
-              }}
             />
           </div>
         </div>
