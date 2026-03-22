@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { useRouter } from "next/navigation"
-import { ArrowLeft, Info, Paperclip, Calendar, ChevronDown } from "lucide-react"
+import { ArrowLeft, Paperclip, ChevronDown } from "lucide-react"
 import { createTransaction } from "@/app/transactions/actions"
 
 type Account = {
@@ -125,11 +125,13 @@ export function TransactionForm({
         <h1 className="text-sm font-bold tracking-widest uppercase">
           {initialData ? "Edit Transaction" : "New Transaction"}
         </h1>
+
         <button
-          type="button"
-          className="flex h-8 w-8 items-center justify-center rounded-full bg-surface-container-high text-on-surface-variant transition-colors hover:text-foreground"
+          type="submit"
+          disabled={isLoading}
+          className="rounded-[2rem] bg-primary p-2 text-xs font-bold tracking-widest text-primary-foreground uppercase shadow-[0_10px_30px_rgba(92,253,128,0.25)] transition-transform hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70 disabled:hover:scale-100"
         >
-          <Info className="h-4 w-4" />
+          {isLoading ? "Processing..." : initialData ? "Update" : "Save"}
         </button>
       </header>
 
@@ -177,7 +179,7 @@ export function TransactionForm({
         {/* Recipient / Merchant */}
         <div className="border-b border-surface-container-high pb-4">
           <label className="mb-2 block label-sm tracking-widest text-on-surface-variant uppercase">
-            Recipient / Merchant
+            Note
           </label>
           <input
             type="text"
@@ -307,21 +309,6 @@ export function TransactionForm({
             </span>
           </button>
         </div>
-      </div>
-
-      {/* Generic spacing to push button to bottom if screen is tall */}
-      <div className="fixed right-6 bottom-6 left-6 z-50 mx-auto mt-auto max-w-md pt-6">
-        <button
-          type="submit"
-          disabled={isLoading}
-          className="w-full rounded-[2rem] bg-primary py-5 text-sm font-bold tracking-widest text-primary-foreground uppercase shadow-[0_10px_30px_rgba(92,253,128,0.25)] transition-transform hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70 disabled:hover:scale-100"
-        >
-          {isLoading
-            ? "Processing..."
-            : initialData
-              ? "Update Transaction"
-              : "Process Transaction"}
-        </button>
       </div>
 
       <style jsx global>{`
