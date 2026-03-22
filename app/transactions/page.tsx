@@ -11,8 +11,6 @@ import {
   Activity,
   Zap,
   Gift,
-  ChevronLeft,
-  ChevronRight,
   Bell,
 } from "lucide-react"
 
@@ -64,22 +62,10 @@ export default async function TransactionsPage() {
     },
   })
 
-  const totalIncome = transactions
-    .filter((t) => t.type === "income")
-    .reduce((acc, t) => acc + t.amount, 0)
-  const totalExpenses = transactions
-    .filter((t) => t.type === "expense")
-    .reduce((acc, t) => acc + t.amount, 0)
-  const totalInvestments = transactions
-    .filter((t) => t.type === "transfer" && t.category.name === "Investments")
-    .reduce((acc, t) => acc + t.amount, 0)
-
-  const netCashBalance = totalIncome - totalExpenses - totalInvestments
-
   const formatCurrency = (amount: number, forceSign = false, type?: string) => {
     const formatted = new Intl.NumberFormat("en-US", {
       style: "currency",
-      currency: "USD", // Example uses USD, switch to INR if they want but mockup has $
+      currency: "INR", // Example uses USD, switch to INR if they want but mockup has $
       maximumFractionDigits: 2,
     }).format(Math.abs(amount))
 
@@ -140,18 +126,6 @@ export default async function TransactionsPage() {
     })
     .sort((a, b) => b.sorter - a.sorter)
 
-  // Determine viewing month from the first transaction (or just active month)
-  const viewingMonth =
-    transactions.length > 0
-      ? transactions[0].transactionDate.toLocaleDateString("en-US", {
-          month: "long",
-          year: "numeric",
-        })
-      : new Date().toLocaleDateString("en-US", {
-          month: "long",
-          year: "numeric",
-        })
-
   return (
     <div className="font-manrope min-h-screen bg-[#0e0e0e] p-4 text-white selection:bg-[#5cfd80]/30 selection:text-[#5cfd80] md:p-8">
       <div className="mx-auto max-w-xl">
@@ -171,74 +145,6 @@ export default async function TransactionsPage() {
           </button>
         </div>
 
-        {/* Period Selector */}
-        <div className="mb-4 flex items-center justify-between">
-          <span className="text-xs font-semibold tracking-widest text-gray-500 uppercase">
-            Active Period
-          </span>
-          <div className="flex items-center rounded-full border border-white/5 bg-[#18181a] p-1">
-            <button className="rounded-full bg-[#5cfd80] px-4 py-1.5 text-xs font-bold text-black shadow-[0_0_10px_rgba(92,253,128,0.3)]">
-              MONTHLY
-            </button>
-            <button className="px-4 py-1.5 text-xs font-bold text-gray-400 transition-colors hover:text-white">
-              YEARLY
-            </button>
-          </div>
-        </div>
-
-        {/* Viewing Month */}
-        <div className="mb-6 flex items-center justify-between rounded-2xl border border-white/5 bg-[#161618] p-4 shadow-lg">
-          <button className="p-1 text-gray-400 hover:text-white">
-            <ChevronLeft size={20} />
-          </button>
-          <div className="text-center">
-            <p className="mb-1 text-[10px] font-bold tracking-widest text-gray-500 uppercase">
-              VIEWING
-            </p>
-            <p className="text-lg font-bold">{viewingMonth}</p>
-          </div>
-          <button className="p-1 text-gray-400 hover:text-white">
-            <ChevronRight size={20} />
-          </button>
-        </div>
-
-        {/* Summary Grid */}
-        <div className="mb-8 grid grid-cols-2 gap-4">
-          <div className="flex flex-col justify-center rounded-2xl border border-white/5 bg-[#161618] p-4 shadow-lg md:p-5">
-            <h3 className="mb-2 text-[10px] font-bold tracking-wider text-gray-400 uppercase">
-              Total Income
-            </h3>
-            <p className="text-xl font-bold tracking-tight text-[#5cfd80] md:text-2xl">
-              {formatCurrency(totalIncome, true)}
-            </p>
-          </div>
-          <div className="flex flex-col justify-center rounded-2xl border border-white/5 bg-[#161618] p-4 shadow-lg md:p-5">
-            <h3 className="mb-2 text-[10px] font-bold tracking-wider text-gray-400 uppercase">
-              Total Expense
-            </h3>
-            <p className="text-xl font-bold tracking-tight text-white md:text-2xl">
-              {formatCurrency(totalExpenses, true, "expense")}
-            </p>
-          </div>
-          <div className="flex flex-col justify-center rounded-2xl border border-white/5 bg-[#161618] p-4 shadow-lg md:p-5">
-            <h3 className="mb-2 text-[10px] font-bold tracking-wider text-gray-400 uppercase">
-              Investments
-            </h3>
-            <p className="text-xl font-bold tracking-tight text-[#8be9fd] md:text-2xl">
-              {formatCurrency(totalInvestments, true, "expense")}
-            </p>
-          </div>
-          <div className="relative flex flex-col justify-center overflow-hidden rounded-2xl border border-[#5cfd80]/20 bg-[#122217] p-4 shadow-lg md:p-5">
-            <div className="pointer-events-none absolute top-0 right-0 h-32 w-32 rounded-full bg-[#5cfd80]/5 blur-2xl" />
-            <h3 className="z-10 mb-2 text-[10px] font-bold tracking-wider text-[#5cfd80] uppercase">
-              Net Balance
-            </h3>
-            <p className="z-10 text-xl font-bold tracking-tight text-[#5cfd80] md:text-2xl">
-              {formatCurrency(netCashBalance, true)}
-            </p>
-          </div>
-        </div>
-
         {/* Transaction List */}
         <div className="space-y-8 pb-32">
           {groupedArray.map((group) => (
@@ -255,7 +161,6 @@ export default async function TransactionsPage() {
               {group.transactions.map((tx) => {
                 const Icon = getCategoryIcon(tx.category.name)
                 const isIncome = tx.type === "income"
-                const isTransfer = tx.type === "transfer"
 
                 return (
                   <Link
@@ -291,11 +196,10 @@ export default async function TransactionsPage() {
                         {formatCurrency(tx.amount, false, tx.type)}
                       </p>
                       <p className="text-xs font-medium text-gray-500">
-                        {tx.transactionDate
-                          .toLocaleTimeString("en-IN", {
-                            hour: "2-digit",
-                            minute: "2-digit",
-                          })}
+                        {tx.transactionDate.toLocaleTimeString("en-IN", {
+                          hour: "2-digit",
+                          minute: "2-digit",
+                        })}
                       </p>
                     </div>
                   </Link>
