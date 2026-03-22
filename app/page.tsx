@@ -104,11 +104,6 @@ export default async function Page() {
                       month: "short",
                       day: "numeric",
                     })}{" "}
-                    •{" "}
-                    {tx.transactionDate.toLocaleTimeString("en-IN", {
-                      hour: "2-digit",
-                      minute: "2-digit",
-                    })}
                   </p>
                 </div>
               </div>
@@ -126,7 +121,10 @@ export default async function Page() {
                   {formatCurrency(tx.amount)}
                 </p>
                 <p className="mt-0.5 label-sm text-[0.6rem] tracking-[0.1em] text-on-surface-variant uppercase">
-                  {tx.type === "income" ? "Automated" : "Completed"}
+                  {tx.transactionDate.toLocaleTimeString("en-IN", {
+                    hour: "2-digit",
+                    minute: "2-digit",
+                  })}
                 </p>
               </div>
             </Link>

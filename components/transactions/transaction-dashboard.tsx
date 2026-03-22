@@ -273,16 +273,7 @@ export function TransactionDashboard({
                               {tx.category.name}
                             </p>
                             <p className="truncate label-sm text-on-surface-variant">
-                              {tx.account.name} •{" "}
-                              {tx.transactionDate.toLocaleDateString("en-IN", {
-                                month: "short",
-                                day: "numeric",
-                              })}{" "}
-                              •{" "}
-                              {tx.transactionDate.toLocaleTimeString("en-IN", {
-                                hour: "2-digit",
-                                minute: "2-digit",
-                              })}
+                              {tx.account.name}
                             </p>
                           </div>
                         </div>
@@ -303,7 +294,10 @@ export function TransactionDashboard({
                             {formatCurrency(tx.amount, false)}
                           </p>
                           <p className="mt-0.5 label-sm text-[0.6rem] tracking-[0.1em] text-on-surface-variant uppercase">
-                            {isIncome ? "SETTLED" : "VERIFIED"}
+                            {tx.transactionDate.toLocaleTimeString("en-IN", {
+                              hour: "2-digit",
+                              minute: "2-digit",
+                            })}
                           </p>
                         </div>
                       </div>
