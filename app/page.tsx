@@ -3,7 +3,6 @@ import {
   Bell,
   Plus,
   Activity,
-  Wallet,
   PieChart,
   User,
   TrendingUp,
@@ -109,41 +108,6 @@ export default async function Page() {
               Annualized Growth
             </span>
           </div>
-        </section>
-
-        {/* Quick Actions */}
-        <section className="mb-12 grid grid-cols-2 gap-4">
-          <div className="flex flex-col justify-between rounded-[1.5rem] bg-surface-container p-6 shadow-ambient">
-            <div className="mb-8 flex h-10 w-10 items-center justify-center rounded-full bg-surface-container-high">
-              <Wallet className="h-5 w-5 text-on-surface-variant" />
-            </div>
-            <div>
-              <p className="mb-1 label-sm text-on-surface-variant">
-                Liquid Cash
-              </p>
-              <p className="headline-md tracking-tight text-foreground">
-                {formatCurrency(totalIncome - totalExpenses)}
-              </p>
-            </div>
-          </div>
-          <Link
-            href="/transactions?add=true"
-            className="group flex flex-col justify-between rounded-[1.5rem] bg-gradient-to-br from-primary to-primary-container p-6 text-primary-foreground shadow-[0_10px_30px_rgba(2,201,83,0.3)] transition-transform active:scale-95"
-          >
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary-foreground/20">
-              <Plus className="h-6 w-6 text-primary-foreground" />
-            </div>
-            <div className="mt-8 text-left">
-              <p className="mb-1 label-sm font-bold tracking-wider uppercase opacity-80">
-                Quick Action
-              </p>
-              <p className="headline-md leading-[1.1]">
-                Add
-                <br />
-                Transaction
-              </p>
-            </div>
-          </Link>
         </section>
 
         {/* Recent Activity */}
