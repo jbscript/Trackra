@@ -205,9 +205,11 @@ export function TransactionDashboard({
   return (
     <>
       {/* Transaction List */}
-      <div className="space-y-6 pb-32">
-        {/* Search Bar */}
-        <div className="relative mt-8 mb-8">
+      <div className="flex h-full flex-col overflow-hidden">
+        {/* Fixed Header: Search + Month Selector */}
+        <div className="flex-shrink-0 pt-8">
+          {/* Search Bar */}
+          <div className="relative mb-8">
           <div className="relative flex items-center">
             <Search className="absolute left-4 h-5 w-5 text-on-surface-variant/60" />
             <input
@@ -238,86 +240,90 @@ export function TransactionDashboard({
           ))}
         </div>
 
-        {/* Transaction List */}
-        <div className="space-y-12">
-          {groupedArray.map((group) => (
-            <div key={group.label} className="space-y-6">
-              <h2 className="px-1 text-[22px] font-bold tracking-tight text-white/50">
-                {group.label}
-              </h2>
+        </div>
 
-              <div className="space-y-4">
-                {group.transactions.map((tx) => {
-                  const Icon = getCategoryIcon(tx.category.name)
-                  const isIncome = tx.type === "income"
+        {/* Scrollable Transaction List */}
+        <div className="no-scrollbar flex-1 overflow-y-auto pb-32">
+          <div className="space-y-12">
+            {groupedArray.map((group) => (
+              <div key={group.label} className="space-y-6">
+                <h2 className="px-1 text-[22px] font-bold tracking-tight text-white/50">
+                  {group.label}
+                </h2>
 
-                  return (
-                    <div
-                      key={tx.id}
-                      onClick={() => {
-                        setSelectedTxId(tx.id)
-                        router.push(`/transactions?id=${tx.id}`, {
-                          scroll: false,
-                        })
-                      }}
-                      className="group relative flex cursor-pointer items-center justify-between overflow-hidden rounded-[32px] bg-[#161618] px-6 py-6 shadow-lg shadow-black/20 transition-all hover:bg-[#1a1a1d] active:scale-[0.99]"
-                    >
-                      <div className="flex items-center gap-5">
-                        {/* Icon Container */}
-                        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#0c0c0d]">
-                          <Icon
-                            strokeWidth={2}
-                            size={12}
-                            className="text-white"
-                          />
+                <div className="space-y-4">
+                  {group.transactions.map((tx) => {
+                    const Icon = getCategoryIcon(tx.category.name)
+                    const isIncome = tx.type === "income"
+
+                    return (
+                      <div
+                        key={tx.id}
+                        onClick={() => {
+                          setSelectedTxId(tx.id)
+                          router.push(`/transactions?id=${tx.id}`, {
+                            scroll: false,
+                          })
+                        }}
+                        className="group relative flex cursor-pointer items-center justify-between overflow-hidden rounded-[32px] bg-[#161618] px-6 py-6 shadow-lg shadow-black/20 transition-all hover:bg-[#1a1a1d] active:scale-[0.99]"
+                      >
+                        <div className="flex items-center gap-5">
+                          {/* Icon Container */}
+                          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#0c0c0d]">
+                            <Icon
+                              strokeWidth={2}
+                              size={12}
+                              className="text-white"
+                            />
+                          </div>
+                          <div className="max-w-[140px] sm:max-w-[200px]">
+                            <p className="truncate body-md font-bold text-foreground">
+                              {tx.category.name}
+                            </p>
+                            <p className="truncate label-sm text-on-surface-variant">
+                              {tx.account.name} •{" "}
+                              {tx.transactionDate.toLocaleDateString("en-IN", {
+                                month: "short",
+                                day: "numeric",
+                              })}{" "}
+                              •{" "}
+                              {tx.transactionDate.toLocaleTimeString("en-IN", {
+                                hour: "2-digit",
+                                minute: "2-digit",
+                              })}
+                            </p>
+                          </div>
                         </div>
-                        <div className="max-w-[140px] sm:max-w-[200px]">
-                          <p className="truncate body-md font-bold text-foreground">
-                            {tx.category.name}
+
+                        <div className="text-right">
+                          <p
+                            className={`body-md font-bold ${
+                              tx.type === "income"
+                                ? "text-primary"
+                                : "text-foreground"
+                            }`}
+                          >
+                            {formatCurrency(tx.amount, false, tx.type)}
                           </p>
-                          <p className="truncate label-sm text-on-surface-variant">
-                            {tx.account.name} •{" "}
-                            {tx.transactionDate.toLocaleDateString("en-IN", {
-                              month: "short",
-                              day: "numeric",
-                            })}{" "}
-                            •{" "}
-                            {tx.transactionDate.toLocaleTimeString("en-IN", {
-                              hour: "2-digit",
-                              minute: "2-digit",
-                            })}
+                          <p className="mt-0.5 label-sm text-[0.6rem] tracking-[0.1em] text-on-surface-variant uppercase">
+                            {isIncome ? "SETTLED" : "VERIFIED"}
                           </p>
                         </div>
                       </div>
-
-                      <div className="text-right">
-                        <p
-                          className={`body-md font-bold ${
-                            tx.type === "income"
-                              ? "text-primary"
-                              : "text-foreground"
-                          }`}
-                        >
-                          {formatCurrency(tx.amount, false, tx.type)}
-                        </p>
-                        <p className="mt-0.5 label-sm text-[0.6rem] tracking-[0.1em] text-on-surface-variant uppercase">
-                          {isIncome ? "SETTLED" : "VERIFIED"}
-                        </p>
-                      </div>
-                    </div>
-                  )
-                })}
+                    )
+                  })}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
 
-          {groupedArray.length === 0 && (
-            <div className="py-20 text-center text-on-surface-variant/40">
-              <p className="body-md">
-                No transactions found for {months[selectedMonth]}.
-              </p>
-            </div>
-          )}
+            {groupedArray.length === 0 && (
+              <div className="py-20 text-center text-on-surface-variant/40">
+                <p className="body-md">
+                  No transactions found for {months[selectedMonth]}.
+                </p>
+              </div>
+            )}
+          </div>
         </div>
       </div>
 

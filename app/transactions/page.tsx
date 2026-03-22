@@ -44,7 +44,7 @@ export default async function TransactionsPage() {
   )
 
   return (
-    <main className="container mx-auto max-w-md p-6 pt-0 md:max-w-2xl">
+    <main className="container mx-auto flex h-full max-w-md flex-col p-6 pt-0 md:max-w-2xl">
       <Suspense
           fallback={
             <div className="font-manrope flex min-h-screen items-center justify-center bg-[#0e0e0e] text-gray-500">
