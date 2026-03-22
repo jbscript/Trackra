@@ -1,15 +1,9 @@
 import { db } from "@/lib/db"
 import {
-  Bell,
-  Plus,
-  Activity,
-  PieChart,
-  User,
   TrendingUp,
   ArrowDownRight,
   ArrowUpRight,
   ArrowRightLeft,
-  LayoutGrid,
 } from "lucide-react"
 import Link from "next/link"
 
@@ -59,31 +53,8 @@ export default async function Page() {
   }
 
   return (
-    <div className="relative min-h-screen bg-surface pb-32 font-sans text-foreground selection:bg-primary/30">
-      <main className="container mx-auto max-w-md p-6 pt-12 md:max-w-2xl">
-        {/* Header */}
-        <header className="mb-10 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="h-10 w-10 overflow-hidden rounded-full bg-surface-container-highest shadow-ambient">
-              <img
-                src="https://api.dicebear.com/7.x/notionists/svg?seed=Atelier&backgroundColor=131313"
-                alt="User"
-              />
-            </div>
-            <div>
-              <p className="label-sm tracking-wider text-on-surface-variant uppercase">
-                Welcome Back
-              </p>
-              <h2 className="text-base font-bold text-primary">Atelier</h2>
-            </div>
-          </div>
-          <button className="relative flex h-10 w-10 items-center justify-center rounded-full bg-surface-container transition-colors hover:bg-surface-container-highest">
-            <Bell className="h-5 w-5 text-primary" />
-            <span className="absolute top-2 right-2 h-2 w-2 animate-pulse rounded-full bg-primary"></span>
-          </button>
-        </header>
-
-        {/* Hero: Net Worth */}
+    <main className="container mx-auto max-w-md p-6 pt-0 md:max-w-2xl">
+      {/* Hero: Net Worth */}
         <section className="mb-10">
           <div className="mb-2 flex items-center gap-2">
             <span className="h-2 w-2 animate-pulse rounded-full bg-primary shadow-[0_0_8px_rgba(92,253,128,0.6)]"></span>
@@ -189,35 +160,5 @@ export default async function Page() {
           </div>
         </section>
       </main>
-
-      {/* Floating Bottom Nav */}
-      <div className="fixed bottom-6 left-1/2 z-50 flex -translate-x-1/2 items-center gap-1 rounded-[2.5rem] border border-outline-variant glass px-3 py-3 shadow-[0_24px_48px_rgba(0,0,0,0.6)]">
-        <Link
-          href="/home"
-          className="relative flex h-12 w-12 items-center justify-center rounded-full text-on-surface-variant transition-colors hover:text-primary"
-        >
-          <LayoutGrid className="h-[1.35rem] w-[1.35rem]" />
-          <div className="absolute -bottom-1 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-primary" />
-        </Link>
-        <button className="flex h-12 w-12 items-center justify-center rounded-full text-on-surface-variant transition-colors hover:text-primary">
-          <Activity className="h-[1.35rem] w-[1.35rem]" />
-        </button>
-        <Link
-          href="/transactions?add=true"
-          className="mx-2 flex h-14 w-14 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-[0_0_20px_rgba(92,253,128,0.4)] transition-transform hover:scale-105 active:scale-95"
-        >
-          <Plus className="h-6 w-6" />
-        </Link>
-        <Link
-          href="/transactions"
-          className="flex h-12 w-12 items-center justify-center rounded-full text-on-surface-variant transition-colors hover:text-primary"
-        >
-          <PieChart className="h-[1.35rem] w-[1.35rem]" />
-        </Link>
-        <button className="flex h-12 w-12 items-center justify-center rounded-full text-on-surface-variant transition-colors hover:text-primary">
-          <User className="h-[1.35rem] w-[1.35rem]" />
-        </button>
-      </div>
-    </div>
   )
 }
