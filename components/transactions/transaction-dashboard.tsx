@@ -114,18 +114,12 @@ export function TransactionDashboard({
 
   const selectedTx = transactions.find((t) => t.id === selectedTxId)
 
-  const formatCurrency = (amount: number, forceSign = false, type?: string) => {
-    const formatted = new Intl.NumberFormat("en-US", {
-      style: "currency",
+  const formatCurrency = (amount: number, hideSymbol = false) => {
+    return new Intl.NumberFormat("en-IN", {
+      style: hideSymbol ? "decimal" : "currency",
       currency: "INR",
-      maximumFractionDigits: 2,
-    }).format(Math.abs(amount))
-
-    if (type === "income" || amount > 0) return `+${formatted}`
-    if (type === "expense" || (amount < 0 && type !== "transfer"))
-      return `-${formatted}`
-    if (forceSign) return amount >= 0 ? `+${formatted}` : `-${formatted}`
-    return formatted
+      maximumFractionDigits: 0,
+    }).format(amount)
   }
 
   // State for search and month
@@ -210,40 +204,39 @@ export function TransactionDashboard({
         <div className="flex-shrink-0 pt-8">
           {/* Search Bar */}
           <div className="relative mb-8">
-          <div className="relative flex items-center">
-            <Search className="absolute left-4 h-5 w-5 text-on-surface-variant/60" />
-            <input
-              type="text"
-              placeholder="Search transactions, merchants, or"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="h-[64px] w-full rounded-[24px] bg-[#161618] pr-4 pl-12 text-[15px] font-medium text-white placeholder:text-on-surface-variant/40 focus:ring-1 focus:ring-primary/20 focus:outline-none"
-            />
+            <div className="relative flex items-center">
+              <Search className="absolute left-4 h-5 w-5 text-on-surface-variant/60" />
+              <input
+                type="text"
+                placeholder="Search transactions, merchants, or"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="h-[64px] w-full rounded-[24px] bg-[#161618] pr-4 pl-12 text-[15px] font-medium text-white placeholder:text-on-surface-variant/40 focus:ring-1 focus:ring-primary/20 focus:outline-none"
+              />
+            </div>
+          </div>
+
+          {/* Month Selector */}
+          <div className="mb-8 no-scrollbar flex gap-10 overflow-x-auto overflow-y-hidden pb-2">
+            {months.map((month, idx) => (
+              <button
+                key={month}
+                onClick={() => setSelectedMonth(idx)}
+                className={cn(
+                  "relative flex-shrink-0 cursor-pointer text-xs font-bold tracking-[0.15em] uppercase transition-colors",
+                  selectedMonth === idx
+                    ? "text-[#5cfd80]"
+                    : "text-white/30 hover:text-white/50"
+                )}
+              >
+                {month}
+              </button>
+            ))}
           </div>
         </div>
 
-        {/* Month Selector */}
-        <div className="mb-10 no-scrollbar flex gap-10 overflow-x-auto overflow-y-hidden pb-2">
-          {months.map((month, idx) => (
-            <button
-              key={month}
-              onClick={() => setSelectedMonth(idx)}
-              className={cn(
-                "relative flex-shrink-0 cursor-pointer text-xs font-bold tracking-[0.15em] uppercase transition-colors",
-                selectedMonth === idx
-                  ? "text-[#5cfd80]"
-                  : "text-white/30 hover:text-white/50"
-              )}
-            >
-              {month}
-            </button>
-          ))}
-        </div>
-
-        </div>
-
         {/* Scrollable Transaction List */}
-        <div className="no-scrollbar flex-1 overflow-y-auto pb-32">
+        <div className="no-scrollbar flex-1 overflow-y-auto">
           <div className="space-y-12">
             {groupedArray.map((group) => (
               <div key={group.label} className="space-y-6">
@@ -303,7 +296,7 @@ export function TransactionDashboard({
                                 : "text-foreground"
                             }`}
                           >
-                            {formatCurrency(tx.amount, false, tx.type)}
+                            {formatCurrency(tx.amount, false)}
                           </p>
                           <p className="mt-0.5 label-sm text-[0.6rem] tracking-[0.1em] text-on-surface-variant uppercase">
                             {isIncome ? "SETTLED" : "VERIFIED"}

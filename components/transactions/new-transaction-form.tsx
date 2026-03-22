@@ -104,13 +104,13 @@ export function TransactionForm({
     }
   }
 
-  const formatCurrency = (val: number) => {
-    return new Intl.NumberFormat("en-US", {
-      style: "currency",
+  const formatCurrency = (amount: number, hideSymbol = false) => {
+    return new Intl.NumberFormat("en-IN", {
+      style: hideSymbol ? "decimal" : "currency",
       currency: "INR",
-    }).format(val)
+      maximumFractionDigits: 0,
+    }).format(amount)
   }
-
   return (
     <form onSubmit={handleSubmit} className="relative flex h-full flex-col">
       {/* Header */}

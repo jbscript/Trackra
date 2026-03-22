@@ -134,13 +134,12 @@ export function TransactionDetails({
 
   const Icon = getCategoryIcon(transaction.category.name)
 
-  const formatCurrency = (amount: number) => {
-    const formatted = new Intl.NumberFormat("en-US", {
-      style: "currency",
+  const formatCurrency = (amount: number, hideSymbol = false) => {
+    return new Intl.NumberFormat("en-IN", {
+      style: hideSymbol ? "decimal" : "currency",
       currency: "INR",
-      maximumFractionDigits: 2,
-    }).format(Math.abs(amount))
-    return formatted
+      maximumFractionDigits: 0,
+    }).format(amount)
   }
 
   return (
