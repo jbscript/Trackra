@@ -14,7 +14,7 @@ import {
 } from "lucide-react"
 import Link from "next/link"
 
-export default async function TransactionsPage() {
+export default async function HomePage() {
   const transactions = await db.transaction.findMany({
     include: {
       account: true,
@@ -124,7 +124,7 @@ export default async function TransactionsPage() {
               </p>
             </div>
           </div>
-          <Link href="/transactions/new" className="group flex flex-col justify-between rounded-[1.5rem] bg-gradient-to-br from-primary to-primary-container p-6 text-primary-foreground shadow-[0_10px_30px_rgba(2,201,83,0.3)] transition-transform active:scale-95">
+          <Link href="/transactions?add=true" className="group flex flex-col justify-between rounded-[1.5rem] bg-gradient-to-br from-primary to-primary-container p-6 text-primary-foreground shadow-[0_10px_30px_rgba(2,201,83,0.3)] transition-transform active:scale-95">
             <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary-foreground/20">
               <Plus className="h-6 w-6 text-primary-foreground" />
             </div>
@@ -143,15 +143,16 @@ export default async function TransactionsPage() {
         <section className="mb-12">
           <div className="mb-6 flex items-center justify-between px-1">
             <h3 className="headline-md text-foreground">Recent Activity</h3>
-            <button className="label-sm font-bold text-primary hover:text-primary-container transition-colors tracking-wide">
+            <Link href="/transactions" className="label-sm font-bold text-primary hover:text-primary-container transition-colors tracking-wide">
               View All
-            </button>
+            </Link>
           </div>
           <div className="flex flex-col gap-3">
             {transactions.slice(0, 5).map((tx) => (
-              <div
+              <Link
+                href={`/transactions?id=${tx.id}`}
                 key={tx.id}
-                className="flex items-center justify-between rounded-2xl bg-surface-container p-4 shadow-ambient"
+                className="flex items-center justify-between rounded-2xl bg-surface-container p-4 shadow-ambient transition-colors hover:bg-surface-container-high"
               >
                 <div className="flex items-center gap-4">
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-surface-container-high text-on-surface-variant">
@@ -186,7 +187,7 @@ export default async function TransactionsPage() {
                     {tx.type === "income" ? "Automated" : "Completed"}
                   </p>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </section>
@@ -211,19 +212,19 @@ export default async function TransactionsPage() {
 
       {/* Floating Bottom Nav */}
       <div className="fixed bottom-6 left-1/2 flex -translate-x-1/2 items-center gap-1 rounded-[2.5rem] glass px-3 py-3 shadow-[0_24px_48px_rgba(0,0,0,0.6)] z-50 border border-outline-variant">
-        <button className="relative flex h-12 w-12 items-center justify-center rounded-full text-on-surface-variant hover:text-primary transition-colors">
+        <Link href="/home" className="relative flex h-12 w-12 items-center justify-center rounded-full text-on-surface-variant hover:text-primary transition-colors">
           <LayoutGrid className="h-[1.35rem] w-[1.35rem]" />
           <div className="absolute -bottom-1 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-primary" />
-        </button>
+        </Link>
         <button className="flex h-12 w-12 items-center justify-center rounded-full text-on-surface-variant hover:text-primary transition-colors">
           <Activity className="h-[1.35rem] w-[1.35rem]" />
         </button>
-        <Link href="/transactions/new" className="mx-2 flex h-14 w-14 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-[0_0_20px_rgba(92,253,128,0.4)] transition-transform hover:scale-105 active:scale-95">
+        <Link href="/transactions?add=true" className="mx-2 flex h-14 w-14 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-[0_0_20px_rgba(92,253,128,0.4)] transition-transform hover:scale-105 active:scale-95">
           <Plus className="h-6 w-6" />
         </Link>
-        <button className="flex h-12 w-12 items-center justify-center rounded-full text-on-surface-variant hover:text-primary transition-colors">
+        <Link href="/transactions" className="flex h-12 w-12 items-center justify-center rounded-full text-on-surface-variant hover:text-primary transition-colors">
           <PieChart className="h-[1.35rem] w-[1.35rem]" />
-        </button>
+        </Link>
         <button className="flex h-12 w-12 items-center justify-center rounded-full text-on-surface-variant hover:text-primary transition-colors">
           <User className="h-[1.35rem] w-[1.35rem]" />
         </button>

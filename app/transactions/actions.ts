@@ -29,8 +29,10 @@ export async function createTransaction(formData: FormData) {
   })
 
   revalidatePath("/home")
+  revalidatePath("/transactions")
   redirect("/home")
 }
+
 export async function updateTransaction(formData: FormData) {
   const id = formData.get("id") as string
   const type = formData.get("type") as string
@@ -65,5 +67,16 @@ export async function updateTransaction(formData: FormData) {
   })
 
   revalidatePath("/home")
+  revalidatePath("/transactions")
   revalidatePath(`/transactions/${id}`)
+}
+
+export async function deleteTransaction(data: string | FormData) {
+  const id = typeof data === "string" ? data : (data.get("id") as string)
+  if (!id) throw new Error("ID is required to delete")
+  
+  await db.transaction.delete({ where: { id } })
+  
+  revalidatePath("/transactions")
+  revalidatePath("/home")
 }

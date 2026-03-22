@@ -96,17 +96,19 @@ export function TransactionDetails({
   accounts,
   categories,
   deleteAction,
+  onClose,
 }: {
   transaction: Transaction
   accounts: Account[]
   categories: Category[]
   deleteAction: (formData: FormData) => Promise<void>
+  onClose?: () => void
 }) {
   const [isEditing, setIsEditing] = useState(false)
 
   if (isEditing) {
     return (
-      <div className="min-h-screen bg-background p-6">
+      <div className="fixed inset-0 z-[60] bg-[#0e0e0e] p-6 overflow-y-auto no-scrollbar">
         <div className="mx-auto max-w-xl pb-24">
           <TransactionForm
             accounts={accounts}
@@ -124,6 +126,7 @@ export function TransactionDetails({
               await updateTransaction(formData)
               setIsEditing(false)
             }}
+            onClose={() => setIsEditing(false)}
           />
         </div>
       </div>
@@ -146,13 +149,13 @@ export function TransactionDetails({
       <div className="mx-auto max-w-xl pb-24">
         {/* Header */}
         <div className="mb-16 flex items-center justify-between">
-          <Link
-            href="/transactions"
+          <button
+            onClick={() => onClose?.() || window.history.back()}
             className="flex items-center gap-1 text-[#5cfd80] transition-colors hover:text-[#5cfd80]/80"
           >
             <ChevronLeft size={24} />
             <span className="font-bold tracking-wide">Details</span>
-          </Link>
+          </button>
           <button
             onClick={() => setIsEditing(true)}
             className="font-bold tracking-wide text-[#5cfd80] transition-colors hover:text-[#5cfd80]/80"

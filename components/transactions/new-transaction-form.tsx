@@ -23,6 +23,7 @@ export function TransactionForm({
   categories,
   initialData,
   onSave,
+  onClose,
 }: {
   accounts: Account[]
   categories: Category[]
@@ -36,6 +37,7 @@ export function TransactionForm({
     accountId: string
   }
   onSave?: (formData: FormData) => Promise<void>
+  onClose?: () => void
 }) {
   const router = useRouter()
   const [type, setType] = useState<"expense" | "income" | "transfer">(
@@ -115,7 +117,7 @@ export function TransactionForm({
       <header className="z-10 mb-8 flex items-center justify-between">
         <button
           type="button"
-          onClick={() => router.back()}
+          onClick={() => onClose?.() || router.back()}
           className="-ml-2 rounded-full p-2 text-foreground transition-colors hover:bg-surface-container"
         >
           <ArrowLeft className="h-6 w-6" />
