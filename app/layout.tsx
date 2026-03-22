@@ -20,9 +20,11 @@ export default function RootLayout({
       suppressHydrationWarning
       className={cn("dark font-sans antialiased", fontSans.variable)}
     >
-      <body className="min-h-screen bg-surface text-foreground selection:bg-primary/30">
-        <main className="pt-6 pb-32">{children}</main>
-        <BottomNav />
+      <body className="flex h-screen flex-col overflow-hidden bg-surface text-foreground selection:bg-primary/30">
+        <main className="no-scrollbar flex-1 overflow-y-auto">{children}</main>
+        <div className="flex shrink-0 items-center justify-center">
+          <BottomNav />
+        </div>
       </body>
     </html>
   )

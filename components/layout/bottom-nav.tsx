@@ -14,7 +14,7 @@ export function BottomNav() {
   if (isAdding || isEditing) return null
 
   return (
-    <div className="fixed bottom-6 left-1/2 z-50 flex -translate-x-1/2 items-center gap-1 rounded-[2.5rem] border border-outline-variant glass px-3 py-3 shadow-[0_24px_48px_rgba(0,0,0,0.6)]">
+    <div className="flex items-center gap-4 border-t border-outline-variant py-3">
       <Link
         href="/"
         className={cn(
