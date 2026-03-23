@@ -4,11 +4,12 @@ import { useState } from "react"
 import { useRouter } from "next/navigation"
 import {
   X,
-  Utensils,
-  CreditCard,
   Calendar,
-  ChevronRight,
   Delete,
+  Shapes,
+  Wallet,
+  FileEdit,
+  ArrowRight,
 } from "lucide-react"
 import { createTransaction } from "@/app/transactions/actions"
 import {
@@ -184,36 +185,37 @@ export function TransactionForm({
   } catch {}
 
   return (
-    <div className="mx-auto flex min-h-screen w-full max-w-[420px] flex-col text-white sm:px-6 md:min-h-full">
+    <div className="mx-auto flex min-h-screen w-full max-w-[420px] flex-col bg-[#0D0D11] text-white sm:px-6 md:min-h-full font-sans selection:bg-[#2DE05F]/30">
       {/* Header */}
-      <header className="mb-6 flex items-center justify-between">
+      <header className="mb-6 flex items-center justify-between px-4 pt-6 sm:px-0">
         <button
           type="button"
           onClick={() => onClose?.() || router.back()}
-          className="p-1 text-gray-400 transition-colors hover:text-white"
+          className="p-1 text-[#2DE05F] transition-colors hover:text-green-400"
         >
-          <X className="h-6 w-6" />
+          <X className="h-6 w-6" strokeWidth={2.5} />
         </button>
-        <h1 className="text-lg font-medium text-[#4ADE80]">
+        <h1 className="text-[1.15rem] font-bold text-white tracking-wide">
           {initialData ? "Edit Transaction" : "New Transaction"}
         </h1>
-        <div className="flex h-9 w-9 items-center justify-center overflow-hidden rounded-full bg-[#E5CDC1]">
-          {/* Avatar placeholder with small internal shapes */}
-          <div className="mt-3 mr-1 h-2 w-2 rounded-sm bg-black/20"></div>
-          <div className="mt-3 h-2 w-2 -rotate-12 rounded-sm bg-black/20"></div>
+        <div className="flex h-[28px] items-center justify-center gap-2 rounded-full bg-[#1C1C22] px-3">
+          <span className="h-2 w-2 rounded-full bg-[#2DE05F] shadow-[0_0_8px_#2DE05F]"></span>
+          <span className="text-[0.65rem] font-bold tracking-wider text-gray-400 uppercase">
+            Live Sync
+          </span>
         </div>
       </header>
 
       {/* Type Toggle */}
-      <div className="mx-auto mb-8 flex w-full max-w-[340px] rounded-full bg-[#16181C] p-[5px] shadow-inner">
+      <div className="mx-4 mb-8 flex max-w-[340px] rounded-full bg-[#1A1A1F] p-[4px] sm:mx-auto w-full">
         {(["expense", "income", "transfer"] as const).map((t) => (
           <button
             key={t}
             type="button"
             onClick={() => handleTypeChange(t)}
-            className={`flex-1 rounded-full py-2.5 text-[0.85rem] font-medium capitalize transition-all ${
+            className={`flex-1 rounded-full py-[10px] text-[0.85rem] font-bold capitalize transition-all ${
               type === t
-                ? "bg-[#4ADE80] text-black shadow-md shadow-green-900/20"
+                ? "bg-[#25252A] text-[#2DE05F] shadow-sm"
                 : "text-gray-400 hover:text-gray-200"
             }`}
           >
@@ -224,28 +226,25 @@ export function TransactionForm({
 
       {/* Amount Display */}
       <div className="mb-8 flex flex-col items-center justify-center">
-        <span className="mb-1 text-[0.65rem] font-bold tracking-[0.2em] text-[#8E8E93] uppercase">
-          Amount Due
-        </span>
-        <div className="flex items-center">
-          <span className="text-[4rem] font-bold tracking-tight text-[#4ADE80] drop-shadow-[0_0_25px_rgba(74,222,128,0.3)]">
-            ₹{displayExpr}
+        <div className="flex items-start">
+          <span className="mt-2 text-3xl font-bold text-[#2DE05F]">$</span>
+          <span className="text-[4.5rem] font-bold tracking-tight text-white leading-none">
+            {displayExpr}
           </span>
         </div>
-        <div className="mt-4 flex items-center justify-center">
+        <div className="mt-3 flex items-center justify-center">
           <Select value={accountId} onValueChange={(val) => { if (val) setAccountId(val) }}>
-            <SelectTrigger className="flex h-[38px] w-auto min-w-[180px] items-center gap-2 rounded-full border-0 bg-[#292A3E] px-4 py-0 text-[14.5px] font-medium text-white shadow-none hover:bg-[#34354A] focus:ring-0">
-              <div className="flex flex-1 items-center justify-center gap-2">
-                <CreditCard className="h-4 w-4 text-white" />
-                <span className="truncate">{accounts.find((a) => a.id === accountId)?.name || "Select Account"}</span>
-              </div>
+            <SelectTrigger className="flex h-[32px] w-auto items-center justify-center gap-2 rounded-lg border-0 bg-[#1A1A1F] px-4 shadow-none outline-none transition-transform active:scale-[0.98] hover:bg-[#202026] focus:ring-0 [&>svg]:hidden">
+              <span className="text-[0.65rem] font-bold tracking-[0.1em] text-gray-400 uppercase">
+                {accounts.find((a) => a.id === accountId)?.name || "Select Account"}
+              </span>
             </SelectTrigger>
-            <SelectContent className="border-[#292A3E] bg-[#1C1C1E] text-white">
+            <SelectContent className="border-[#202026] bg-[#16161A] text-white">
               {accounts.map((a) => (
                 <SelectItem 
                   key={a.id} 
                   value={a.id} 
-                  className="cursor-pointer py-2.5 text-[14.5px] focus:bg-[#292A3E] focus:text-white"
+                  className="cursor-pointer py-2.5 text-[14.5px] focus:bg-[#202026] focus:text-white"
                 >
                   {a.name}
                 </SelectItem>
@@ -255,160 +254,115 @@ export function TransactionForm({
         </div>
       </div>
 
-      {/* Selectors Area */}
-      <div className="mb-6 flex w-full flex-col gap-3">
-        {/* Category Selector */}
-        <Select value={categoryId} onValueChange={(val) => { if (val) setCategoryId(val) }}>
-          <SelectTrigger className="relative flex w-full h-auto items-center justify-between rounded-2xl border-0 bg-[#16181C] p-4 shadow-sm transition-transform active:scale-[0.98] outline-none focus:ring-0 [&>svg]:hidden hover:bg-[#16181C]">
-            <div className="flex w-full items-center justify-between">
-              <div className="flex items-center gap-4">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#133021]">
-                  <Utensils className="h-6 w-6 text-[#4ADE80]" />
-                </div>
-                <div className="flex flex-col items-start gap-0.5">
-                  <span className="text-[0.65rem] font-medium text-[#8E8E93]">
-                    Category
-                  </span>
-                  <span className="max-w-[150px] truncate text-[1.05rem] font-semibold text-white">
-                    {categories.find((c) => c.id === categoryId)?.name || "Select"}
-                  </span>
-                </div>
-              </div>
-              <ChevronRight className="h-5 w-5 text-[#8E8E93]" />
-            </div>
-          </SelectTrigger>
-          <SelectContent className="border-[#292A3E] bg-[#1C1C1E] text-white">
-            {availableCategories.length === 0 && (
-              <SelectItem value="empty" disabled className="text-gray-500">No categories</SelectItem>
-            )}
-            {availableCategories.map((c) => (
-              <SelectItem 
-                key={c.id} 
-                value={c.id} 
-                className="cursor-pointer py-2.5 text-[14.5px] focus:bg-[#292A3E] focus:text-white"
-              >
-                {c.name}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
+      <div className="px-4 pb-6 sm:px-0 flex-1 flex flex-col">
+        {/* Row of 2 Selectors */}
+        <div className="mb-5 grid grid-cols-2 gap-3">
+          {/* Category */}
+          <Select value={categoryId} onValueChange={(val) => { if (val) setCategoryId(val) }}>
+            <SelectTrigger className="flex h-[90px] w-full flex-col items-center justify-center gap-2 rounded-2xl border-0 bg-[#1A1A1F] shadow-none outline-none transition-transform active:scale-[0.98] hover:bg-[#202026] focus:ring-0 [&>svg]:hidden">
+              <Shapes className="h-[22px] w-[22px] text-[#2DE05F]" strokeWidth={2.5} />
+              <span className="text-[0.7rem] font-medium text-gray-300">
+                {categories.find((c) => c.id === categoryId)?.name || "Category"}
+              </span>
+            </SelectTrigger>
+            <SelectContent className="border-[#202026] bg-[#16161A] text-white">
+              {availableCategories.length === 0 && (
+                <SelectItem value="empty" disabled className="text-gray-500">No categories</SelectItem>
+              )}
+              {availableCategories.map((c) => (
+                <SelectItem 
+                  key={c.id} 
+                  value={c.id} 
+                  className="cursor-pointer py-2.5 text-[14.5px] focus:bg-[#202026] focus:text-white"
+                >
+                  {c.name}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
 
-        {/* Date Selector */}
-        <div className="relative flex w-full items-center gap-3 rounded-2xl bg-[#16181C] p-4 shadow-sm transition-transform active:scale-[0.98]">
+
+          {/* Date Selector */}
+          <div className="relative flex h-[90px] w-full flex-col items-center justify-center gap-2 rounded-2xl bg-[#1A1A1F] transition-transform active:scale-[0.98] hover:bg-[#202026]">
+            <input
+              type="datetime-local"
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+              className="absolute inset-0 z-10 w-full appearance-none opacity-0 [&::-webkit-calendar-picker-indicator]:absolute [&::-webkit-calendar-picker-indicator]:inset-0 [&::-webkit-calendar-picker-indicator]:h-full [&::-webkit-calendar-picker-indicator]:w-full [&::-webkit-calendar-picker-indicator]:cursor-pointer [&::-webkit-calendar-picker-indicator]:opacity-0"
+              required
+            />
+            <Calendar className="h-[22px] w-[22px] text-[#1DA1F2]" strokeWidth={2.5} />
+            <span className="text-[0.7rem] font-medium text-gray-300 pointer-events-none">
+              {new Date(date).toDateString() === new Date().toDateString() ? "Today" : new Date(date).toLocaleDateString("en-US", { month: "short", day: "numeric" })}
+            </span>
+          </div>
+        </div>
+
+        {/* Note Input */}
+        <div className="mb-6 flex w-full items-center justify-between rounded-2xl bg-[#1A1A1F] px-5 py-4">
           <input
-            type="datetime-local"
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
-            className="absolute inset-0 z-10 w-full appearance-none opacity-0 [&::-webkit-calendar-picker-indicator]:absolute [&::-webkit-calendar-picker-indicator]:inset-0 [&::-webkit-calendar-picker-indicator]:h-full [&::-webkit-calendar-picker-indicator]:w-full [&::-webkit-calendar-picker-indicator]:cursor-pointer [&::-webkit-calendar-picker-indicator]:opacity-0"
-            required
+            type="text"
+            value={note}
+            onChange={(e) => setNote(e.target.value)}
+            placeholder="Add a quick note..."
+            className="flex-1 bg-transparent text-[0.9rem] text-white placeholder-gray-500 outline-none"
           />
-          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#222428]">
-            <Calendar className="h-5 w-5 text-gray-300" />
+          <FileEdit className="h-4 w-4 text-gray-400" />
+        </div>
+
+        {/* Expanded Keypad */}
+        <div className="mt-auto flex w-full flex-col gap-2 pt-2">
+          {/* Main Keypad Grid (4x4) */}
+          <div className="grid grid-cols-4 gap-2">
+            {[
+              { key: "7" }, { key: "8" }, { key: "9" }, { key: "/", label: "÷", color: "text-[#2DE05F]" },
+              { key: "4" }, { key: "5" }, { key: "6" }, { key: "*", label: "×", color: "text-[#2DE05F]" },
+              { key: "1" }, { key: "2" }, { key: "3" }, { key: "-", color: "text-[#2DE05F]" },
+              { key: "." }, { key: "0" }, { key: "delete", isIcon: true }, { key: "+", color: "text-[#2DE05F]" }
+            ].map((btn) => (
+              <button
+                key={btn.key}
+                type="button"
+                onClick={() => handleKeypadPress(btn.key)}
+                className="flex h-[68px] items-center justify-center rounded-[1rem] bg-[#1A1A1F] text-[1.4rem] font-bold transition-all active:bg-[#25252A] hover:bg-[#202026]"
+              >
+                {btn.isIcon ? (
+                  <Delete className="h-6 w-6 text-white" strokeWidth={2.5} />
+                ) : (
+                  <span className={btn.color || "text-white"}>{btn.label || btn.key}</span>
+                )}
+              </button>
+            ))}
           </div>
-          <div className="flex min-w-0 flex-col">
-            <span className="mb-0.5 text-[0.65rem] font-medium text-[#8E8E93]">
-              Date
-            </span>
-            <span className="text-sm leading-tight font-semibold whitespace-pre-wrap text-white">
-              {formatDisplayDate(date)}
-            </span>
+          {/* Bottom Row */}
+          <div className="grid grid-cols-4 gap-2 mt-1">
+            <button
+              type="button"
+              onClick={() => handleKeypadPress("=")}
+              className="flex h-[72px] items-center justify-center rounded-[1.1rem] bg-[#1A1A1F] transition-all active:bg-[#25252A] hover:bg-[#202026]"
+            >
+              <span className="text-[1.8rem] font-bold text-[#2DE05F]">=</span>
+            </button>
+            <button
+              type="button"
+              onClick={handleSubmit}
+              disabled={isLoading || isNaN(currentVal) || currentVal <= 0}
+              className="col-span-3 flex h-[72px] items-center justify-center gap-3 rounded-[1.1rem] bg-[#2DE05F] shadow-[0_8px_30px_rgba(45,224,95,0.25)] transition-transform hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:hover:scale-100"
+            >
+              <span className="text-[0.95rem] font-bold tracking-wide text-[#0D0D11]">
+                {isLoading ? "SAVING..." : "SAVE TRANSACTION"}
+              </span>
+              <ArrowRight className="h-5 w-5 text-[#0D0D11]" strokeWidth={2.5} />
+            </button>
           </div>
+        </div>
+
+        <div className="mt-6 mb-2 text-center">
+          <span className="text-[0.6rem] font-bold tracking-[0.2em] text-gray-600">
+            SECURED BY OBSIDIAN LEDGER V2.4
+          </span>
         </div>
       </div>
-
-      {/* Expanded Keypad (Calculator Mode) */}
-      <div className="mb-6 flex w-full flex-col gap-2">
-        {/* Row 1 */}
-        <div className="grid grid-cols-4 gap-2">
-          {["7", "8", "9", "/"].map((key) => (
-            <button
-              key={key}
-              type="button"
-              onClick={() => handleKeypadPress(key)}
-              className="flex h-14 items-center justify-center rounded-xl bg-[#1C1C1E] text-2xl font-medium transition-all active:bg-[#2C2C2E]"
-            >
-              {key === "/" ? (
-                <span className="text-3xl font-light text-[#4ADE80]">÷</span>
-              ) : (
-                <span className="text-white">{key}</span>
-              )}
-            </button>
-          ))}
-        </div>
-        {/* Row 2 */}
-        <div className="grid grid-cols-4 gap-2">
-          {["4", "5", "6", "*"].map((key) => (
-            <button
-              key={key}
-              type="button"
-              onClick={() => handleKeypadPress(key)}
-              className="flex h-14 items-center justify-center rounded-xl bg-[#1C1C1E] text-2xl font-medium transition-all active:bg-[#2C2C2E]"
-            >
-              {key === "*" ? (
-                <span className="text-3xl font-light text-[#4ADE80]">×</span>
-              ) : (
-                <span className="text-white">{key}</span>
-              )}
-            </button>
-          ))}
-        </div>
-        {/* Row 3 */}
-        <div className="grid grid-cols-4 gap-2">
-          {["1", "2", "3", "-"].map((key) => (
-            <button
-              key={key}
-              type="button"
-              onClick={() => handleKeypadPress(key)}
-              className="flex h-14 items-center justify-center rounded-xl bg-[#1C1C1E] text-2xl font-medium transition-all active:bg-[#2C2C2E]"
-            >
-              {key === "-" ? (
-                <span className="text-3xl font-light text-[#4ADE80]">-</span>
-              ) : (
-                <span className="text-white">{key}</span>
-              )}
-            </button>
-          ))}
-        </div>
-        {/* Row 4 */}
-        <div className="grid grid-cols-4 gap-2">
-          {[".", "0", "delete", "+"].map((key) => (
-            <button
-              key={key}
-              type="button"
-              onClick={() => handleKeypadPress(key)}
-              className="flex h-14 items-center justify-center rounded-xl bg-[#1C1C1E] text-2xl font-medium transition-all active:bg-[#2C2C2E]"
-            >
-              {key === "delete" ? (
-                <div className="flex items-center justify-center">
-                  <Delete className="h-[22px] w-[22px] fill-current text-white" />
-                </div>
-              ) : key === "+" ? (
-                <span className="text-3xl font-light text-[#4ADE80]">+</span>
-              ) : (
-                <span className="text-white">{key}</span>
-              )}
-            </button>
-          ))}
-        </div>
-        {/* Row 5: Equals spans full width */}
-        <button
-          type="button"
-          onClick={() => handleKeypadPress("=")}
-          className="flex h-14 w-full items-center justify-center rounded-xl bg-[#1C1C1E] transition-all active:bg-[#2C2C2E]"
-        >
-          <span className="text-[2rem] font-light text-[#4ADE80]">=</span>
-        </button>
-      </div>
-
-      {/* Action Button */}
-      <button
-        type="button"
-        onClick={handleSubmit}
-        disabled={isLoading || isNaN(currentVal) || currentVal <= 0}
-        className="mt-auto w-full rounded-full bg-[#4ADE80] py-[18px] text-center text-[15px] font-bold text-black transition-transform hover:scale-[1.01] active:scale-[0.98] disabled:opacity-50 disabled:hover:scale-100"
-      >
-        {isLoading ? "Saving..." : "Save Transaction"}
-      </button>
     </div>
   )
 }
