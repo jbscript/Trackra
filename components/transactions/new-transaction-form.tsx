@@ -2,7 +2,14 @@
 
 import { useState } from "react"
 import { useRouter } from "next/navigation"
-import { ArrowLeft, Paperclip, ChevronDown } from "lucide-react"
+import {
+  X,
+  Utensils,
+  CreditCard,
+  Calendar,
+  ChevronRight,
+  Delete,
+} from "lucide-react"
 import { createTransaction } from "@/app/transactions/actions"
 
 type Account = {
@@ -43,8 +50,8 @@ export function TransactionForm({
   const [type, setType] = useState<"expense" | "income" | "transfer">(
     initialData?.type || "expense"
   )
-  const [amount, setAmount] = useState<string>(
-    initialData?.amount.toString() || ""
+  const [expr, setExpr] = useState<string>(
+    initialData ? initialData.amount.toString() : "0"
   )
   const [note, setNote] = useState<string>(initialData?.note || "")
   const [date, setDate] = useState<string>(() => {
@@ -65,8 +72,6 @@ export function TransactionForm({
   const [accountId, setAccountId] = useState<string>(
     initialData?.accountId || accounts[0]?.id || ""
   )
-  const [isRecurring, setIsRecurring] = useState(false)
-
   const [isLoading, setIsLoading] = useState(false)
 
   // Filter categories based on selected type
@@ -74,19 +79,50 @@ export function TransactionForm({
 
   const handleTypeChange = (newType: "expense" | "income" | "transfer") => {
     setType(newType)
-    // Update category to match new type
     const newCat = categories.find((c) => c.type === newType)
     if (newCat) setCategoryId(newCat.id)
   }
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
+  const handleKeypadPress = (key: string) => {
+    if (key === "delete") {
+      setExpr((prev) => (prev.length > 1 ? prev.slice(0, -1) : "0"))
+      return
+    }
+    if (key === "=") {
+      try {
+        const sanitized = expr.replace(/[^-()\d/*+.]/g, "")
+        // Safe evaluation
+        const result = new Function(`return ${sanitized}`)()
+        setExpr(String(result))
+      } catch {
+        // Ignored, don't update if invalid
+      }
+      return
+    }
+
+    if (expr === "0" && !["+", "-", "*", "/", "."].includes(key)) {
+      setExpr(key)
+    } else {
+      setExpr((prev) => prev + key)
+    }
+  }
+
+  const handleSubmit = async () => {
     setIsLoading(true)
+
+    let finalAmount = "0"
+    try {
+      const sanitized = expr.replace(/[^-()\d/*+.]/g, "")
+      const result = new Function(`return ${sanitized}`)()
+      finalAmount = String(result)
+    } catch {
+      finalAmount = expr
+    }
 
     const formData = new FormData()
     if (initialData?.id) formData.append("id", initialData.id)
     formData.append("type", type)
-    formData.append("amount", amount)
+    formData.append("amount", finalAmount)
     formData.append("note", note)
     formData.append("date", new Date(date).toISOString())
     formData.append("categoryId", categoryId)
@@ -104,48 +140,76 @@ export function TransactionForm({
     }
   }
 
-  const formatCurrency = (amount: number, hideSymbol = false) => {
-    return new Intl.NumberFormat("en-IN", {
-      style: hideSymbol ? "decimal" : "currency",
-      currency: "INR",
-      maximumFractionDigits: 0,
-    }).format(amount)
+  const formatDisplayDate = (dateString: string) => {
+    try {
+      const d = new Date(dateString)
+      const today = new Date()
+      const isToday =
+        d.getDate() === today.getDate() &&
+        d.getMonth() === today.getMonth() &&
+        d.getFullYear() === today.getFullYear()
+
+      const time = d.toLocaleTimeString("en-US", {
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: false,
+      })
+
+      if (isToday) return `Today, ${time}`
+      return `${d.toLocaleDateString("en-US", {
+        month: "short",
+        day: "numeric",
+      })}, ${time}`
+    } catch (e) {
+      return "Invalid date"
+    }
   }
+
+  const selectedCategory = categories.find((c) => c.id === categoryId)
+  const selectedAccount = accounts.find((a) => a.id === accountId)
+
+  // Map symbols for display vs math
+  const displayExpr = expr.replace(/\*/g, "×").replace(/\//g, "÷")
+
+  // For Save Button check
+  let currentVal = 0
+  try {
+    const s = expr.replace(/[^-()\d/*+.]/g, "")
+    currentVal = new Function(`return ${s}`)()
+  } catch {}
+
   return (
-    <form onSubmit={handleSubmit} className="relative flex h-full flex-col">
+    <div className="mx-auto flex min-h-screen w-full max-w-[420px] flex-col text-white sm:px-6 md:min-h-full">
       {/* Header */}
-      <header className="z-10 mb-8 flex items-center justify-between">
+      <header className="mb-6 flex items-center justify-between">
         <button
           type="button"
           onClick={() => onClose?.() || router.back()}
-          className="-ml-2 rounded-full p-2 text-foreground transition-colors hover:bg-surface-container"
+          className="p-1 text-gray-400 transition-colors hover:text-white"
         >
-          <ArrowLeft className="h-6 w-6" />
+          <X className="h-6 w-6" />
         </button>
-        <h1 className="text-sm font-bold tracking-widest uppercase">
+        <h1 className="text-lg font-medium text-[#4ADE80]">
           {initialData ? "Edit Transaction" : "New Transaction"}
         </h1>
-
-        <button
-          type="submit"
-          disabled={isLoading}
-          className="rounded-[2rem] bg-primary p-2 text-xs font-bold tracking-widest text-primary-foreground uppercase shadow-[0_10px_30px_rgba(92,253,128,0.25)] transition-transform hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70 disabled:hover:scale-100"
-        >
-          {isLoading ? "Processing..." : initialData ? "Update" : "Save"}
-        </button>
+        <div className="flex h-9 w-9 items-center justify-center overflow-hidden rounded-full bg-[#E5CDC1]">
+          {/* Avatar placeholder with small internal shapes */}
+          <div className="mt-3 mr-1 h-2 w-2 rounded-sm bg-black/20"></div>
+          <div className="mt-3 h-2 w-2 -rotate-12 rounded-sm bg-black/20"></div>
+        </div>
       </header>
 
       {/* Type Toggle */}
-      <div className="mx-auto mb-10 flex w-full max-w-[320px] rounded-[1rem] border border-outline-variant bg-surface-container-low p-1">
+      <div className="mx-auto mb-8 flex w-full max-w-[340px] rounded-full bg-[#16181C] p-[5px] shadow-inner">
         {(["expense", "income", "transfer"] as const).map((t) => (
           <button
             key={t}
             type="button"
             onClick={() => handleTypeChange(t)}
-            className={`flex-1 rounded-[0.8rem] py-3 text-[0.65rem] font-bold tracking-wider uppercase transition-all ${
+            className={`flex-1 rounded-full py-2.5 text-[0.85rem] font-medium capitalize transition-all ${
               type === t
-                ? "border border-primary/30 bg-surface-container-high text-primary shadow-[0_4px_12px_rgba(92,253,128,0.1)]"
-                : "text-on-surface-variant hover:text-foreground"
+                ? "bg-[#4ADE80] text-black shadow-md shadow-green-900/20"
+                : "text-gray-400 hover:text-gray-200"
             }`}
           >
             {t}
@@ -153,180 +217,205 @@ export function TransactionForm({
         ))}
       </div>
 
-      {/* Amount Input */}
-      <div className="mb-10 text-center">
-        <p className="mb-4 label-sm tracking-widest text-on-surface-variant uppercase">
-          Set Amount
-        </p>
-        <div className="flex items-center justify-center gap-2">
-          <span className="text-4xl font-light text-primary/80 sm:text-5xl">
-            $
+      {/* Amount Display */}
+      <div className="mb-8 flex flex-col items-center justify-center">
+        <span className="mb-1 text-[0.65rem] font-bold tracking-[0.2em] text-[#8E8E93] uppercase">
+          Amount Due
+        </span>
+        <div className="flex items-center">
+          <span className="text-[4rem] font-bold tracking-tight text-[#4ADE80] drop-shadow-[0_0_25px_rgba(74,222,128,0.3)]">
+            ₹{displayExpr}
           </span>
-          <input
-            type="number"
-            step="0.01"
-            placeholder="0.00"
-            value={amount}
-            onChange={(e) => setAmount(e.target.value)}
-            className="w-[200px] bg-transparent text-center text-5xl font-light text-foreground outline-none placeholder:text-surface-container-highest sm:w-[250px] sm:text-6xl"
-            required
-            autoFocus
-          />
+        </div>
+        <div className="mt-1 flex items-center gap-1.5">
+          <span className="h-1.5 w-1.5 rounded-full bg-[#4ADE80]"></span>
+          <span className="text-[0.65rem] font-medium text-[#4ADE80]">
+            Live Currency Sync
+          </span>
         </div>
       </div>
 
-      <div className="flex-1 space-y-6">
-        {/* Recipient / Merchant */}
-        <div className="border-b border-surface-container-high pb-4">
-          <label className="mb-2 block label-sm tracking-widest text-on-surface-variant uppercase">
-            Note
-          </label>
-          <input
-            type="text"
-            placeholder="e.g. Apple Store, Inc."
-            value={note}
-            onChange={(e) => setNote(e.target.value)}
-            className="w-full bg-transparent text-lg font-medium text-foreground outline-none placeholder:text-surface-container-high"
+      {/* Selectors Area */}
+      <div className="mb-6 flex w-full flex-col gap-3">
+        {/* Category Selector */}
+        <div className="relative flex w-full items-center justify-between rounded-2xl bg-[#16181C] p-4 shadow-sm transition-transform active:scale-[0.98]">
+          <select
+            value={categoryId}
+            onChange={(e) => setCategoryId(e.target.value)}
+            className="absolute inset-0 z-10 w-full appearance-none opacity-0"
             required
-          />
-        </div>
-
-        {/* Date and Category Row */}
-        <div className="flex gap-4 border-b border-surface-container-high pb-4">
-          <div className="flex-1">
-            <label className="mb-2 block label-sm tracking-widest text-on-surface-variant uppercase">
-              Date & Time
-            </label>
-            <div className="flex items-center gap-2 text-lg text-foreground">
-              <input
-                type="datetime-local"
-                value={date}
-                onChange={(e) => setDate(e.target.value)}
-                className="custom-date-input w-full appearance-none bg-transparent font-medium text-foreground outline-none"
-                required
-              />
-            </div>
-          </div>
-          <div className="flex-1 border-l border-surface-container-high pl-4">
-            <label className="mb-2 block label-sm tracking-widest text-on-surface-variant uppercase">
-              Category
-            </label>
-            <div className="relative">
-              <select
-                value={categoryId}
-                onChange={(e) => setCategoryId(e.target.value)}
-                className="w-full appearance-none bg-transparent pr-8 text-lg font-medium text-foreground outline-none"
-                required
-              >
-                {availableCategories.length === 0 && (
-                  <option value="" className="bg-surface text-foreground">
-                    No categories
-                  </option>
-                )}
-                {availableCategories.map((c) => (
-                  <option
-                    key={c.id}
-                    value={c.id}
-                    className="bg-surface text-foreground"
-                  >
-                    {c.name}
-                  </option>
-                ))}
-              </select>
-              <ChevronDown className="pointer-events-none absolute top-1/2 right-0 h-5 w-5 -translate-y-1/2 text-on-surface-variant" />
-            </div>
-          </div>
-        </div>
-
-        {/* Source Account */}
-        <div className="pt-2">
-          <label className="mb-4 block label-sm tracking-widest text-on-surface-variant uppercase">
-            Source Account
-          </label>
-          <div className="-mx-6 no-scrollbar flex snap-x gap-4 overflow-x-auto px-6 pb-4">
-            {accounts.map((acc, idx) => (
-              <button
-                key={acc.id}
-                type="button"
-                onClick={() => setAccountId(acc.id)}
-                className={`flex h-[100px] w-[160px] shrink-0 snap-start flex-col justify-between rounded-[1.2rem] border p-4 text-left transition-all ${
-                  accountId === acc.id
-                    ? "border-primary/40 bg-[#102a1b] shadow-[0_4px_20px_rgba(92,253,128,0.05)]"
-                    : "border-outline-variant bg-surface-container-low hover:bg-surface-container"
-                }`}
-              >
-                <span
-                  className={`text-[0.65rem] font-bold tracking-widest uppercase ${
-                    accountId === acc.id
-                      ? "text-primary"
-                      : "text-on-surface-variant"
-                  }`}
-                >
-                  {acc.name}
-                </span>
-                <span className="text-lg font-medium tracking-tight">
-                  {formatCurrency(acc.balance)}
-                </span>
-              </button>
+          >
+            {availableCategories.length === 0 && (
+              <option value="">No categories</option>
+            )}
+            {availableCategories.map((c) => (
+              <option key={c.id} value={c.id}>
+                {c.name}
+              </option>
             ))}
+          </select>
+          <div className="flex items-center gap-4">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#133021]">
+              <Utensils className="h-6 w-6 text-[#4ADE80]" />
+            </div>
+            <div className="flex flex-col">
+              <span className="mb-0.5 text-[0.65rem] font-medium text-[#8E8E93]">
+                Category
+              </span>
+              <span className="max-w-[150px] truncate text-[1.05rem] font-semibold text-white">
+                {selectedCategory?.name || "Select"}
+              </span>
+            </div>
           </div>
+          <ChevronRight className="h-5 w-5 text-[#8E8E93]" />
         </div>
 
-        {/* Toggles */}
-        <div className="mt-2 mb-20 flex gap-4">
-          <button
-            type="button"
-            className="flex items-center gap-2 rounded-full border border-surface-container-highest px-4 py-2.5 text-sm font-bold text-on-surface-variant transition-colors hover:bg-surface-container"
-          >
-            <Paperclip className="h-4 w-4" />
-            <span className="text-[0.65rem] tracking-widest uppercase">
-              Receipt
-            </span>
-          </button>
-
-          <button
-            type="button"
-            onClick={() => setIsRecurring(!isRecurring)}
-            className={`flex items-center gap-2 rounded-full border border-surface-container-highest px-4 py-2.5 text-sm font-bold transition-colors ${
-              isRecurring
-                ? "border-primary/40 bg-[#102a1b] text-primary"
-                : "text-on-surface-variant hover:bg-surface-container"
-            }`}
-          >
-            <span
-              className={`h-2 w-2 rounded-full ${
-                isRecurring
-                  ? "bg-primary shadow-[0_0_8px_rgba(92,253,128,0.6)]"
-                  : "bg-on-surface-variant"
-              }`}
-            />
-            <span
-              className={`text-[0.65rem] tracking-widest uppercase ${
-                isRecurring ? "text-primary" : "text-on-surface-variant"
-              }`}
+        {/* Account and Date Selectors Side-By-Side */}
+        <div className="flex w-full gap-3">
+          {/* Account Selector */}
+          <div className="relative flex flex-1 items-center gap-3 rounded-2xl bg-[#16181C] p-4 shadow-sm transition-transform active:scale-[0.98]">
+            <select
+              value={accountId}
+              onChange={(e) => setAccountId(e.target.value)}
+              className="absolute inset-0 z-10 w-full appearance-none opacity-0"
+              required
             >
-              Recurring
-            </span>
-          </button>
+              {accounts.map((a) => (
+                <option key={a.id} value={a.id}>
+                  {a.name}
+                </option>
+              ))}
+            </select>
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#222428]">
+              <CreditCard className="h-5 w-5 text-gray-300" />
+            </div>
+            <div className="flex min-w-0 flex-col pr-1">
+              <span className="mb-0.5 text-[0.65rem] font-medium text-[#8E8E93]">
+                Account
+              </span>
+              <span className="truncate text-sm font-semibold text-white">
+                {selectedAccount?.name || "Select"}
+              </span>
+            </div>
+          </div>
+
+          {/* Date Selector */}
+          <div className="relative flex flex-1 items-center gap-3 rounded-2xl bg-[#16181C] p-4 shadow-sm transition-transform active:scale-[0.98]">
+            <input
+              type="datetime-local"
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+              className="absolute inset-0 z-10 w-full appearance-none opacity-0"
+              required
+            />
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#222428]">
+              <Calendar className="h-5 w-5 text-gray-300" />
+            </div>
+            <div className="flex min-w-0 flex-col">
+              <span className="mb-0.5 text-[0.65rem] font-medium text-[#8E8E93]">
+                Date
+              </span>
+              <span className="max-w-[80px] text-sm leading-tight font-semibold whitespace-pre-wrap text-white">
+                {formatDisplayDate(date)}
+              </span>
+            </div>
+          </div>
         </div>
       </div>
 
-      <style jsx global>{`
-        /* Hide scrollbar for account cards */
-        .no-scrollbar::-webkit-scrollbar {
-          display: none;
-        }
-        .no-scrollbar {
-          -ms-overflow-style: none; /* IE and Edge */
-          scrollbar-width: none; /* Firefox */
-        }
-        /* Style date input to match native feel but hide default icon */
-        .custom-date-input::-webkit-calendar-picker-indicator {
-          filter: invert(1);
-          opacity: 0.5;
-          cursor: pointer;
-        }
-      `}</style>
-    </form>
+      {/* Expanded Keypad (Calculator Mode) */}
+      <div className="mb-6 flex w-full flex-col gap-2">
+        {/* Row 1 */}
+        <div className="grid grid-cols-4 gap-2">
+          {["7", "8", "9", "/"].map((key) => (
+            <button
+              key={key}
+              type="button"
+              onClick={() => handleKeypadPress(key)}
+              className="flex h-14 items-center justify-center rounded-xl bg-[#1C1C1E] text-2xl font-medium transition-all active:bg-[#2C2C2E]"
+            >
+              {key === "/" ? (
+                <span className="text-3xl font-light text-[#4ADE80]">÷</span>
+              ) : (
+                <span className="text-white">{key}</span>
+              )}
+            </button>
+          ))}
+        </div>
+        {/* Row 2 */}
+        <div className="grid grid-cols-4 gap-2">
+          {["4", "5", "6", "*"].map((key) => (
+            <button
+              key={key}
+              type="button"
+              onClick={() => handleKeypadPress(key)}
+              className="flex h-14 items-center justify-center rounded-xl bg-[#1C1C1E] text-2xl font-medium transition-all active:bg-[#2C2C2E]"
+            >
+              {key === "*" ? (
+                <span className="text-3xl font-light text-[#4ADE80]">×</span>
+              ) : (
+                <span className="text-white">{key}</span>
+              )}
+            </button>
+          ))}
+        </div>
+        {/* Row 3 */}
+        <div className="grid grid-cols-4 gap-2">
+          {["1", "2", "3", "-"].map((key) => (
+            <button
+              key={key}
+              type="button"
+              onClick={() => handleKeypadPress(key)}
+              className="flex h-14 items-center justify-center rounded-xl bg-[#1C1C1E] text-2xl font-medium transition-all active:bg-[#2C2C2E]"
+            >
+              {key === "-" ? (
+                <span className="text-3xl font-light text-[#4ADE80]">-</span>
+              ) : (
+                <span className="text-white">{key}</span>
+              )}
+            </button>
+          ))}
+        </div>
+        {/* Row 4 */}
+        <div className="grid grid-cols-4 gap-2">
+          {[".", "0", "delete", "+"].map((key) => (
+            <button
+              key={key}
+              type="button"
+              onClick={() => handleKeypadPress(key)}
+              className="flex h-14 items-center justify-center rounded-xl bg-[#1C1C1E] text-2xl font-medium transition-all active:bg-[#2C2C2E]"
+            >
+              {key === "delete" ? (
+                <div className="flex items-center justify-center">
+                  <Delete className="h-[22px] w-[22px] fill-current text-white" />
+                </div>
+              ) : key === "+" ? (
+                <span className="text-3xl font-light text-[#4ADE80]">+</span>
+              ) : (
+                <span className="text-white">{key}</span>
+              )}
+            </button>
+          ))}
+        </div>
+        {/* Row 5: Equals spans full width */}
+        <button
+          type="button"
+          onClick={() => handleKeypadPress("=")}
+          className="flex h-14 w-full items-center justify-center rounded-xl bg-[#1C1C1E] transition-all active:bg-[#2C2C2E]"
+        >
+          <span className="text-[2rem] font-light text-[#4ADE80]">=</span>
+        </button>
+      </div>
+
+      {/* Action Button */}
+      <button
+        type="button"
+        onClick={handleSubmit}
+        disabled={isLoading || isNaN(currentVal) || currentVal <= 0}
+        className="mt-auto w-full rounded-full bg-[#4ADE80] py-[18px] text-center text-[15px] font-bold text-black transition-transform hover:scale-[1.01] active:scale-[0.98] disabled:opacity-50 disabled:hover:scale-100"
+      >
+        {isLoading ? "Saving..." : "Save Transaction"}
+      </button>
+    </div>
   )
 }

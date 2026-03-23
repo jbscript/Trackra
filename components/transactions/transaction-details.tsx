@@ -1,11 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import {
-  ChevronLeft,
-  Trash2,
-  MapPin,
-} from "lucide-react"
+import { ChevronLeft, Trash2, MapPin } from "lucide-react"
 import { getCategoryIcon } from "./category-icons"
 import { TransactionForm } from "./new-transaction-form"
 import { updateTransaction } from "@/app/transactions/actions"
@@ -43,7 +39,6 @@ type Transaction = {
     balance?: number
   }
 }
-
 
 export function TransactionDetails({
   transaction,
@@ -125,7 +120,6 @@ export function TransactionDetails({
           </div>
 
           <h1 className="mb-4 text-6xl font-extrabold tracking-tighter text-white drop-shadow-md">
-            <span className="mr-1 text-4xl text-gray-400">₹</span>
             {formatCurrency(transaction.amount)}
           </h1>
           <p className="max-w-[80%] truncate text-center text-lg font-bold tracking-wide text-gray-400">
