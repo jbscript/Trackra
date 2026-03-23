@@ -299,7 +299,7 @@ export function TransactionForm({
       </div>
 
       {/* Amount Display */}
-      <div className="mb-8 flex flex-col items-center justify-center">
+      <div className="mb-5 flex flex-col items-center justify-center">
         <div className="flex items-start">
           <span className="mt-2 text-3xl font-bold text-[#2DE05F]">$</span>
           <span className="text-[4.5rem] leading-none font-bold tracking-tight text-white">
@@ -344,10 +344,11 @@ export function TransactionForm({
               if (val) setCategoryId(val)
             }}
           >
-            <SelectTrigger className="!flex !h-[90px] w-full !flex-col !items-center !justify-center gap-2 rounded-2xl border-0 bg-[#1A1A1F] shadow-none transition-transform outline-none hover:bg-[#202026] focus:ring-0 active:scale-[0.98] [&>svg]:hidden">
+            <SelectTrigger className="!flex !h-[65px] w-full !flex-col !items-center !justify-center gap-2 rounded-2xl border-0 bg-[#1A1A1F] shadow-none transition-transform outline-none hover:bg-[#202026] focus:ring-0 active:scale-[0.98] [&>svg]:hidden">
               <div className="flex flex-col items-center justify-center gap-2">
                 {getCategoryIcon(
-                  categories.find((c) => c.id === categoryId)?.name || "Category",
+                  categories.find((c) => c.id === categoryId)?.name ||
+                    "Category",
                   {
                     className: "size-[22px] text-[#2DE05F]",
                     strokeWidth: 2.5,
@@ -384,7 +385,7 @@ export function TransactionForm({
           </Select>
 
           {/* Date Selector */}
-          <div className="relative flex h-[90px] w-full flex-col items-center justify-center gap-2 rounded-2xl bg-[#1A1A1F] transition-transform hover:bg-[#202026] active:scale-[0.98]">
+          <div className="relative flex h-[65px] w-full flex-col items-center justify-center gap-2 rounded-2xl bg-[#1A1A1F] transition-transform hover:bg-[#202026] active:scale-[0.98]">
             <input
               type="datetime-local"
               value={date}
@@ -408,7 +409,7 @@ export function TransactionForm({
         </div>
 
         {/* Note Input */}
-        <div className="mb-6 flex w-full items-center justify-between rounded-2xl bg-[#1A1A1F] px-5 py-4">
+        <div className="mb-5 flex w-full items-center justify-between rounded-2xl bg-[#1A1A1F] px-5 py-4">
           <input
             type="text"
             value={note}
@@ -420,7 +421,7 @@ export function TransactionForm({
         </div>
 
         {/* Expanded Keypad */}
-        <div className="mt-auto flex w-full flex-col gap-2 pt-2">
+        <div className="flex w-full flex-col gap-2">
           {/* Main Keypad Grid (4x4) */}
           <div className="grid grid-cols-4 gap-2">
             {[
@@ -445,7 +446,7 @@ export function TransactionForm({
                 key={btn.key}
                 type="button"
                 onClick={() => handleKeypadPress(btn.key)}
-                className="flex h-[68px] items-center justify-center rounded-[1rem] bg-[#1A1A1F] text-[1.4rem] font-bold transition-all hover:bg-[#202026] active:bg-[#25252A]"
+                className="border-outline-white flex h-[50px] items-center justify-center rounded-[1rem] border border-white/10 bg-[#1A1A1F]/50 text-lg font-bold transition-all hover:bg-[#202026] active:bg-[#25252A]"
               >
                 {btn.isIcon ? (
                   <Delete className="h-6 w-6 text-white" strokeWidth={2.5} />
@@ -462,7 +463,7 @@ export function TransactionForm({
             <button
               type="button"
               onClick={() => handleKeypadPress("=")}
-              className="flex h-[72px] items-center justify-center rounded-[1.1rem] bg-[#1A1A1F] transition-all hover:bg-[#202026] active:bg-[#25252A]"
+              className="flex h-[60px] items-center justify-center rounded-[1.1rem] bg-[#1A1A1F] transition-all hover:bg-[#202026] active:bg-[#25252A]"
             >
               <span className="text-[1.8rem] font-bold text-[#2DE05F]">=</span>
             </button>
@@ -470,7 +471,7 @@ export function TransactionForm({
               type="button"
               onClick={handleSubmit}
               disabled={isLoading || isNaN(currentVal) || currentVal <= 0}
-              className="col-span-3 flex h-[72px] items-center justify-center gap-3 rounded-[1.1rem] bg-[#2DE05F] shadow-[0_8px_30px_rgba(45,224,95,0.25)] transition-transform hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:hover:scale-100"
+              className="col-span-3 flex h-[60px] items-center justify-center gap-3 rounded-[1.1rem] bg-[#2DE05F] shadow-[0_8px_30px_rgba(45,224,95,0.25)] transition-transform hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:hover:scale-100"
             >
               <span className="text-[0.95rem] font-bold tracking-wide text-[#0D0D11]">
                 {isLoading ? "SAVING..." : "SAVE TRANSACTION"}
@@ -481,12 +482,6 @@ export function TransactionForm({
               />
             </button>
           </div>
-        </div>
-
-        <div className="mt-6 mb-2 text-center">
-          <span className="text-[0.6rem] font-bold tracking-[0.2em] text-gray-600">
-            SECURED BY OBSIDIAN LEDGER V2.4
-          </span>
         </div>
       </div>
     </div>
