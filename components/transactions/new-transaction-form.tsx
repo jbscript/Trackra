@@ -11,6 +11,12 @@ import {
   Delete,
 } from "lucide-react"
 import { createTransaction } from "@/app/transactions/actions"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+} from "@/components/ui/select"
 
 type Account = {
   id: string
@@ -166,7 +172,6 @@ export function TransactionForm({
   }
 
   const selectedCategory = categories.find((c) => c.id === categoryId)
-  const selectedAccount = accounts.find((a) => a.id === accountId)
 
   // Map symbols for display vs math
   const displayExpr = expr.replace(/\*/g, "×").replace(/\//g, "÷")
@@ -227,11 +232,26 @@ export function TransactionForm({
             ₹{displayExpr}
           </span>
         </div>
-        <div className="mt-1 flex items-center gap-1.5">
-          <span className="h-1.5 w-1.5 rounded-full bg-[#4ADE80]"></span>
-          <span className="text-[0.65rem] font-medium text-[#4ADE80]">
-            Live Currency Sync
-          </span>
+        <div className="mt-4 flex items-center justify-center">
+          <Select value={accountId} onValueChange={(val) => { if (val) setAccountId(val) }}>
+            <SelectTrigger className="flex h-[38px] w-auto min-w-[180px] items-center gap-2 rounded-full border-0 bg-[#292A3E] px-4 py-0 text-[14.5px] font-medium text-white shadow-none hover:bg-[#34354A] focus:ring-0">
+              <div className="flex flex-1 items-center justify-center gap-2">
+                <CreditCard className="h-4 w-4 text-white" />
+                <span className="truncate">{accounts.find((a) => a.id === accountId)?.name || "Select Account"}</span>
+              </div>
+            </SelectTrigger>
+            <SelectContent className="border-[#292A3E] bg-[#1C1C1E] text-white">
+              {accounts.map((a) => (
+                <SelectItem 
+                  key={a.id} 
+                  value={a.id} 
+                  className="cursor-pointer py-2.5 text-[14.5px] focus:bg-[#292A3E] focus:text-white"
+                >
+                  {a.name}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
         </div>
       </div>
 
@@ -270,55 +290,25 @@ export function TransactionForm({
           <ChevronRight className="h-5 w-5 text-[#8E8E93]" />
         </div>
 
-        {/* Account and Date Selectors Side-By-Side */}
-        <div className="flex w-full gap-3">
-          {/* Account Selector */}
-          <div className="relative flex flex-1 items-center gap-3 rounded-2xl bg-[#16181C] p-4 shadow-sm transition-transform active:scale-[0.98]">
-            <select
-              value={accountId}
-              onChange={(e) => setAccountId(e.target.value)}
-              className="absolute inset-0 z-10 w-full appearance-none opacity-0"
-              required
-            >
-              {accounts.map((a) => (
-                <option key={a.id} value={a.id}>
-                  {a.name}
-                </option>
-              ))}
-            </select>
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#222428]">
-              <CreditCard className="h-5 w-5 text-gray-300" />
-            </div>
-            <div className="flex min-w-0 flex-col pr-1">
-              <span className="mb-0.5 text-[0.65rem] font-medium text-[#8E8E93]">
-                Account
-              </span>
-              <span className="truncate text-sm font-semibold text-white">
-                {selectedAccount?.name || "Select"}
-              </span>
-            </div>
+        {/* Date Selector */}
+        <div className="relative flex w-full items-center gap-3 rounded-2xl bg-[#16181C] p-4 shadow-sm transition-transform active:scale-[0.98]">
+          <input
+            type="datetime-local"
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+            className="absolute inset-0 z-10 w-full appearance-none opacity-0"
+            required
+          />
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#222428]">
+            <Calendar className="h-5 w-5 text-gray-300" />
           </div>
-
-          {/* Date Selector */}
-          <div className="relative flex flex-1 items-center gap-3 rounded-2xl bg-[#16181C] p-4 shadow-sm transition-transform active:scale-[0.98]">
-            <input
-              type="datetime-local"
-              value={date}
-              onChange={(e) => setDate(e.target.value)}
-              className="absolute inset-0 z-10 w-full appearance-none opacity-0"
-              required
-            />
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#222428]">
-              <Calendar className="h-5 w-5 text-gray-300" />
-            </div>
-            <div className="flex min-w-0 flex-col">
-              <span className="mb-0.5 text-[0.65rem] font-medium text-[#8E8E93]">
-                Date
-              </span>
-              <span className="max-w-[80px] text-sm leading-tight font-semibold whitespace-pre-wrap text-white">
-                {formatDisplayDate(date)}
-              </span>
-            </div>
+          <div className="flex min-w-0 flex-col">
+            <span className="mb-0.5 text-[0.65rem] font-medium text-[#8E8E93]">
+              Date
+            </span>
+            <span className="text-sm leading-tight font-semibold whitespace-pre-wrap text-white">
+              {formatDisplayDate(date)}
+            </span>
           </div>
         </div>
       </div>
