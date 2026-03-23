@@ -2,30 +2,12 @@
 
 import { useState } from "react"
 import { useRouter } from "next/navigation"
+import { X, Calendar, Delete, FileEdit, ArrowRight, Trash2 } from "lucide-react"
 import {
-  X,
-  Calendar,
-  Delete,
-  Shapes,
-  Wallet,
-  FileEdit,
-  ArrowRight,
-  ShoppingCart,
-  Utensils,
-  Car,
-  Home,
-  Monitor,
-  HeartPulse,
-  Briefcase,
-  Coffee,
-  Plane,
-  Gift,
-  Landmark,
-  PiggyBank,
-  DollarSign,
-  Trash2,
-} from "lucide-react"
-import { createTransaction, updateTransaction, deleteTransaction } from "@/app/transactions/actions"
+  createTransaction,
+  updateTransaction,
+  deleteTransaction,
+} from "@/app/transactions/actions"
 import {
   Select,
   SelectContent,
@@ -47,7 +29,13 @@ type Category = {
   description: string | null
 }
 
-const CategoryIconWrapper = ({ name, ...props }: { name: string; [key: string]: any }) => {
+const CategoryIconWrapper = ({
+  name,
+  ...props
+}: {
+  name: string
+  [key: string]: any
+}) => {
   const Icon = getCategoryIcon(name)
   return <Icon {...props} />
 }
@@ -218,8 +206,6 @@ export function TransactionForm({
     }
   }
 
-  const selectedCategory = categories.find((c) => c.id === categoryId)
-
   // Map symbols for display vs math
   const displayExpr = expr.replace(/\*/g, "×").replace(/\//g, "÷")
 
@@ -295,8 +281,8 @@ export function TransactionForm({
               if (val) setAccountId(val)
             }}
           >
-            <SelectTrigger className="flex h-[32px] w-auto items-center justify-center gap-2 rounded-lg border-0 bg-[#1A1A1F] px-4 shadow-none transition-transform outline-none hover:bg-[#202026] focus:ring-0 active:scale-[0.98] [&>svg]:hidden">
-              <span className="text-[0.65rem] font-bold tracking-[0.1em] text-gray-400 uppercase">
+            <SelectTrigger className="flex h-[32px] w-auto items-center justify-center gap-2 rounded-lg border-0 bg-[#1A1A1F] px-4 shadow-none transition-transform outline-none hover:bg-[#202026] focus:ring-0 active:scale-[0.98]">
+              <span className="text-[0.65rem] font-bold tracking-widest text-gray-400 uppercase">
                 {accounts.find((a) => a.id === accountId)?.name ||
                   "Select Account"}
               </span>
@@ -326,10 +312,13 @@ export function TransactionForm({
               if (val) setCategoryId(val)
             }}
           >
-            <SelectTrigger className="!flex !h-[65px] w-full !flex-col !items-center !justify-center gap-2 rounded-2xl border-0 bg-[#1A1A1F] shadow-none transition-transform outline-none hover:bg-[#202026] focus:ring-0 active:scale-[0.98] [&>svg]:hidden">
+            <SelectTrigger className="flex! h-[65px]! w-full flex-col! items-center! justify-center gap-2 rounded-2xl border-0 bg-[#1A1A1F] shadow-none transition-transform outline-none hover:bg-[#202026] focus:ring-0 active:scale-[0.98] [&>svg]:hidden">
               <div className="flex flex-col items-center justify-center gap-2">
                 <CategoryIconWrapper
-                  name={categories.find((c) => c.id === categoryId)?.name || "Category"}
+                  name={
+                    categories.find((c) => c.id === categoryId)?.name ||
+                    "Category"
+                  }
                   className="size-[22px] text-[#2DE05F]"
                   strokeWidth={2.5}
                 />
@@ -339,7 +328,7 @@ export function TransactionForm({
                 </span>
               </div>
             </SelectTrigger>
-            <SelectContent className="border-[#202026] bg-[#16161A] text-white">
+            <SelectContent className="min-w-64 border-[#202026] bg-[#16161A] text-white">
               {availableCategories.length === 0 && (
                 <SelectItem value="empty" disabled className="text-gray-500">
                   No categories
@@ -426,7 +415,7 @@ export function TransactionForm({
                 key={btn.key}
                 type="button"
                 onClick={() => handleKeypadPress(btn.key)}
-                className="border-outline-white flex h-[50px] items-center justify-center rounded-[1rem] border border-white/10 bg-[#1A1A1F]/50 text-lg font-bold transition-all hover:bg-[#202026] active:bg-[#25252A]"
+                className="border-outline-white flex h-[50px] items-center justify-center rounded-2xl border border-white/10 bg-[#1A1A1F]/50 text-lg font-bold transition-all hover:bg-[#202026] active:bg-[#25252A]"
               >
                 {btn.isIcon ? (
                   <Delete className="h-6 w-6 text-white" strokeWidth={2.5} />
