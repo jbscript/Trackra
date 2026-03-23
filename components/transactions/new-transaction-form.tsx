@@ -32,6 +32,7 @@ import {
   SelectItem,
   SelectTrigger,
 } from "@/components/ui/select"
+import { getCategoryIcon } from "./category-icons"
 
 type Account = {
   id: string
@@ -46,65 +47,9 @@ type Category = {
   description: string | null
 }
 
-const getCategoryIcon = (name: string, props: any) => {
-  const n = name.toLowerCase()
-  if (n.includes("food") || n.includes("eat") || n.includes("dining"))
-    return <Utensils {...props} />
-  if (
-    n.includes("shopping") ||
-    n.includes("store") ||
-    n.includes("market") ||
-    n.includes("buy")
-  )
-    return <ShoppingCart {...props} />
-  if (
-    n.includes("transport") ||
-    n.includes("car") ||
-    n.includes("gas") ||
-    n.includes("fuel") ||
-    n.includes("travel")
-  )
-    return <Car {...props} />
-  if (
-    n.includes("home") ||
-    n.includes("rent") ||
-    n.includes("mortgage") ||
-    n.includes("house")
-  )
-    return <Home {...props} />
-  if (n.includes("tech") || n.includes("electronics") || n.includes("software"))
-    return <Monitor {...props} />
-  if (
-    n.includes("health") ||
-    n.includes("medical") ||
-    n.includes("pharmacy") ||
-    n.includes("doctor")
-  )
-    return <HeartPulse {...props} />
-  if (
-    n.includes("work") ||
-    n.includes("salary") ||
-    n.includes("wages") ||
-    n.includes("job")
-  )
-    return <Briefcase {...props} />
-  if (n.includes("coffee") || n.includes("cafe")) return <Coffee {...props} />
-  if (n.includes("flight") || n.includes("hotel") || n.includes("holiday"))
-    return <Plane {...props} />
-  if (n.includes("gift") || n.includes("present")) return <Gift {...props} />
-  if (
-    n.includes("bank") ||
-    n.includes("finance") ||
-    n.includes("fee") ||
-    n.includes("tax")
-  )
-    return <Landmark {...props} />
-  if (n.includes("savings") || n.includes("investment"))
-    return <PiggyBank {...props} />
-  if (n.includes("income") || n.includes("bonus") || n.includes("cash"))
-    return <DollarSign {...props} />
-
-  return <Shapes {...props} />
+const CategoryIconWrapper = ({ name, ...props }: { name: string; [key: string]: any }) => {
+  const Icon = getCategoryIcon(name)
+  return <Icon {...props} />
 }
 
 export function TransactionForm({
@@ -383,14 +328,11 @@ export function TransactionForm({
           >
             <SelectTrigger className="!flex !h-[65px] w-full !flex-col !items-center !justify-center gap-2 rounded-2xl border-0 bg-[#1A1A1F] shadow-none transition-transform outline-none hover:bg-[#202026] focus:ring-0 active:scale-[0.98] [&>svg]:hidden">
               <div className="flex flex-col items-center justify-center gap-2">
-                {getCategoryIcon(
-                  categories.find((c) => c.id === categoryId)?.name ||
-                    "Category",
-                  {
-                    className: "size-[22px] text-[#2DE05F]",
-                    strokeWidth: 2.5,
-                  }
-                )}
+                <CategoryIconWrapper
+                  name={categories.find((c) => c.id === categoryId)?.name || "Category"}
+                  className="size-[22px] text-[#2DE05F]"
+                  strokeWidth={2.5}
+                />
                 <span className="text-[0.7rem] font-medium text-gray-300">
                   {categories.find((c) => c.id === categoryId)?.name ||
                     "Category"}
@@ -410,10 +352,11 @@ export function TransactionForm({
                   className="cursor-pointer py-2.5 text-[14.5px] focus:bg-[#202026] focus:text-white"
                 >
                   <div className="flex items-center gap-2.5">
-                    {getCategoryIcon(c.name, {
-                      className: "h-4 w-4 text-[#2DE05F]",
-                      strokeWidth: 2.5,
-                    })}
+                    <CategoryIconWrapper
+                      name={c.name}
+                      className="h-4 w-4 text-[#2DE05F]"
+                      strokeWidth={2.5}
+                    />
                     <span>{c.name}</span>
                   </div>
                 </SelectItem>
