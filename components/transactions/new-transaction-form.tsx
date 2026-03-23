@@ -258,37 +258,40 @@ export function TransactionForm({
       {/* Selectors Area */}
       <div className="mb-6 flex w-full flex-col gap-3">
         {/* Category Selector */}
-        <div className="relative flex w-full items-center justify-between rounded-2xl bg-[#16181C] p-4 shadow-sm transition-transform active:scale-[0.98]">
-          <select
-            value={categoryId}
-            onChange={(e) => setCategoryId(e.target.value)}
-            className="absolute inset-0 z-10 w-full appearance-none opacity-0"
-            required
-          >
+        <Select value={categoryId} onValueChange={(val) => { if (val) setCategoryId(val) }}>
+          <SelectTrigger className="relative flex w-full h-auto items-center justify-between rounded-2xl border-0 bg-[#16181C] p-4 shadow-sm transition-transform active:scale-[0.98] outline-none focus:ring-0 [&>svg]:hidden hover:bg-[#16181C]">
+            <div className="flex w-full items-center justify-between">
+              <div className="flex items-center gap-4">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#133021]">
+                  <Utensils className="h-6 w-6 text-[#4ADE80]" />
+                </div>
+                <div className="flex flex-col items-start gap-0.5">
+                  <span className="text-[0.65rem] font-medium text-[#8E8E93]">
+                    Category
+                  </span>
+                  <span className="max-w-[150px] truncate text-[1.05rem] font-semibold text-white">
+                    {categories.find((c) => c.id === categoryId)?.name || "Select"}
+                  </span>
+                </div>
+              </div>
+              <ChevronRight className="h-5 w-5 text-[#8E8E93]" />
+            </div>
+          </SelectTrigger>
+          <SelectContent className="border-[#292A3E] bg-[#1C1C1E] text-white">
             {availableCategories.length === 0 && (
-              <option value="">No categories</option>
+              <SelectItem value="empty" disabled className="text-gray-500">No categories</SelectItem>
             )}
             {availableCategories.map((c) => (
-              <option key={c.id} value={c.id}>
+              <SelectItem 
+                key={c.id} 
+                value={c.id} 
+                className="cursor-pointer py-2.5 text-[14.5px] focus:bg-[#292A3E] focus:text-white"
+              >
                 {c.name}
-              </option>
+              </SelectItem>
             ))}
-          </select>
-          <div className="flex items-center gap-4">
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#133021]">
-              <Utensils className="h-6 w-6 text-[#4ADE80]" />
-            </div>
-            <div className="flex flex-col">
-              <span className="mb-0.5 text-[0.65rem] font-medium text-[#8E8E93]">
-                Category
-              </span>
-              <span className="max-w-[150px] truncate text-[1.05rem] font-semibold text-white">
-                {selectedCategory?.name || "Select"}
-              </span>
-            </div>
-          </div>
-          <ChevronRight className="h-5 w-5 text-[#8E8E93]" />
-        </div>
+          </SelectContent>
+        </Select>
 
         {/* Date Selector */}
         <div className="relative flex w-full items-center gap-3 rounded-2xl bg-[#16181C] p-4 shadow-sm transition-transform active:scale-[0.98]">
@@ -296,7 +299,7 @@ export function TransactionForm({
             type="datetime-local"
             value={date}
             onChange={(e) => setDate(e.target.value)}
-            className="absolute inset-0 z-10 w-full appearance-none opacity-0"
+            className="absolute inset-0 z-10 w-full appearance-none opacity-0 [&::-webkit-calendar-picker-indicator]:absolute [&::-webkit-calendar-picker-indicator]:inset-0 [&::-webkit-calendar-picker-indicator]:h-full [&::-webkit-calendar-picker-indicator]:w-full [&::-webkit-calendar-picker-indicator]:cursor-pointer [&::-webkit-calendar-picker-indicator]:opacity-0"
             required
           />
           <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#222428]">
