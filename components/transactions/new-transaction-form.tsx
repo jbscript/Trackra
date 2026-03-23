@@ -23,8 +23,9 @@ import {
   Landmark,
   PiggyBank,
   DollarSign,
+  Trash2,
 } from "lucide-react"
-import { createTransaction } from "@/app/transactions/actions"
+import { createTransaction, updateTransaction, deleteTransaction } from "@/app/transactions/actions"
 import {
   Select,
   SelectContent,
@@ -111,6 +112,7 @@ export function TransactionForm({
   categories,
   initialData,
   onSave,
+  onDelete,
   onClose,
 }: {
   accounts: Account[]
@@ -125,6 +127,7 @@ export function TransactionForm({
     accountId: string
   }
   onSave?: (formData: FormData) => Promise<void>
+  onDelete?: () => Promise<void> | void
   onClose?: () => void
 }) {
   const router = useRouter()
@@ -213,10 +216,34 @@ export function TransactionForm({
       if (onSave) {
         await onSave(formData)
       } else {
-        await createTransaction(formData)
+        if (initialData?.id) {
+          await updateTransaction(formData)
+        } else {
+          await createTransaction(formData)
+        }
       }
+      if (onClose) onClose()
     } catch (error) {
       console.error("Failed to save transaction", error)
+      setIsLoading(false)
+    }
+  }
+
+  const handleDelete = async () => {
+    if (!initialData?.id) return
+    setIsLoading(true)
+    try {
+      if (onDelete) {
+        await onDelete()
+      } else {
+        const formData = new FormData()
+        formData.append("id", initialData.id)
+        await deleteTransaction(formData)
+        if (onClose) onClose()
+        else router.push("/transactions")
+      }
+    } catch (e) {
+      console.error(e)
       setIsLoading(false)
     }
   }
@@ -272,12 +299,22 @@ export function TransactionForm({
         <h1 className="text-[1.15rem] font-bold tracking-wide text-white">
           {initialData ? "Edit Transaction" : "New Transaction"}
         </h1>
-        <div className="flex h-[28px] items-center justify-center gap-2 rounded-full bg-[#1C1C22] px-3">
-          <span className="h-2 w-2 rounded-full bg-[#2DE05F] shadow-[0_0_8px_#2DE05F]"></span>
-          <span className="text-[0.65rem] font-bold tracking-wider text-gray-400 uppercase">
-            Live Sync
-          </span>
-        </div>
+        {initialData ? (
+          <button
+            type="button"
+            onClick={handleDelete}
+            className="flex h-8 w-8 items-center justify-center rounded-full bg-[#1C1C22]/80 text-red-500 transition-colors hover:bg-red-500/20 hover:text-red-400"
+          >
+            <Trash2 className="h-4 w-4" strokeWidth={2.5} />
+          </button>
+        ) : (
+          <div className="flex h-[28px] items-center justify-center gap-2 rounded-full bg-[#1C1C22] px-3">
+            <span className="h-2 w-2 rounded-full bg-[#2DE05F] shadow-[0_0_8px_#2DE05F]"></span>
+            <span className="text-[0.65rem] font-bold tracking-wider text-gray-400 uppercase">
+              Live Sync
+            </span>
+          </div>
+        )}
       </header>
 
       {/* Type Toggle */}

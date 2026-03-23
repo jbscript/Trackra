@@ -2,11 +2,8 @@
 
 import { useState, useEffect } from "react"
 import { useSearchParams, useRouter } from "next/navigation"
-import {
-  Search,
-} from "lucide-react"
+import { Search } from "lucide-react"
 import { getCategoryIcon } from "./category-icons"
-import { TransactionDetails } from "./transaction-details"
 import { TransactionForm } from "./new-transaction-form"
 import { cn } from "@/lib/utils"
 
@@ -34,7 +31,6 @@ type Transaction = {
   account: { name: string }
   category: { name: string }
 }
-
 
 export function TransactionDashboard({
   transactions,
@@ -273,19 +269,31 @@ export function TransactionDashboard({
         </div>
       </div>
 
-      {/* Details Overlay */}
+      {/* Edit Overlay */}
       {selectedTx && (
-        <div className="fixed inset-0 z-50 no-scrollbar overflow-y-auto bg-[#0e0e0e]">
-          <TransactionDetails
-            transaction={selectedTx as any}
-            accounts={accounts}
-            categories={categories}
-            deleteAction={async (formData) => {
-              await deleteTransactionAction(formData)
-              closeOverlays()
-            }}
-            onClose={closeOverlays}
-          />
+        <div className="fixed inset-0 z-50 no-scrollbar overflow-y-auto bg-[#0e0e0e] px-6 py-6">
+          <div className="mx-auto max-w-xl">
+            <TransactionForm
+              accounts={accounts}
+              categories={categories}
+              initialData={{
+                id: selectedTx.id,
+                type: selectedTx.type as "expense" | "income" | "transfer",
+                amount: selectedTx.amount,
+                note: selectedTx.note,
+                date: selectedTx.transactionDate,
+                categoryId: selectedTx.categoryId,
+                accountId: selectedTx.accountId,
+              }}
+              onClose={closeOverlays}
+              onDelete={async () => {
+                const formData = new FormData()
+                formData.append("id", selectedTx.id)
+                await deleteTransactionAction(formData)
+                closeOverlays()
+              }}
+            />
+          </div>
         </div>
       )}
 
